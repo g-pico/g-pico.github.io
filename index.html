@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automation Products</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .nav-tabs .nav-item.show .nav-link,
+        .nav-tabs .nav-link.active {
+            color: #495057;
+            background-color: #fff;
+            border-color: #dee2e6 #dee2e6 #fff;
+        }
+
+        .nav-tabs .nav-link {
+            border: 1px solid transparent;
+            border-top-left-radius: 0.25rem;
+            border-top-right-radius: 0.25rem;
+        }
+
+        .nav-tabs .nav-item:hover .nav-link {
+            cursor: pointer;
+            color: #495057;
+            background-color: #e9ecef;
+            border-color: #dee2e6 #dee2e6 #fff;
+        }
+
+        .pagination {
+            justify-content: center;
+        }
+    </style>
+    <script>
+        const newsData = [
+            { date: '2024-01-01', info: '<a href="news_title1.html">New product launch</a>' },
+            { date: '2024-01-15', info: '<a href="news_title2.html">Partnership announcement</a>' },
+            { date: '2024-02-01', info: '<a href="news_title3.html">Quarterly earnings report</a>' },
+            // 新增更多新聞條目
+        ];
+
+        const techDocsData = [
+            { date: '2024-01-01', link: '<a href="doc1.pdf">Startup</a>' },
+            { date: '2024-01-15', link: '<a href="doc2.pdf">Technical Document 2</a>' },
+            { date: '2024-02-01', link: '<a href="doc3.pdf">Technical Document 3</a>' },
+            // 新增更多技術文件條目
+        ];
+
+        const usefulLinksData = [
+            { index: 1, link: '<a href="https://www.raspberrypi.com/products/raspberry-pi-pico/">Raspberry Pi Pico</a>' },
+            { index: 2, link: '<a href="https://www.youtube.com/@automation-pico">g-Pico Youtube channel</a>' },
+            { index: 3, link: '<a href="https://www.facebook.com/groups/464020849771652">Supporting center</a>' },
+            { index: 4, link: '<a href="instagram.com/garysharing">Daily life of Engineer</a>' },
+            { index: 5, link: '<a href="https://drive.google.com/drive/folders/19FCS8OtSaXsUENGfPyVvH5CS-M39GsxU">PC side main program</a>' },
+            // 新增更多有用連結條目
+        ];
+
+        const rowsPerPage = 20; // 每頁顯示的行數
+        let currentPage = 1;
+
+        function showContent(event, contentId) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].classList.remove("active");
+            }
+            tablinks = document.getElementsByClassName("nav-link");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].classList.remove("active");
+            }
+            document.getElementById(contentId).classList.add("active");
+            event.currentTarget.classList.add("active");
+
+            // 重置分頁
+            currentPage = 1;
+            renderTable(contentId);
+        }
+
+        function renderTable(contentId) {
+            const data = contentId === 'news' ? newsData : contentId === 'tech-docs' ? techDocsData : usefulLinksData;
+            const table = document.querySelector(`#${contentId} table tbody`);
+            const pagination = document.querySelector(`#${contentId} .pagination`);
+            const totalPages = Math.ceil(data.length / rowsPerPage);
+
+            table.innerHTML = '';
+            pagination.innerHTML = '';
+
+            // 顯示當前頁的數據
+            const start = (currentPage - 1) * rowsPerPage;
+            const end = start + rowsPerPage;
+            data.slice(start, end).forEach(row => {
+                const tr = document.createElement('tr');
+                if (contentId === 'news') {
+                    tr.innerHTML = `<td>${row.date}</td><td>${row.info}</td>`;
+                } else if (contentId === 'tech-docs') {
+                    tr.innerHTML = `<td>${row.date}</td><td>${row.link}</td>`;
+                } else {
+                    tr.innerHTML = `<td>${row.index}</td><td>${row.link}</td>`;
+                }
+                table.appendChild(tr);
+            });
+
+            // 顯示分頁按鈕
+            for (let i = 1; i <= totalPages; i++) {
+                const li = document.createElement('li');
+                li.className = `page-item ${i === currentPage ? 'active' : ''}`;
+                li.innerHTML = `<a class="page-link" href="#">${i}</a>`;
+                li.addEventListener('click', (event) => {
+                    event.preventDefault();
+                    currentPage = i;
+                    renderTable(contentId);
+                });
+                pagination.appendChild(li);
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            renderTable('news');
+        });
+    </script>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="index.html">g-Pico Automation home</a>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="products.html">Products</a></li>
+                <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                <li class="nav-item"><a class="nav-link" href="donation.html">Donation</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-4">
+                <img src="logo20.jpg" alt="Company Logo" class="img-fluid">
+            </div>
+            <div class="col-md-8" style="overflow-wrap: break-word; word-break: break-all;">
+                <h1>Welcome to g-Pico Automation site</h1>
+                <p>Designed for beginners, with simple deployment and ease of use in mind, our automation tools allow
+                    anyone to get started quickly, without the need for technical expertise.
+                    We provide comprehensive resources and guides to ensure a smooth learning experience. Our mission is
+                    to make automation accessible across the globe,
+                    starting from essential tools to advanced automation solutions for all industries.
+                    <br>
+                    <br>
+                    We aim to free you from tedious tasks, so you can focus on what truly drives your passion.<br>
+                    Enjoy and have fun! :)<br>
+                    <br>
+                    Gary Chu<br>
+                </p>
+            </div>
+        </div>
+        <!-- Your one-stop shop for automation tools and total solutions.
+    We offer comprehensive and user-friendly automation tools tailored specifically for our customers’ needs.
+    Our solutions are designed to streamline operations, enhance efficiency, and provide seamless integration across various systems.
+    Whether you are new to automation or a seasoned expert, our intuitive interfaces and robust tools make it easy for you to achieve your goals.
+    In addition to our powerful tools, we provide detailed application notes to help guide you through each step of implementation, ensuring a smooth and successful deployment of your automation projects. -->
+
+
+        <div class="mt-4">
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs">
+                <li class="nav-item" onmouseover="showContent(event, 'news')">
+                    <a class="nav-link active" href="#">News</a>
+                </li>
+                <li class="nav-item" onmouseover="showContent(event, 'tech-docs')">
+                    <a class="nav-link" href="#">Tech Documents</a>
+                </li>
+                <li class="nav-item" onmouseover="showContent(event, 'useful-links')">
+                    <a class="nav-link" href="#">Useful Links</a>
+                </li>
+            </ul>
+
+            <!-- Tab content -->
+            <div id="news" class="tab-content active">
+                <h3>Latest News</h3>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>News Information</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- News rows will be inserted here -->
+                    </tbody>
+                </table>
+                <nav>
+                    <ul class="pagination">
+                        <!-- Pagination will be inserted here -->
+                    </ul>
+                </nav>
+            </div>
+            <div id="tech-docs" class="tab-content">
+                <h3>Technical Documents</h3>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Document Link</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Technical documents rows will be inserted here -->
+                    </tbody>
+                </table>
+                <nav>
+                    <ul class="pagination">
+                        <!-- Pagination will be inserted here -->
+                    </ul>
+                </nav>
+            </div>
+            <div id="useful-links" class="tab-content">
+                <h3>Useful Links</h3>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Index</th>
+                            <th>Hyper Link</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Useful links rows will be inserted here -->
+                    </tbody>
+                </table>
+                <nav>
+                    <ul class="pagination">
+                        <!-- Pagination will be inserted here -->
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-light text-center text-lg-start mt-5">
+        <div class="container p-4">
+            <p>&copy; 2024 g-Pico</p>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.amazonaws.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
