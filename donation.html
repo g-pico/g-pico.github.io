@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donate</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script>
+        function confirmDonation() {
+            if (confirm("Are you sure you want to submit the donation?")) {
+                // Confirm button logic to be implemented here
+                alert("Donation confirmed!");
+            } else {
+                // Cancel button logic
+                alert("Donation cancelled.");
+            }
+        }
+    </script>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="index.html">g-Pico Automation home</a>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="products.html">Products</a></li>
+                <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                <li class="nav-item"><a class="nav-link" href="donation.html">Donation</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <h1>Support Us</h1>
+        <p>Thanks for supporting us for a better product improvement</p>
+        <img src="path/to/qr_code.jpg" alt="QR Code" class="d-block mx-auto" style="max-width: 200px;">
+        <form onsubmit="event.preventDefault(); confirmDonation();">
+            <div class="form-group">
+                <label for="donationAmount">Donation Amount</label>
+                <input type="number" class="form-control" id="donationAmount" placeholder="Enter amount">
+            </div>
+            <div class="form-group">
+                <label for="donorEmail">Your Email</label>
+                <input type="email" class="form-control" id="donorEmail" placeholder="Enter your email">
+            </div>
+            <button type="submit" class="btn btn-primary">Donate</button>
+        </form>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-light text-center text-lg-start mt-5">
+        <div class="container p-4">
+            <p>&copy; 2024 g-Pico</p>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.amazonaws.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

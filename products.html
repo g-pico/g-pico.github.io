@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Products</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="products.js"></script> <!-- 引用產品詳細信息文件 -->
+    <style>
+        .description-short {
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            /* 設置顯示的行數 */
+            -webkit-box-orient: vertical;
+        }
+
+        .note-short {
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            /* 設置顯示的行數 */
+            -webkit-box-orient: vertical;
+        }
+
+        .card {
+            margin-bottom: 15px;
+            /* 確保行間距一致 */
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="index.html">g-Pico Automation home</a>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="products.html">Products</a></li>
+                <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                <li class="nav-item"><a class="nav-link" href="donation.html">Donation</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <h1>Our Products</h1>
+        <div id="productsContainer">
+            <!-- Product Items will be dynamically inserted here -->
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-light text-center text-lg-start mt-5">
+        <div class="container p-4">
+            <p>&copy; 2024 g-Pico</p>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.amazonaws.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        function createProductCard(product, id) {
+            return `
+            <div class="col-md-3 mb-4"> <!-- 調整每行顯示的產品數量和列間距 -->
+                <div class="card">
+                    <a href="product${id}.html">
+                        <img src="${product.images[0]}" class="card-img-top" alt="Product Image">
+                    </a>
+                    <div class="card-body">
+                        <h5 class="card-title">${product.name}</h5>
+                        <p class="card-text description-short">${product.description.split('<br>').slice(0, 3).join('<br>')}</p> <!-- 設置顯示的行數 -->
+                        <p class="card-text"><strong>Price:</strong> ${product.price}</p>
+                        <a href="product${id}.html" class="btn btn-primary">View Details</a>
+                        <a href="buy_page.html?product=${id}" class="btn btn-success">Buy Now</a>
+                        <p class="card-text note-short">${product.note.split('. ').slice(0, 3).join('. ')}</p> <!-- 設置顯示的行數 -->
+                    </div>
+                </div>
+            </div>
+        `;
+        }
+
+        function initializeProducts() {
+            const productsContainer = document.getElementById('productsContainer');
+            let productRows = '';
+
+            // 動態生成產品卡片
+            for (let i = 1; i <= 5; i++) { // 設置要顯示的產品數量
+                const product = products[`product${i}`];
+                if (product) {
+                    if ((i - 1) % 4 === 0) { // 每行顯示4個產品
+                        if (i !== 1) {
+                            productRows += '</div>'; // 關閉上一行
+                        }
+                        productRows += '<div class="row">'; // 開始新的一行
+                    }
+                    productRows += createProductCard(product, i);
+                } else {
+                    console.error(`Product product${i} not found.`);
+                }
+            }
+            productRows += '</div>'; // 關閉最後一行
+
+            productsContainer.innerHTML = productRows;
+        }
+
+        window.onload = initializeProducts;
+    </script>
+</body>
+
+</html>
