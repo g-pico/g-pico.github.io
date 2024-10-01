@@ -4,15 +4,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Donate</title>
+    <title>support g-Pico</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script>
-        function confirmDonation() {
+        // Define server URL for testing
+        const serverUrl = 'http://127.0.0.1:8080';  // 本地测试服务器地址
+
+        // Define the real server URL (commented out for now)
+        //const serverUrl = 'http://gpico-automation.hopto.org:5000';  // 实际服务器地址
+
+        async function confirmDonation() {
             if (confirm("Are you sure you want to submit the donation?")) {
-                // Confirm button logic to be implemented here
-                alert("Donation confirmed!");
+                // Get the donation amount and email address
+                const donationAmount = document.getElementById('donationAmount').value;
+                const donorEmail = document.getElementById('donorEmail').value;
+
+                // Create a data object to send to the server
+                const data = {
+                    amount: donationAmount,
+                    email: donorEmail
+                };
+
+                try {
+                    // Send a POST request to the server
+                    const response = await fetch(`${serverUrl}/donate`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(data)
+                    });
+
+                    // Check if the response is okay
+                    if (response.ok) {
+                        alert('Donation confirmed! Thank you for your support.');
+                    } else {
+                        alert('There was an issue with your donation. Please try again.');
+                    }
+                } catch (error) {
+                    console.error('Error:', error);
+                    alert('An error occurred while processing your donation.');
+                }
             } else {
-                // Cancel button logic
                 alert("Donation cancelled.");
             }
         }
@@ -35,17 +68,28 @@
     </nav>
 
     <div class="container mt-5">
-        <h1>Support Us</h1>
-        <p>Thanks for supporting us for a better product improvement</p>
-        <img src="path/to/qr_code.jpg" alt="QR Code" class="d-block mx-auto" style="max-width: 200px;">
+        <h1>Support and encouragement</h1>
+        <p>Your support is the lifeblood of our growth, sparking innovation and progress!</p>
+        <!-- 图片左右排列 -->
+        <div class="row">
+            <div class="col-md-6 text-center">
+                <!-- left pic -->
+                <img src="Thanks_for_donation_2.webp" alt="Left Image" class="img-fluid"
+                    style="max-width: 80%; height: auto;">
+            </div>
+            <div class="col-md-6 text-center">
+                <!-- right pic -->
+                <img src="logo26.jpg" alt="Right Image" class="img-fluid" style="max-width: 80%; height: auto;">
+            </div>
+        </div>
         <form onsubmit="event.preventDefault(); confirmDonation();">
             <div class="form-group">
                 <label for="donationAmount">Donation Amount</label>
-                <input type="number" class="form-control" id="donationAmount" placeholder="Enter amount">
+                <input type="number" class="form-control" id="donationAmount" placeholder="Enter amount" required>
             </div>
             <div class="form-group">
                 <label for="donorEmail">Your Email</label>
-                <input type="email" class="form-control" id="donorEmail" placeholder="Enter your email">
+                <input type="email" class="form-control" id="donorEmail" placeholder="Enter your email" required>
             </div>
             <button type="submit" class="btn btn-primary">Donate</button>
         </form>
@@ -60,7 +104,7 @@
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.amazonaws.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 
 </html>
