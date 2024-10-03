@@ -10,33 +10,56 @@
         .tab-content {
             display: none;
         }
-
+    
         .tab-content.active {
             display: block;
         }
-
+    
         .nav-tabs .nav-item.show .nav-link,
         .nav-tabs .nav-link.active {
             color: #495057;
             background-color: #fff;
             border-color: #dee2e6 #dee2e6 #fff;
         }
-
+    
         .nav-tabs .nav-link {
             border: 1px solid transparent;
             border-top-left-radius: 0.25rem;
             border-top-right-radius: 0.25rem;
         }
-
+    
         .nav-tabs .nav-item:hover .nav-link {
             cursor: pointer;
             color: #495057;
             background-color: #e9ecef;
             border-color: #dee2e6 #dee2e6 #fff;
         }
-
+    
         .pagination {
             justify-content: center;
+        }
+    
+        /* 使內容在小螢幕上可以水平滾動 */
+        .container {
+            overflow-x: auto;
+        }
+    
+        /* 針對手機裝置，調整標籤寬度並允許水平滾動 */
+        .nav-tabs {
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+    
+        /* 針對小螢幕調整標籤的排列方式 */
+        @media (max-width: 576px) {
+            .nav-tabs {
+                flex-wrap: wrap;
+            }
+    
+            .nav-tabs .nav-link {
+                flex: 1 0 50%; /* 每行最多放置兩個按鈕 */
+                text-align: center;
+            }
         }
     </style>
     <script>
