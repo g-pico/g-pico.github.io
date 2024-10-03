@@ -6,31 +6,74 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Buy Product</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="products.js"></script> <!-- 引用產品詳細信息文件 -->
     <script>
-        function confirmPurchase() {
-            if (confirm("Are you sure you want to submit the purchase? We only support shippment in Taiwan.<br>Please confirm your address.")) {
-                // Confirm button logic to be implemented here
-                alert("Purchase confirmed!, our team will check the transaction and");
-            } else {
-                // Cancel button logic
-                alert("Purchase cancelled.");
+        async function confirmPurchase() {
+        if (confirm("Are you sure you want to submit the purchase? We only support shipment in Taiwan. Please confirm your address.")) {
+            try {
+                await sendOrderToServer(); // 等待訂單送出
+                alert("Purchase confirmed! Our team will check the transaction.");
+            } catch (error) {
+                console.error('Error sending order:', error);
+                alert('There was an issue with your order. Please try again.');
             }
+        } else {
+            alert("Purchase cancelled.");
+        }
         }
 
         function setProductDetails() {
-            const urlParams = new URLSearchParams(window.location.search);
-            const product = urlParams.get('product');
-            const priceElement = document.getElementById('price');
-            if (product === '1') {
-                priceElement.value = "$24,990";
-            } else if (product === '2') {
-                priceElement.value = "$32,990";
-            } else {
-                priceElement.value = "Unknown product";
-            }
+        const urlParams = new URLSearchParams(window.location.search);
+        const productId = urlParams.get('product');
+        const product = products[`product${productId}`];
+
+        if (product) {
+            document.getElementById('productName').innerText = `Confirm from cart: ${product.name}`; // 設定產品名稱
+            document.getElementById('productImage').src = product.images[0]; // 設定產品圖片
+            document.getElementById('productImage').style.width = '450px'; // 設定圖片寬度
+            document.getElementById('productImage').style.height = 'auto'; // 保持圖片比例
+            document.getElementById('price').value = product.price; // 設定產品價格
+        } else {
+            console.error(`Product product${productId} not found.`);
+            document.getElementById('price').value = "Unknown product";
         }
-        window.onload = setProductDetails;
-    </script>
+    }
+
+    async function sendOrderToServer() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const productId = urlParams.get('product');
+        const product = products[`product${productId}`];
+        const flask_addr = `http://127.0.0.1:8080/confirm-order`
+        //const flask_addr = `http://gpico-automation.hopto.org/confirm-order`
+
+
+        if (product) {
+            const orderDetails = {
+                product_name: product.name,
+                email: document.getElementById('email').value,
+                amount: document.getElementById('price').value,
+                shipping_address: document.getElementById('address').value
+            };
+
+
+            const response = await fetch(flask_addr, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(orderDetails)
+            });
+
+            if (!response.ok) {
+                throw new Error('Failed to send order');
+            }
+
+            return response.json(); // 返回伺服器的回應
+        }
+    }
+
+    window.onload = setProductDetails;
+</script>
 </head>
 
 <body>
@@ -49,10 +92,18 @@
     </nav>
 
     <div class="container mt-5">
-        <h1>Buy Product</h1>
+        <h1 id="productName">Buy Product</h1> <!-- 動態設定產品名稱 -->
+        <img src="" id="productImage" class="img-fluid mb-4" alt="Product Image"> <!-- 動態設定產品圖片 -->
         <form onsubmit="event.preventDefault(); confirmPurchase();">
             <div class="form-group">
-                <label for="qrCode">Scan the QR Code to Transfer, and press submit after the transfer finshed. <br> Make sure your E-mail address and Taiwan address are correct.<br><br></label>
+                <label for="qrCode">Process step: <br> 
+                    1. Scan the QR Code to Transfer. <br> 
+                    2. Enter all the information needed and your comment at payment page.<br> 
+                    <span style="color: red; font-size: 18px;">3. Please make sure to put your mail account in the comment during payment.</span><br> 
+                    4. Press submit after the transfer finshed.<br> 
+                    5. We will send order mail to your address as reference, and will notice after shippment is done. <br>
+                    <span style="font-weight: bold; font-size: 16px;">Note: </span><br>
+                    > Make sure your E-mail address and Taiwan address are correct.<br><br></label>
                 <img src="path/to/qr_code.jpg" id="qrCode" class="d-block" alt="QR Code">
             </div>
             <div class="form-group">
@@ -61,11 +112,11 @@
             </div>
             <div class="form-group">
                 <label for="email">Buyer Email</label>
-                <input type="email" class="form-control" id="email" placeholder="Enter your email">
+                <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
             </div>
             <div class="form-group">
                 <label for="address">Shipping Address</label>
-                <input type="text" class="form-control" id="address" placeholder="Enter your address">
+                <input type="text" class="form-control" id="address" placeholder="Enter your address" required>
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
