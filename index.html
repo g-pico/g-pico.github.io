@@ -39,28 +39,6 @@
             justify-content: center;
         }
     
-        /* 使內容在小螢幕上可以水平滾動 */
-        .container {
-            overflow-x: auto;
-        }
-    
-        /* 針對手機裝置，調整標籤寬度並允許水平滾動 */
-        .nav-tabs {
-            overflow-x: auto;
-            white-space: nowrap;
-        }
-    
-        /* 針對小螢幕調整標籤的排列方式 */
-        @media (max-width: 576px) {
-            .nav-tabs {
-                flex-wrap: wrap;
-            }
-    
-            .nav-tabs .nav-link {
-                flex: 1 0 50%; /* 每行最多放置兩個按鈕 */
-                text-align: center;
-            }
-        }
     </style>
     <script>
         const newsData = [
