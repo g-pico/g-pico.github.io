@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pico based Extend board</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .thumbnails img {
+            cursor: pointer;
+            max-width: 100px;
+            margin: 5px;
+            border: 1px solid #ddd;
+        }
+
+        .thumbnails img:hover {
+            border: 1px solid #777;
+        }
+
+        .description-short {
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 5;
+            -webkit-box-orient: vertical;
+        }
+
+        .show-more {
+            cursor: pointer;
+            color: blue;
+        }
+
+        .description img {
+            max-width: 50%;
+            /* 限制描述中的圖片寬度不超過容器寬度的一半 */
+            height: auto;
+            /* 維持圖片的比例 */
+        }
+    </style>
+    <script src="products.js"></script> <!-- 引用產品詳細信息文件 -->
+    <script>
+        function showImage(src) {
+            document.getElementById('mainImage').src = src;
+        }
+
+        function initializeProduct() {
+            const productDetails = products.product5; // 使用共享的產品詳細信息
+
+
+            // Set product details
+            document.getElementById('productName').textContent = productDetails.name;
+            document.getElementById('productDescription').innerHTML = productDetails.description;
+            document.getElementById('productPrice').textContent = productDetails.price;
+            document.getElementById('productNote').innerHTML  = productDetails.note;
+
+            // Initialize images
+            const mainImage = document.getElementById('mainImage');
+            mainImage.src = productDetails.images[0];
+            const thumbnails = document.getElementById('thumbnails');
+            productDetails.images.forEach((src, index) => {
+                // Create thumbnail items
+                const thumbImg = document.createElement('img');
+                thumbImg.src = src;
+                thumbImg.alt = 'Product Image ' + (index + 1);
+                thumbImg.onclick = () => showImage(src);
+                thumbnails.appendChild(thumbImg);
+            });
+
+            // Add show more functionality
+            const description = document.getElementById('productDescription');
+            const showMore = document.getElementById('showMore');
+            if (description.scrollHeight > description.clientHeight) {
+                showMore.style.display = 'inline';
+                showMore.onclick = () => {
+                    if (description.classList.contains('description-short')) {
+                        description.classList.remove('description-short');
+                        showMore.textContent = 'Show Less';
+                    } else {
+                        description.classList.add('description-short');
+                        showMore.textContent = 'Show More';
+                    }
+                };
+            }
+        }
+
+        window.onload = initializeProduct;
+    </script>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="index.html">g-Pico Automation home</a>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="products.html">Products</a></li>
+                <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                <li class="nav-item"><a class="nav-link" href="donation.html">Donation</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <h1 id="productName"></h1>
+        <div class="row">
+            <div class="col-md-8">
+                <!-- Main product image -->
+                <img id="mainImage" src="" class="d-block w-100" alt="Product Image">
+                <!-- Thumbnails for all product images -->
+                <div id="thumbnails" class="thumbnails text-center mt-3"></div>
+            </div>
+        </div>
+        <div class="mt-3">
+            <!-- Product details and purchase link -->
+            <h5 class="card-title" id="productName"></h5>
+            <p class="card-text description-short description" id="productDescription"></p>
+            <a id="showMore" class="show-more">Show More</a>
+            <p class="card-text"><strong>Price:</strong> <span id="productPrice"></span></p>
+            <a href="buy_page.html?product=5" class="btn btn-primary">Buy Now</a>
+            <div class="mt-3">
+                <h5>Note:</h5>
+                <p id="productNote"></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-light text-center text-lg-start mt-5">
+        <div class="container p-4">
+            <p>&copy; 2024 g-Pico</p>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

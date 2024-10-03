@@ -69,14 +69,15 @@
             return `
             <div class="col-md-3 mb-4"> <!-- 調整每行顯示的產品數量和列間距 -->
                 <div class="card">
-                    <a href="product${id}.html">
+                    <a href="product_single.html?product=${id}">
+
                         <img src="${product.images[0]}" class="card-img-top" alt="Product Image">
                     </a>
                     <div class="card-body">
                         <h5 class="card-title">${product.name}</h5>
                         <p class="card-text description-short">${product.description.split('<br>').slice(0, 3).join('<br>')}</p> <!-- 設置顯示的行數 -->
                         <p class="card-text"><strong>Price:</strong> ${product.price}</p>
-                        <a href="product${id}.html" class="btn btn-primary">View Details</a>
+                        <a href="product_single.html?product=${id}" class="btn btn-primary">View Details</a>
                         <a href="buy_page.html?product=${id}" class="btn btn-success">Buy Now</a>
                         <p class="card-text note-short">${product.note.split('<br>').slice(0, 3).join('<br>')}</p> <!-- 設置顯示的行數 -->
                     </div>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details</title> <!-- 頁面標題會在 JavaScript 中動態設置 -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="products.js"></script> <!-- 引用產品詳細信息文件 -->
+    <style>
+        .thumbnails img {
+            cursor: pointer;
+            max-width: 100px;
+            margin: 5px;
+            border: 1px solid #ddd;
+        }
+
+        .thumbnails img:hover {
+            border: 1px solid #777;
+        }
+
+        .description-short {
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 5;
+            -webkit-box-orient: vertical;
+        }
+
+        .show-more {
+            cursor: pointer;
+            color: blue;
+        }
+
+        .description img {
+            max-width: 50%;
+            height: auto;
+        }
+    </style>
+    <script>
+        function showImage(src) {
+            document.getElementById('mainImage').src = src; // 設置主圖片
+        }
+
+        function initializeProduct() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const productId = urlParams.get('product');
+            const productDetails = products[`product${productId}`]; // 根據 URL 中的 product 參數動態獲取產品信息
+
+            if (productDetails) {
+                // 設置產品頁面標題
+                document.title = productDetails.name;
+
+                // 設置產品詳情
+                document.getElementById('productName').textContent = productDetails.name;
+                document.getElementById('productDescription').innerHTML = productDetails.description;
+                document.getElementById('productPrice').textContent = productDetails.price;
+                document.getElementById('productNote').innerHTML = productDetails.note;
+
+                // 初始化圖片
+                const mainImage = document.getElementById('mainImage');
+                mainImage.src = productDetails.images[0];
+                const thumbnails = document.getElementById('thumbnails');
+                productDetails.images.forEach((src, index) => {
+                    const thumbImg = document.createElement('img');
+                    thumbImg.src = src;
+                    thumbImg.alt = 'Product Image ' + (index + 1);
+                    thumbImg.onclick = () => showImage(src);
+                    thumbnails.appendChild(thumbImg);
+                });
+
+                // 設置購買按鈕連結，指向帶有產品 ID 的購買頁面
+                const buyNowLink = document.getElementById('buyNowLink');
+                buyNowLink.href = `buy_page.html?product=${productId}`;
+
+                // 添加 "Show More" 功能
+                const description = document.getElementById('productDescription');
+                const showMore = document.getElementById('showMore');
+                if (description.scrollHeight > description.clientHeight) {
+                    showMore.style.display = 'inline';
+                    showMore.onclick = () => {
+                        if (description.classList.contains('description-short')) {
+                            description.classList.remove('description-short');
+                            showMore.textContent = 'Show Less';
+                        } else {
+                            description.classList.add('description-short');
+                            showMore.textContent = 'Show More';
+                        }
+                    };
+                }
+            } else {
+                console.error(`Product product${productId} not found.`);
+            }
+        }
+
+        window.onload = initializeProduct; // 當頁面載入時初始化產品信息
+    </script>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="index.html">g-Pico Automation home</a>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="products.html">Products</a></li>
+                <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                <li class="nav-item"><a class="nav-link" href="donation.html">Donation</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <h1 id="productName"></h1> <!-- 顯示產品名稱 -->
+        <div class="row">
+            <div class="col-md-8">
+                <!-- 主產品圖片 -->
+                <img id="mainImage" src="" class="d-block w-100" alt="Product Image">
+                <!-- 顯示所有產品圖片的縮略圖 -->
+                <div id="thumbnails" class="thumbnails text-center mt-3"></div>
+            </div>
+        </div>
+        <div class="mt-3">
+            <!-- 產品詳情和購買連結 -->
+            <h5 class="card-title" id="productName"></h5>
+            <p class="card-text description-short description" id="productDescription"></p>
+            <a id="showMore" class="show-more">Show More</a>
+            <p class="card-text"><strong>Price:</strong> <span id="productPrice"></span></p>
+            <a id="buyNowLink" class="btn btn-primary">Buy Now</a> <!-- 動態設置購買按鈕連結 -->
+            <div class="mt-3">
+                <h5>Note:</h5>
+                <p id="productNote"></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-light text-center text-lg-start mt-5">
+        <div class="container p-4">
+            <p>&copy; 2024 g-Pico</p>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
