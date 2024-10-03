@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Automation Products</title>
+    <title>Raspberry pi g-Pico</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
         .tab-content {
@@ -48,18 +48,19 @@
         ];
 
         const techDocsData = [
-            { date: '2024-01-01', link: '<a href="doc1.pdf">First step to g-Pico</a>' },
-            { date: '2024-01-15', link: '<a href="doc2.pdf">Technical Document 2</a>' },
-            { date: '2024-02-01', link: '<a href="doc3.pdf">Technical Document 3</a>' },
+            { date: '2024-01-01', link: '<a href="doc1.pdf">First step to g-Pico</a>', description: `Getting start with g-Pico automation tool` },
+            { date: '2024-01-15', link: '<a href="doc2.pdf">Technical Document 2</a>', description: `Getting start with g-Pico automation tool` },
+            { date: '2024-02-01', link: '<a href="doc3.pdf">Technical Document 3</a>', description: `Getting start with g-Pico automation tool` },
             // 新增更多技術文件條目
         ];
 
         const usefulLinksData = [
-            { index: 1, link: '<a href="https://www.raspberrypi.com/products/raspberry-pi-pico/">Raspberry Pi Pico</a>' },
-            { index: 2, link: '<a href="https://www.youtube.com/@automation-pico">g-Pico Youtube channel</a>' },
-            { index: 3, link: '<a href="https://www.facebook.com/groups/464020849771652">Supporting center</a>' },
-            { index: 4, link: '<a href="instagram.com/garysharing">Daily life of Engineer</a>' },
-            { index: 5, link: '<a href="https://drive.google.com/drive/folders/19FCS8OtSaXsUENGfPyVvH5CS-M39GsxU">PC side main program</a>' },
+            { link: '<a href="https://www.raspberrypi.com/products/raspberry-pi-pico/" target="_blank">Raspberry Pi Pico</a>', description:`Respberry Pi Pico official` },
+            { link: '<a href="https://www.youtube.com/@automation-pico" target="_blank">g-Pico Youtube channel</a>', description:`g-Pico video resource sharing ` },
+            { link: '<a href="https://www.facebook.com/groups/464020849771652" target="_blank">Supporting center</a>', description:`g-Pico technical discussion community` },
+            { link: '<a href="instagram.com/garysharing" target="_blank">Daily life of Engineer</a>', description:`Life of g-Pico members ` },
+            { link: '<a href="https://drive.google.com/drive/folders/19FCS8OtSaXsUENGfPyVvH5CS-M39GsxU" target="_blank">PC side main program</a>', description:`Download link of our GUI interface ` },
+            { link: '<a href="http://vcc-gnd.com/" target="_blank">VCC-GND stdio</a>', description:`VCC-GND stdio official site ` },
             // 新增更多有用連結條目
         ];
 
@@ -101,9 +102,9 @@
                 if (contentId === 'news') {
                     tr.innerHTML = `<td>${row.date}</td><td>${row.info}</td>`;
                 } else if (contentId === 'tech-docs') {
-                    tr.innerHTML = `<td>${row.date}</td><td>${row.link}</td>`;
+                    tr.innerHTML = `<td>${row.date}</td><td>${row.link}</td><td>${row.description}</td>`;
                 } else {
-                    tr.innerHTML = `<td>${row.index}</td><td>${row.link}</td>`;
+                    tr.innerHTML = `<td>${row.link}</td><td>${row.description}</td>`;
                 }
                 table.appendChild(tr);
             });
@@ -160,7 +161,7 @@
                     We aim to free you from tedious tasks, so you can focus on what truly drives your passion.<br>
                     Enjoy and have fun! :)<br>
                     <br>
-                    Gary Chu<br>
+                    g-Pico team<br>
                 </p>
             </div>
         </div>
@@ -171,28 +172,28 @@
     In addition to our powerful tools, we provide detailed application notes to help guide you through each step of implementation, ensuring a smooth and successful deployment of your automation projects. -->
 
 
-        <div class="mt-4">
-            <!-- Nav tabs -->
-            <ul class="nav nav-tabs">
-                <li class="nav-item" onmouseover="showContent(event, 'news')">
-                    <a class="nav-link active" href="#">News</a>
-                </li>
-                <li class="nav-item" onmouseover="showContent(event, 'tech-docs')">
-                    <a class="nav-link" href="#">Tech Documents</a>
-                </li>
-                <li class="nav-item" onmouseover="showContent(event, 'useful-links')">
-                    <a class="nav-link" href="#">Useful Links</a>
-                </li>
-            </ul>
-
+    <div class="mt-4">
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs">
+            <li class="nav-item" onmouseover="showContent(event, 'news')">
+                <a class="nav-link active" href="#">News</a>
+            </li>
+            <li class="nav-item" onmouseover="showContent(event, 'tech-docs')">
+                <a class="nav-link" href="#">Tech Documents</a>
+            </li>
+            <li class="nav-item" onmouseover="showContent(event, 'useful-links')">
+                <a class="nav-link" href="#">Useful Links</a>
+            </li>
+        </ul>
+    
             <!-- Tab content -->
             <div id="news" class="tab-content active">
                 <h3>Latest News</h3>
                 <table class="table table-striped">
                     <thead>
                         <tr>
-                            <th>Date</th>
-                            <th>News Information</th>
+                            <th style="width: 20%;">Date</th>
+                            <th style="width: 80%;">News Information</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -210,8 +211,9 @@
                 <table class="table table-striped">
                     <thead>
                         <tr>
-                            <th>Date</th>
-                            <th>Document Link</th>
+                            <th style="width: 20%;">Date</th>
+                            <th style="width: 30%;">Document Link</th>
+                            <th style="width: 50%;">Description</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -229,8 +231,8 @@
                 <table class="table table-striped">
                     <thead>
                         <tr>
-                            <th>Index</th>
-                            <th>Hyper Link</th>
+                            <th style="width: 40%;">Hyper Link</th>
+                            <th style="width: 60%;">Description</th>
                         </tr>
                     </thead>
                     <tbody>

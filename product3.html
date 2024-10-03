@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product Name 1</title>
+    <title>Raspberry pi PicoW</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
         .thumbnails img {
@@ -44,12 +44,12 @@
         }
 
         function initializeProduct() {
-            const productDetails = products.product1; // 使用共享的產品詳細信息
+            const productDetails = products.product3; // 使用共享的產品詳細信息
             // Set product details
             document.getElementById('productName').textContent = productDetails.name;
             document.getElementById('productDescription').innerHTML = productDetails.description;
             document.getElementById('productPrice').textContent = productDetails.price;
-            document.getElementById('productNote').textContent = productDetails.note;
+            document.getElementById('productNote').innerHTML  = productDetails.note;
 
             // Initialize images
             const mainImage = document.getElementById('mainImage');

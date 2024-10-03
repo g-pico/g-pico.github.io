@@ -8,9 +8,9 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script>
         function confirmPurchase() {
-            if (confirm("Are you sure you want to submit the purchase?")) {
+            if (confirm("Are you sure you want to submit the purchase? We only support shippment in Taiwan.<br>Please confirm your address.")) {
                 // Confirm button logic to be implemented here
-                alert("Purchase confirmed!");
+                alert("Purchase confirmed!, our team will check the transaction and");
             } else {
                 // Cancel button logic
                 alert("Purchase cancelled.");
@@ -52,7 +52,7 @@
         <h1>Buy Product</h1>
         <form onsubmit="event.preventDefault(); confirmPurchase();">
             <div class="form-group">
-                <label for="qrCode">Scan the QR Code to Transfer</label>
+                <label for="qrCode">Scan the QR Code to Transfer, and press submit after the transfer finshed. <br> Make sure your E-mail address and Taiwan address are correct.<br><br></label>
                 <img src="path/to/qr_code.jpg" id="qrCode" class="d-block" alt="QR Code">
             </div>
             <div class="form-group">

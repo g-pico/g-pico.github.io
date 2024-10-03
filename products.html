@@ -11,7 +11,7 @@
         .description-short {
             overflow: hidden;
             display: -webkit-box;
-            -webkit-line-clamp: 3;
+            -webkit-line-clamp: 4;
             /* 設置顯示的行數 */
             -webkit-box-orient: vertical;
         }
@@ -19,7 +19,7 @@
         .note-short {
             overflow: hidden;
             display: -webkit-box;
-            -webkit-line-clamp: 3;
+            -webkit-line-clamp: 2;
             /* 設置顯示的行數 */
             -webkit-box-orient: vertical;
         }
@@ -28,6 +28,7 @@
             margin-bottom: 15px;
             /* 確保行間距一致 */
         }
+
     </style>
 </head>
 
@@ -77,7 +78,7 @@
                         <p class="card-text"><strong>Price:</strong> ${product.price}</p>
                         <a href="product${id}.html" class="btn btn-primary">View Details</a>
                         <a href="buy_page.html?product=${id}" class="btn btn-success">Buy Now</a>
-                        <p class="card-text note-short">${product.note.split('. ').slice(0, 3).join('. ')}</p> <!-- 設置顯示的行數 -->
+                        <p class="card-text note-short">${product.note.split('<br>').slice(0, 3).join('<br>')}</p> <!-- 設置顯示的行數 -->
                     </div>
                 </div>
             </div>
