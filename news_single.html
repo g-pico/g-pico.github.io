@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="news.js"></script> <!-- 引用新聞詳細信息文件 -->
+    <style>
+        .image-container img {
+            max-width: 80%;
+            height: auto;
+        }
+    </style>
+    <script>
+        function initializeNews() {
+            // 獲取 URL 中的新聞 ID
+            const urlParams = new URLSearchParams(window.location.search);
+            const newsId = urlParams.get('news');
+            const newsItem = news[`news${newsId}`];
+
+            // 設置新聞內容
+            if (newsItem) {
+                document.title = newsItem.title; // 設置標題
+                document.getElementById('newsTitle').textContent = newsItem.title;
+                document.getElementById('newsImage').src = newsItem.image;
+                document.getElementById('newsSubtitle').textContent = newsItem.subtitle;
+                document.getElementById('newsContent').innerHTML = newsItem.content; // 設置內容，保留 HTML 格式
+
+                // 設置副標題顏色
+                document.getElementById('newsSubtitle').style.color = newsItem.subtitleColor || '#007bff'; // 預設藍色
+            } else {
+                document.getElementById('newsTitle').textContent = "News not found.";
+            }
+        }
+
+        window.onload = initializeNews;
+    </script>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="index.html">g-Pico Automation home</a>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="products.html">Products</a></li>
+                <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                <li class="nav-item"><a class="nav-link" href="donation.html">Donation</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <h1 id="newsTitle"></h1> <!-- 動態設定新聞標題 -->
+        <div class="image-container text-center">
+            <img id="newsImage" src="" alt="News Image"> <!-- 動態設定新聞圖片 -->
+        </div>
+        <h2 id="newsSubtitle" class="mt-4"></h2> <!-- 動態設定新聞副標題 -->
+        <div id="newsContent" class="mt-3"></div> <!-- 動態設定新聞內容 -->
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-light text-center text-lg-start mt-5">
+        <div class="container p-4">
+            <p>&copy; 2024 g-Pico</p>
+        </div>
+    </footer>
+</body>
+
+</html>
