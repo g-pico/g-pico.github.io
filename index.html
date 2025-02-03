@@ -10,35 +10,34 @@
         .tab-content {
             display: none;
         }
-    
+
         .tab-content.active {
             display: block;
         }
-    
+
         .nav-tabs .nav-item.show .nav-link,
         .nav-tabs .nav-link.active {
             color: #495057;
             background-color: #fff;
             border-color: #dee2e6 #dee2e6 #fff;
         }
-    
+
         .nav-tabs .nav-link {
             border: 1px solid transparent;
             border-top-left-radius: 0.25rem;
             border-top-right-radius: 0.25rem;
         }
-    
+
         .nav-tabs .nav-item:hover .nav-link {
             cursor: pointer;
             color: #495057;
             background-color: #e9ecef;
             border-color: #dee2e6 #dee2e6 #fff;
         }
-    
+
         .pagination {
             justify-content: center;
         }
-    
     </style>
     <script>
         const newsData = [
@@ -56,12 +55,12 @@
         ];
 
         const usefulLinksData = [
-            { link: '<a href="https://www.raspberrypi.com/products/raspberry-pi-pico/" target="_blank">Raspberry Pi Pico</a>', description:`Respberry Pi Pico official` },
-            { link: '<a href="https://www.youtube.com/@automation-pico" target="_blank">g-Pico Youtube channel</a>', description:`g-Pico video resource sharing ` },
-            { link: '<a href="https://www.facebook.com/groups/464020849771652" target="_blank">Supporting center</a>', description:`g-Pico technical discussion community` },
-            { link: '<a href="https://www.instagram.com/garysharing/" target="_blank">Daily life of Engineer</a>', description:`Life of g-Pico members ` },
-            { link: '<a href="https://drive.google.com/drive/folders/19FCS8OtSaXsUENGfPyVvH5CS-M39GsxU" target="_blank">PC side main program</a>', description:`Download link of our GUI interface ` },
-            { link: '<a href="http://vcc-gnd.com/" target="_blank">VCC-GND stdio</a>', description:`VCC-GND stdio official site ` },
+            { link: '<a href="https://www.raspberrypi.com/products/raspberry-pi-pico/" target="_blank">Raspberry Pi Pico</a>', description: `Respberry Pi Pico official` },
+            { link: '<a href="https://www.youtube.com/@automation-pico" target="_blank">g-Pico Youtube channel</a>', description: `g-Pico video resource sharing ` },
+            { link: '<a href="https://www.facebook.com/groups/464020849771652" target="_blank">Supporting center</a>', description: `g-Pico technical discussion community` },
+            { link: '<a href="https://www.instagram.com/garysharing/" target="_blank">Daily life of Engineer</a>', description: `Life of g-Pico team ` },
+            { link: '<a href="https://mega.nz/folder/LMghWDTK#nwB-SLKMdwVmczKRTHo1lQ" target="_blank">PC side main program</a>', description: `Download link of our GUI interface ` },
+            { link: '<a href="http://vcc-gnd.com/" target="_blank">VCC-GND stdio</a>', description: `VCC-GND stdio official site ` },
             // 新增更多有用連結條目
         ];
 
@@ -173,20 +172,20 @@
     In addition to our powerful tools, we provide detailed application notes to help guide you through each step of implementation, ensuring a smooth and successful deployment of your automation projects. -->
 
 
-    <div class="mt-4">
-        <!-- Nav tabs -->
-        <ul class="nav nav-tabs">
-            <li class="nav-item" onmouseover="showContent(event, 'news')">
-                <a class="nav-link active" href="#">News</a>
-            </li>
-            <li class="nav-item" onmouseover="showContent(event, 'tech-docs')">
-                <a class="nav-link" href="#">Tech Documents</a>
-            </li>
-            <li class="nav-item" onmouseover="showContent(event, 'useful-links')">
-                <a class="nav-link" href="#">Useful Links</a>
-            </li>
-        </ul>
-    
+        <div class="mt-4">
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs">
+                <li class="nav-item" onmouseover="showContent(event, 'news')">
+                    <a class="nav-link active" href="#">News</a>
+                </li>
+                <li class="nav-item" onmouseover="showContent(event, 'tech-docs')">
+                    <a class="nav-link" href="#">Tech Documents</a>
+                </li>
+                <li class="nav-item" onmouseover="showContent(event, 'useful-links')">
+                    <a class="nav-link" href="#">Useful Links</a>
+                </li>
+            </ul>
+
             <!-- Tab content -->
             <div id="news" class="tab-content active">
                 <h3>Latest News</h3>
