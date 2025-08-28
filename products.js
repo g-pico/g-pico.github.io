@@ -1,3 +1,40 @@
+
+/**
+'''Purpose:
+Provide a backward-compatible i18n field accessor for product data.
+- If a field is an object like { "en": "...", "zh-TW": "...", "zh-CN": "..." }, return by current lang.
+- If a field is a plain string, return as-is (keeps old data working).
+
+Variables:
+- getCurrentLanguage(): external from i18n.js; if unavailable, fallback to <html lang> or "en"
+Acceptable Range:
+- field can be string or object with language-code keys
+'''
+*/
+function __getCurrentLangSafe(){
+    try{
+        if (typeof getCurrentLanguage === 'function') return getCurrentLanguage();
+        const h = document.documentElement.getAttribute('lang');
+        return h || "en";
+    }catch(e){
+        console.error('error: ', e);
+        return "en"; // end_of___getCurrentLangSafe
+    }
+}
+
+function tField(field){
+    try{
+        const lang = __getCurrentLangSafe();
+        if (field && typeof field === 'object'){
+            return field[lang] || field["en"] || Object.values(field)[0];
+        }
+        return field;
+    }catch(e){
+        console.error('error: ', e);
+        return field; // end_of_tField
+    }
+}
+
 // products.js
 const note_const = `Now we only support shipment to Taiwan. <br>
                     Please contact <a href="mailto:gary49902210@gmail.com" target="_blank">g-Pico service</a> 

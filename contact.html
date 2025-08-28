@@ -28,44 +28,50 @@
         }
     </style>
 
+    <script src="i18n.js"></script>
 </head>
 
 <body>
 
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="index.html">g-Pico Automation home</a>
+        <a class="navbar-brand" href="index.html" data-i18n="nav.brand">g-Pico Automation home</a>
         <div class="collapse navbar-collapse">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="products.html">Products</a></li>
-                <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-                <li class="nav-item"><a class="nav-link" href="donation.html">Donation</a></li>
+                <li class="nav-item"><a class="nav-link" href="index.html" data-i18n="nav.home">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="products.html" data-i18n="nav.products">Products</a></li>
+                <li class="nav-item"><a class="nav-link" href="contact.html" data-i18n="nav.contact">Contact</a></li>
+                <li class="nav-item"><a class="nav-link" href="donation.html" data-i18n="nav.donation">Donation</a></li>
             </ul>
+            <select id="langSelect" class="custom-select ml-2" style="width:auto;">
+                <option value="en">English</option>
+                <option value="zh-TW">繁體中文</option>
+                <option value="zh-CN">简体中文</option>
+            </select>
         </div>
     </nav>
 
     <div class="container mt-5">
-        <h1>Contact Us</h1>
+        <h1 data-i18n="contact.title">Contact Us</h1>
         <div class="image-container">
             <img src="contact_us_2.webp" alt="First step of g-Pico" class="img-fluid"
                 style="max-width: 50%; height: auto;">
         </div>
         <p></p>
-        <p>Our team is not only professional and passionate but also highly values work-life balance. 
+        <p data-i18n="contact.p.intro">Our team is not only professional and passionate but also highly values work-life balance. 
             In addition to our YouTube channel and discussion forums, we also have an official Instagram 
             account where we share updates. We hope to connect with fellow engineering enthusiasts like you,
              sharing both our daily lives and experiences, making every step of this life journey count.
         </p>
         <p></p>
         <ul class="list-unstyled">
-            <li><strong>YouTube Channel:</strong> <a href="https://www.youtube.com/channel/UCLwpsI7-tooJQZINgFST6nQ"
-                    target="_blank">Learn from videos</a></li>
-            <li><strong>Facebook Group:</strong> <a href="https://www.facebook.com/groups/464020849771652"
-                    target="_blank">Discuss at community</a></li>
-            <li><strong>Instagram:</strong> <a href="https://www.instagram.com/garysharing/" target="_blank">Building
-                    the future through silent breakthroughs, embracing adventure and enjoying engineer life!</a></li>
-            <li><strong>Email:</strong> <a href="mailto:gary49902210@gmail.com">gary49902210@gmail.com</a></li>
+            <li><strong data-i18n="contact.youtube">YouTube Channel:</strong> <a href="https://www.youtube.com/channel/UCLwpsI7-tooJQZINgFST6nQ"
+                    target="_blank"><span data-i18n="contact.youtube_tip">Learn from videos</span></a></li>
+            <li><strong data-i18n="contact.fb">Facebook Group:</strong> <a href="https://www.facebook.com/groups/464020849771652"
+                    target="_blank"><span data-i18n="contact.fb_tip">Discuss at community</span></a></li>
+            <li><strong data-i18n="contact.ig">Instagram:</strong> <a href="https://www.instagram.com/garysharing/" target="_blank">Building
+                    the future through silent breakthroughs, <span data-i18n="contact.ig_tip">Building the future through silent breakthroughs, embracing adventure and enjoying engineer life!</span></a></li>
+            <li><strong data-i18n="contact.mail">Email:</strong> <a href="mailto:gary49902210@gmail.com">gary49902210@gmail.com</a></li>
         </ul>
     </div>
 

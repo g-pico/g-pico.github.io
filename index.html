@@ -127,20 +127,26 @@
             renderTable('news');
         });
     </script>
+    <script src="i18n.js"></script>
 </head>
 
 <body>
 
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="index.html">g-Pico Automation home</a>
+        <a class="navbar-brand" href="index.html" data-i18n="nav.brand">g-Pico Automation home</a>
         <div class="collapse navbar-collapse">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="products.html">Products</a></li>
-                <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-                <li class="nav-item"><a class="nav-link" href="donation.html">Donation</a></li>
+                <li class="nav-item"><a class="nav-link" href="index.html" data-i18n="nav.home">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="products.html" data-i18n="nav.products">Products</a></li>
+                <li class="nav-item"><a class="nav-link" href="contact.html" data-i18n="nav.contact">Contact</a></li>
+                <li class="nav-item"><a class="nav-link" href="donation.html" data-i18n="nav.donation">Donation</a></li>
             </ul>
+            <select id="langSelect" class="custom-select ml-2" style="width:auto;">
+                <option value="en">English</option>
+                <option value="zh-TW">繁體中文</option>
+                <option value="zh-CN">简体中文</option>
+            </select>
         </div>
     </nav>
 
@@ -150,8 +156,8 @@
                 <img src="logo20.jpg" alt="Company Logo" class="img-fluid">
             </div>
             <div class="col-md-8" style="overflow-wrap: break-word; word-break: break-all;">
-                <h1>Welcome to g-Pico Automation site</h1>
-                <p>Designed for beginners, with simple deployment and ease of use in mind, our automation tools allow
+                <h1 data-i18n="index.hero_title">Welcome to g-Pico Automation site</h1>
+                <p data-i18n="index.hero_paragraph">Designed for beginners, with simple deployment and ease of use in mind, our automation tools allow
                     anyone to get started quickly, without the need for technical expertise.
                     We provide comprehensive resources and guides to ensure a smooth learning experience. Our mission is
                     to make automation accessible across the globe,
@@ -176,24 +182,24 @@
             <!-- Nav tabs -->
             <ul class="nav nav-tabs">
                 <li class="nav-item" onmouseover="showContent(event, 'news')">
-                    <a class="nav-link active" href="#">News</a>
+                    <a class="nav-link active" href="#"><span data-i18n="index.tab.news">News</span></a>
                 </li>
                 <li class="nav-item" onmouseover="showContent(event, 'tech-docs')">
-                    <a class="nav-link" href="#">Tech Documents</a>
+                    <a class="nav-link" href="#"><span data-i18n="index.tab.tech_docs">Tech Documents</span></a>
                 </li>
                 <li class="nav-item" onmouseover="showContent(event, 'useful-links')">
-                    <a class="nav-link" href="#">Useful Links</a>
+                    <a class="nav-link" href="#"><span data-i18n="index.tab.links">Useful Links</span></a>
                 </li>
             </ul>
 
             <!-- Tab content -->
             <div id="news" class="tab-content active">
-                <h3>Latest News</h3>
+                <h3 data-i18n="index.h.latest_news">Latest News</h3>
                 <table class="table table-striped">
                     <thead>
                         <tr>
-                            <th style="width: 20%;">Date</th>
-                            <th style="width: 80%;">News Information</th>
+                            <th style="width: 20%;"><span data-i18n="index.th.date">Date</span></th>
+                            <th style="width: 80%;"><span data-i18n="index.th.news_info">News Information</span></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -207,13 +213,13 @@
                 </nav>
             </div>
             <div id="tech-docs" class="tab-content">
-                <h3>Technical Documents</h3>
+                <h3 data-i18n="index.h.tech_docs">Technical Documents</h3>
                 <table class="table table-striped">
                     <thead>
                         <tr>
-                            <th style="width: 20%;">Date</th>
-                            <th style="width: 30%;">Document Link</th>
-                            <th style="width: 50%;">Description</th>
+                            <th style="width: 20%;"><span data-i18n="index.th.date">Date</span></th>
+                            <th style="width: 30%;"><span data-i18n="index.th.doc_link">Document Link</span></th>
+                            <th style="width: 50%;"><span data-i18n="index.th.description">Description</span></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -227,12 +233,12 @@
                 </nav>
             </div>
             <div id="useful-links" class="tab-content">
-                <h3>Useful Links</h3>
+                <h3><span data-i18n="index.tab.links">Useful Links</span></h3>
                 <table class="table table-striped">
                     <thead>
                         <tr>
-                            <th style="width: 40%;">Hyper Link</th>
-                            <th style="width: 60%;">Description</th>
+                            <th style="width: 40%;"><span data-i18n="index.th.hyper_link">Hyper Link</span></th>
+                            <th style="width: 60%;"><span data-i18n="index.th.description">Description</span></th>
                         </tr>
                     </thead>
                     <tbody>
