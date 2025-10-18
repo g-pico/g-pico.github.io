@@ -27,6 +27,37 @@
         @media (prefers-reduced-motion: no-preference) {
             .tab-wrapper { transition: min-height .2s ease; }
         }
+
+        /*
+        '''Purpose:
+        Improve English readability (avoid mid-word breaks).
+        Applied to hero paragraph container only.
+        Vars:
+        - .hero-text: wrapper of the big intro paragraph
+        Acceptable:
+        - English/Latin words won't be split in the middle.
+        - Long URLs/very long tokens still wrap if needed.
+        */
+        .hero-text {
+        word-break: normal;         /* 不硬切單詞 */
+        overflow-wrap: anywhere;    /* 必要時才換行（比 break-word 更現代） */
+        hyphens: auto;              /* 自動連字（需 lang=en 的內容才會生效） */
+        }
+
+
+        /* 統一右側連結字體與 banner 標題字級 */
+        .banner-link {
+        font-size: 1.75rem;       /* 與 h2 同級（Bootstrap h2 預設約 1.75rem） */
+        color: #007bff;           /* 預設藍色連結 */
+        text-decoration: underline;
+        font-weight: 600;         /* 與標題一致的粗體感 */
+        transition: color 0.2s;
+        }
+        .banner-link:hover {
+        color: #0056b3;           /* hover 時變深藍 */
+        text-decoration: none;
+        }
+
     </style>
 
     <!-- Data sets for each language. Extend/replace as needed. -->
@@ -286,9 +317,10 @@
     <div class="container mt-5">
         <div class="row">
             <div class="col-md-4">
-                <img src="logo20.jpg" alt="Company Logo" class="img-fluid">
+                
+                <img src="assets/pic/general/logo.jpg" alt="Company Logo" class="img-fluid">
             </div>
-            <div class="col-md-8" style="overflow-wrap: break-word; word-break: break-all;">
+            <div class="col-md-8 hero-text">
                 <h1 data-i18n="index.hero_title">Welcome to g-Pico Automation site</h1>
                 <p data-i18n="index.hero_paragraph">Designed for beginners, with simple deployment and ease of use in mind, our automation tools allow
                     anyone to get started quickly, without the need for technical expertise.
@@ -302,6 +334,19 @@
                 </p>
             </div>
         </div>
+
+        <!-- Green Banner Block (UPDATED) -->
+        <div class="my-4 py-2 d-flex justify-content-start align-items-center flex-wrap">
+        <h2 class="m-0 mr-3" data-i18n="index.banner.title"
+             style="color:#e91111; font-weight:600;">Solution we offer: </h2>
+        <div class="d-flex align-items-center flex-wrap">
+            <a href="#" class="mx-4 banner-link"
+            data-i18n="index.banner.link_tool" target="_blank" rel="noopener">Automation tool</a>
+            <a href="#" class="mx-4 banner-link"
+            data-i18n="index.banner.link_gui" target="_blank" rel="noopener">GUI design</a>
+        </div>
+        </div>
+        <hr class="my-3">
 
         <div class="mt-4 tab-wrapper">
             <!-- Nav tabs -->

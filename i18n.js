@@ -47,7 +47,7 @@ const TRANSLATIONS = {
     "index.h.links": "Useful Links",
     "index.th.hyper_link": "Hyper Link",
 
-    "index.banner.title": "Automation tool, GUI design",
+    "index.banner.title": "Solution we offer: ",
     "index.banner.link_tool": "Automation tool",
     "index.banner.link_gui": "GUI design",
 
@@ -131,7 +131,7 @@ const TRANSLATIONS = {
     "index.h.links": "實用連結",
     "index.th.hyper_link": "超連結",
 
-    "index.banner.title": "自動化工具、圖形介面（GUI）設計",
+    "index.banner.title": "我們的解決方案: ",
     "index.banner.link_tool": "自動化工具",
     "index.banner.link_gui": "GUI 設計",
 
@@ -214,7 +214,7 @@ const TRANSLATIONS = {
     "index.h.links": "实用链接",
     "index.th.hyper_link": "超链接",
 
-    "index.banner.title": "自动化工具、图形界面（GUI）设计",
+    "index.banner.title": "我们的解决方案: ",
     "index.banner.link_tool": "自动化工具",
     "index.banner.link_gui": "GUI 设计",
 
