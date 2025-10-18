@@ -29,7 +29,12 @@ const TRANSLATIONS = {
     "nav.donation": "Donation",
 
     "index.hero_title": "Welcome to g-Pico Automation site",
-    "index.hero_paragraph": "Designed for beginners, with simple deployment and ease of use in mind, our automation tools allow anyone to get started quickly, without the need for technical expertise. We provide comprehensive resources and guides to ensure a smooth learning experience. Our mission is to make automation accessible across the globe, starting from essential tools to advanced automation solutions for all industries. We aim to free you from tedious tasks, so you can focus on what truly drives your passion. Enjoy and have fun! :) g-Pico team",
+    "index.hero_paragraph": `Designed for beginners, with simple deployment and ease of use in mind, 
+    our automation tools allow anyone to get started quickly, without the need for technical expertise.
+    We provide comprehensive resources and guides to ensure a smooth learning experience. <br><br>
+    Our mission is to make automation accessible across the globe, starting from essential tools to advanced 
+    automation solutions for all industries. We aim to free you from tedious tasks, so you can focus on what 
+    truly drives your passion. Enjoy and have fun! :) <br><br>g-Pico team`,
     "index.tab.news": "News",
     "index.tab.tech_docs": "Tech Documents",
     "index.tab.links": "Useful Links",
@@ -42,7 +47,7 @@ const TRANSLATIONS = {
     "index.h.links": "Useful Links",
     "index.th.hyper_link": "Hyper Link",
 
-    "products.title": "Our Products",
+    "products.title": "Supported Hardware",
     "products.price": "Price:",
     "products.view_details": "View Details",
     "products.buy_now": "Buy Now",
@@ -55,7 +60,38 @@ const TRANSLATIONS = {
     "contact.fb_tip": "Discuss at community",
     "contact.ig": "Instagram:",
     "contact.ig_tip": "Building the future through silent breakthroughs, embracing adventure and enjoying engineer life!",
-    "contact.mail": "Email:"
+    "contact.mail": "Email:",
+
+    "donation.title": "Support and encouragement",
+    "donation.p1": "Your support is the lifeblood of our growth, sparking innovation and progress!",
+    "donation.p2": "There are 3 different currency we're able to accept: USD, RMB, NTD, please choose and use related QR-code",
+    "donation.form.amount": "Donation Amount",
+    "donation.form.amount_ph": "Enter amount",
+    "donation.form.email": "Your Email",
+    "donation.form.email_ph": "Enter your email",
+    "donation.thanks": "Thank you for your generosity. We will make sure to use every penny wisely and with appreciation.",
+    "donation.submit": "Submit info and let us know who to thank for!~ ",
+    "donation.alert.confirm": "Are you sure you want to submit the donation?",
+    "donation.alert.ok": "Donation confirmed! Thank you for your support.",
+    "donation.alert.fail": "There was an issue with your donation. Please try again.",
+    "donation.alert.error": "An error occurred while processing your donation.",
+    "donation.alert.cancel": "Donation cancelled.",
+    
+    "donation.qr.label": "Choose a method",
+    "donation.qr.opt.paypal": "PayPal (USD) ",
+    "donation.qr.opt.wechat": "WeChat Pay (RMB) ",
+    "donation.qr.opt.yoyo": "YoYoPay (NTD) ",
+    "donation.qr.opt.jko": "JKOPay (NTD)",
+    "donation.qr.opt.taiwanpay": "Taiwan Pay (NTD)",
+
+    "donation.p3.paypal_html": "Prefer desktop flow? Click <a href=\"https://www.paypal.com/\" target=\"_blank\" rel=\"noopener noreferrer\">PayPal</a> to open in a new tab, then complete your donation there. The QR works on mobile scanners.",
+    "donation.p3.wechat_html": "Only support for related app.",
+    "donation.p3.yoyo_html": "Only support for related app.",
+    "donation.p3.jko_html": "Only support for related app.",
+    "donation.p3.taiwanpay_html": "Only support for Taiwan bank or app.",
+
+
+
   },
 
   "zh-TW": {
@@ -66,7 +102,10 @@ const TRANSLATIONS = {
     "nav.donation": "贊助",
 
     "index.hero_title": "歡迎來到 橘皮客自動化網站",
-    "index.hero_paragraph": "我們以初學者友善為核心，強調簡單部署與易於上手，讓任何人都能快速投入自動化，而不必具備深厚的技術背景。我們提供完整的學習資源與指引，確保順暢的學習體驗。使命是讓自動化走入全世界的每個角落，從基礎工具到跨產業的進階解決方案。我們希望替你省下繁瑣作業，把時間留給真正有熱情的事。好好享受，玩得開心！: )  g-Pico 團隊",
+    "index.hero_paragraph": `我們以初學者友善為核心，強調簡單部署與易於上手，讓任何人都能快速投入自動化，而不必具備深厚的技術背景。
+    我們提供完整的學習資源與指引，確保順暢的學習體驗。<br><br>
+    我們的使命是讓自動化走入全世界的每個角落，從基礎工具到跨產業的進階解決方案。
+    我們希望替你省下繁瑣作業，把時間留給真正有熱情的事。好好享受，玩得開心！: )  <br><br>g-Pico 團隊`,
     "index.tab.news": "最新消息",
     "index.tab.tech_docs": "技術文件",
     "index.tab.links": "實用連結",
@@ -79,7 +118,7 @@ const TRANSLATIONS = {
     "index.h.links": "實用連結",
     "index.th.hyper_link": "超連結",
 
-    "products.title": "我們的產品",
+    "products.title": "相容硬體一覽",
     "products.price": "價格：",
     "products.view_details": "查看詳情",
     "products.buy_now": "立即購買",
@@ -92,7 +131,36 @@ const TRANSLATIONS = {
     "contact.fb_tip": "加入技術討論",
     "contact.ig": "Instagram：",
     "contact.ig_tip": "默默突破、擁抱冒險、享受工程生活！",
-    "contact.mail": "Email："
+    "contact.mail": "Email：",
+
+    "donation.title": "支持與鼓勵",
+    "donation.p1": "您的支持是我們成長的養分，點燃創新與前進的火花！",
+    "donation.p2": "我們能夠接受三種不同的貨幣：美元 (USD)、人民幣 (RMB)、新臺幣 (NTD)，請選擇並使用相關的 QR 碼。",
+    "donation.form.amount": "贊助金額",
+    "donation.form.amount_ph": "請輸入金額",
+    "donation.form.email": "您的 Email",
+    "donation.form.email_ph": "請輸入您的 Email",
+    "donation.thanks": "感謝您的慷慨支持，我們會珍惜每一分資源並妥善運用。",
+    "donation.submit": "送出資料，讓我們知道該向誰致謝！",
+    "donation.alert.confirm": "確定要送出贊助資訊嗎？",
+    "donation.alert.ok": "贊助已確認！感謝您的支持。",
+    "donation.alert.fail": "處理您的贊助時發生問題，請再試一次。",
+    "donation.alert.error": "系統處理時發生錯誤。",
+    "donation.alert.cancel": "已取消贊助。", 
+
+    "donation.qr.label": "選擇付款方式",
+    "donation.qr.opt.paypal": "PayPal",
+    "donation.qr.opt.wechat": "微信支付（簡體中文）",
+    "donation.qr.opt.yoyo": "悠遊付",
+    "donation.qr.opt.jko": "街口支付",
+    "donation.qr.opt.taiwanpay": "台灣Pay",
+
+    "donation.p3.paypal_html": "偏好電腦操作？請點擊 <a href=\"https://www.paypal.com/\" target=\"_blank\" rel=\"noopener noreferrer\">PayPal</a>（新分頁開啟），於 PayPal 頁面完成贊助。手機則可直接掃描左側 QR。",
+    "donation.p3.wechat_html": "只能搭配對應的 App 進行使用",
+    "donation.p3.yoyo_html": "請使用悠遊付掃描 QR  code",
+    "donation.p3.jko_html": "請使用街口支付掃描 QR code",
+    "donation.p3.taiwanpay_html": "請使用台灣Pay 掃描QR code. 請先確認已安裝支援的銀行 App。",
+    
   },
 
   "zh-CN": {
@@ -103,7 +171,9 @@ const TRANSLATIONS = {
     "nav.donation": "赞助",
 
     "index.hero_title": "欢迎来到 橘皮客自动化网站",
-    "index.hero_paragraph": "我们以新手友好为核心，强调简单部署与易用性，让任何人无需深厚技术背景即可快速上手。我们提供完整的学习资源与指南，确保顺畅学习体验。使命是让自动化走向全球，从基础工具到跨行业的进阶方案。希望帮你摆脱繁琐任务，把时间留给真正热爱的事。玩得开心！: )  g-Pico 团队",
+    "index.hero_paragraph": `我们以新手友好为核心，强调简单部署与易用性，让任何人无需深厚技术背景即可快速上手。
+    我们提供完整的学习资源与指南，确保顺畅学习体验。<br><br>我们的使命是让自动化走向全球，从基础工具到跨行业的进阶方案。
+    希望帮你摆脱繁琐任务，把时间留给真正热爱的事。玩得开心！: )  <br><br>g-Pico 团队`,
     "index.tab.news": "最新消息",
     "index.tab.tech_docs": "技术文档",
     "index.tab.links": "实用链接",
@@ -116,7 +186,7 @@ const TRANSLATIONS = {
     "index.h.links": "实用链接",
     "index.th.hyper_link": "超链接",
 
-    "products.title": "我们的产品",
+    "products.title": "兼容硬件一览",
     "products.price": "价格：",
     "products.view_details": "查看详情",
     "products.buy_now": "立即购买",
@@ -129,40 +199,42 @@ const TRANSLATIONS = {
     "contact.fb_tip": "加入技术讨论",
     "contact.ig": "Instagram：",
     "contact.ig_tip": "默默突破、拥抱冒险、享受工程生活！",
-    "contact.mail": "Email："
+    "contact.mail": "Email：",
+
+    "donation.title": "支持与鼓励",
+    "donation.p1": "您的支持是我们成长的动力，点燃创新与前行的火花！",
+    "donation.p2": "我们能够接受三种不同的货币，请选择并使用相关的 QR 我们能够接受三种不同的货币：美元 (USD)、人民币 (RMB)、新台币 (NTD)，请选择并使用相关的 QR 码。",
+    "donation.form.amount": "赞助金额",
+    "donation.form.amount_ph": "请输入金额",
+    "donation.form.email": "您的邮箱",
+    "donation.form.email_ph": "请输入您的邮箱",
+    "donation.thanks": "感谢您的慷慨支持，我们会珍惜并妥善运用每一分资源。",
+    "donation.submit": "提交资料，让我们知道该向谁致谢！",
+    "donation.alert.confirm": "确定要提交赞助信息吗？",
+    "donation.alert.ok": "赞助已确认！感谢您的支持。",
+    "donation.alert.fail": "处理赞助时出现问题，请重试。",
+    "donation.alert.error": "系统处理时发生错误。",
+    "donation.alert.cancel": "已取消赞助。", 
+
+    "donation.qr.label": "选择付款方式",
+    "donation.qr.opt.paypal": "PayPal",
+    "donation.qr.opt.wechat": "微信支付（简体中文）",
+    "donation.qr.opt.yoyo": "悠游付",
+    "donation.qr.opt.jko": "街口支付",
+    "donation.qr.opt.taiwanpay": "台湾Pay",
+
+    "donation.p3.paypal_html": "更偏好电脑操作？点击 <a href=\"https://www.paypal.com/\" target=\"_blank\" rel=\"noopener noreferrer\">PayPal</a>（新标签打开），在 PayPal 页面完成赞助。手机则可直接扫码左侧二维码。",
+    "donation.p3.wechat_html": "请使用微信扫描左侧二维码。",
+    "donation.p3.yoyo_html": "请使用悠游付扫描二维码",
+    "donation.p3.jko_html": "请使用街口支付扫描二维码",
+    "donation.p3.taiwanpay_html": "请使用台湾Pay 扫码。请先确认已安装支持的银行 App。",
+
+    
   }
 };
 
 /** Default / fallback language */
 const DEFAULT_LANG = "en";
-/** Read ?lang=xx from URL once and persist to localStorage (if valid) */
-try {
-  /*
-  '''Purpose:
-  Allow setting language via URL like ?lang=en|zh-TW|zh-CN and persist it.
-  Variables:
-  - langParam: string from URLSearchParams
-  Acceptable Range:
-  - Must be a key in TRANSLATIONS, e.g., "en", "zh-TW", "zh-CN"
-  Error Handling:
-  - Wrapped in try/catch; logs error without throwing.
-
-  Example: using below link, give to customer: 
-  https://your.site/index.html?lang=zh-TW
-
-  ?lang=zh-TW, en, or zh-CN can assign different language 
-  '''
-  */
-  const usp = new URLSearchParams(window.location.search);
-  const langParam = usp.get("lang");
-  if (langParam && TRANSLATIONS[langParam]) {
-    localStorage.setItem("lang", langParam);
-  }
-} catch (e) {
-  console.error("error parsing lang param:", e);
-  // pass
-} // end_of_lang_param_persist
-
 
 /** Get current language from localStorage or browser, fallback to DEFAULT_LANG */
 function getCurrentLanguage() {
@@ -217,8 +289,17 @@ function applyTranslations(root) {
         if (attr) {
           el.setAttribute(attr, val);
         } else {
+          el.innerHTML  = val;
+        }
+
+        /**
+         * if (attr) {
+          el.setAttribute(attr, val);
+        } else {
           el.textContent = val;
         }
+        */
+
       } catch (inner) {
         console.error(`applyTranslations node error: ${inner}`);
         // pass

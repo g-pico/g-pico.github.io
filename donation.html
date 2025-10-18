@@ -13,8 +13,28 @@
         // Define the real server URL (commented out for now)
         //const serverUrl = 'http://gpico-automation.hopto.org:5000';  // 实际服务器地址
 
-        async function confirmDonation() {
-            if (confirm("Are you sure you want to submit the donation?")) {
+        /**
+'''Purpose:
+i18n helper for donation alerts using TRANSLATIONS and current language.
+Variables:
+- key: translation token string
+Return:
+- localized string or key itself
+'''
+*/
+function t(key){
+    try{
+        const lang = (typeof getCurrentLanguage==='function')?getCurrentLanguage():(document.documentElement.getAttribute('lang')||'en');
+        const dict = (typeof TRANSLATIONS!=='undefined' && TRANSLATIONS[lang])?TRANSLATIONS[lang]:null;
+        return (dict && dict[key])?dict[key]:key;
+    }catch(e){
+        console.error('error:', e);
+        return key; // end_of_t
+    }
+}
+
+async function confirmDonation() {
+            if (confirm(t("donation.alert.confirm"))) {
                 // Get the donation amount and email address
                 const donationAmount = document.getElementById('donationAmount').value;
                 const donorEmail = document.getElementById('donorEmail').value;
@@ -37,16 +57,16 @@
 
                     // Check if the response is okay
                     if (response.ok) {
-                        alert('Donation confirmed! Thank you for your support.');
+                        alert(t('donation.alert.ok'));
                     } else {
-                        alert('There was an issue with your donation. Please try again.');
+                        alert(t('donation.alert.fail'));
                     }
                 } catch (error) {
                     console.error('Error:', error);
-                    alert('An error occurred while processing your donation.');
+                    alert(t('donation.alert.error'));
                 }
             } else {
-                alert("Donation cancelled.");
+                alert(t('donation.alert.cancel'));
             }
         }
     </script>
@@ -74,38 +94,59 @@
     </nav>
 
     <div class="container mt-5">
-        <h1>Support and encouragement</h1>
-        <p>Your support is the lifeblood of our growth, sparking innovation and progress!</p>
-        <p>Scan the QR-code to support us and leave your message below.</p>
-        <!-- 图片左右排列 -->
+        <h1 data-i18n="donation.title">Support and encouragement</h1>
+        <p><span data-i18n="donation.p1">Your support is the lifeblood of our growth, sparking innovation and progress!</span></p>
+        <p><span data-i18n="donation.p2">Scan the QR-code based on different currency to support us.</span></p>
+        
+        <!-- QR method selector (NEW) -->
+        <div class="form-group">
+            <label for="qrSelect" data-i18n="donation.qr.label">Choose a method</label>
+            <select id="qrSelect" class="custom-select" style="max-width: 360px;">
+                <option value="paypal" data-i18n="donation.qr.opt.paypal">PayPal</option>
+                <option value="wechat" data-i18n="donation.qr.opt.wechat">微信支付（简体中文）</option>
+                <option value="yoyo" data-i18n="donation.qr.opt.yoyo">悠遊付</option>
+                <option value="jko" data-i18n="donation.qr.opt.jko">街口支付</option>
+                <option value="taiwanpay" data-i18n="donation.qr.opt.taiwanpay">台灣Pay</option>
+            </select>
+        </div>
+        
+        <!-- 圖片左右排列（左：QR，右：感謝圖） -->
         <div class="row">
             <div class="col-md-6 text-center">
-                <!-- left pic -->
-                <img src="Thanks_for_donation_2.webp" alt="Left Image" class="img-fluid"
-                    style="max-width: 50%; height: auto;">
+                <!-- left pic (QR) -->
+                <img id="qrImage" src="paypal.png" alt="Donation QR" class="img-fluid" style="max-width: 50%; height: auto;">
             </div>
             <div class="col-md-6 text-center">
                 <!-- right pic -->
-                <img src="logo26.jpg" alt="Right Image" class="img-fluid" style="max-width: 50%; height: auto;">
+                <img src="Thanks_for_donation_2.webp" alt="Thank You Image" class="img-fluid" style="max-width: 50%; height: auto;">
             </div>
         </div>
+
+        <!-- 動態補充說明（NEW; 會跟著選項切換，支援超連結與新視窗） -->
+        <div class="mt-3">
+            <p id="qrDesc" class="text-muted"></p>
+        </div>
+
         <p></p>
         <p></p>
         <p></p>
+
+        <!--
         <form onsubmit="event.preventDefault(); confirmDonation();">
             <div class="form-group">
-                <label for="donationAmount">Donation Amount</label>
-                <input type="number" class="form-control" id="donationAmount" placeholder="Enter amount" required>
+                <label for="donationAmount" data-i18n="donation.form.amount">Donation Amount</label>
+                <input type="number" class="form-control" id="donationAmount" data-i18n="donation.form.amount_ph" data-i18n-attr="placeholder" placeholder="Enter amount" required>
             </div>
             <div class="form-group">
-                <label for="donorEmail">Your Email</label>
-                <input type="email" class="form-control" id="donorEmail" placeholder="Enter your email" required>
+                <label for="donorEmail" data-i18n="donation.form.email">Your Email</label>
+                <input type="email" class="form-control" id="donorEmail" data-i18n="donation.form.email_ph" data-i18n-attr="placeholder" placeholder="Enter your email" required>
             </div>
             <p></p>
-            <p>Thank you for your generosity. We will make sure to use every penny wisely and with appreciation.</p>
+            <p><span data-i18n="donation.thanks">Thank you for your generosity. We will make sure to use every penny wisely and with appreciation.</span></p>
             <p></p>
-            <button type="submit" class="btn btn-primary">Submit info and let us know who to thank for!~ </button>
+            <button type="submit" class="btn btn-primary"><span data-i18n="donation.submit">Submit info and let us know who to thank for!~ </span></button>
         </form>
+        -->
     </div>
 
     <!-- Footer -->
@@ -114,6 +155,147 @@
             <p>&copy; 2024 g-Pico</p>
         </div>
     </footer>
+
+
+    <script>
+    /*
+    '''Purpose:
+    QR selection -> switch QR image & description (with HTML links).
+    Variables:
+    - select#qrSelect: user-chosen payment method
+    - img#qrImage: QR image to update
+    - p#qrDesc: method-specific HTML description (i18n-driven)
+    Acceptable Range:
+    - method keys: "paypal","wechat","yoyo","jko","taiwanpay"
+    '''
+    */
+
+    // Mapping for image file names per method
+    const QR_IMAGE_MAP = {
+        paypal: "paypal.png",
+        wechat: "wechat_pay.png",
+        yoyo: "yoyo_pay.png",
+        jko: "j-ko_pay.png",
+        taiwanpay: "taiwan_pay.png",
+    };
+
+    // Mapping for description i18n keys (HTML-capable strings)
+    const QR_DESC_KEY_MAP = {
+        paypal: "donation.p3.paypal_html",
+        wechat: "donation.p3.wechat_html",
+        yoyo: "donation.p3.yoyo_html",
+        jko: "donation.p3.jko_html",
+        taiwanpay: "donation.p3.taiwanpay_html",
+    };
+
+    /** Get current selected method key */
+    function getSelectedMethod() {
+        try {
+            const sel = document.getElementById("qrSelect");
+            return (sel && sel.value) ? sel.value : "paypal";
+        } catch (e) {
+            console.error(`getSelectedMethod error: ${e}`);
+            return "paypal"; // end_of_getSelectedMethod
+        }
+    }
+
+    /** Update QR image according to selected method */
+    function updateQRImage(method) {
+        try {
+            const img = document.getElementById("qrImage");
+            const src = QR_IMAGE_MAP[method] || QR_IMAGE_MAP["paypal"];
+            if (img) img.src = src;
+        } catch (e) {
+            console.error(`updateQRImage error: ${e}`);
+            // pass  // end_of_updateQRImage
+        }
+    }
+
+    /** Update method-specific description (allow HTML) */
+    function refreshQRDesc(method) {
+        try {
+            const descEl = document.getElementById("qrDesc");
+            const key = QR_DESC_KEY_MAP[method] || QR_DESC_KEY_MAP["paypal"];
+            // Use t(key) from donation.html (already defined above & in i18n.js)
+            const html = (typeof t === "function") ? t(key) : key;
+            if (descEl) descEl.innerHTML = html;
+        } catch (e) {
+            console.error(`refreshQRDesc error: ${e}`);
+            // pass  // end_of_refreshQRDesc
+        }
+    }
+
+    /** On selection change handler */
+    function onQRChange() {
+        try {
+            const method = getSelectedMethod();
+            updateQRImage(method);
+            refreshQRDesc(method);
+        } catch (e) {
+            console.error(`onQRChange error: ${e}`);
+            // pass  // end_of_onQRChange
+        }
+    }
+
+    /** Initialize bindings and initial render */
+    function initQR() {
+        try {
+            const sel = document.getElementById("qrSelect");
+            if (sel) {
+                sel.addEventListener("change", onQRChange);
+            }
+            // Initial render
+            onQRChange();
+
+            // Re-apply desc on language changes (custom event from i18n.js)
+            document.addEventListener("i18n:applied", function () {
+                try {
+                    refreshQRDesc(getSelectedMethod());
+                } catch (e) {
+                    console.error(`i18n:applied handler error: ${e}`);
+                    // pass
+                }
+            });
+        } catch (e) {
+            console.error(`initQR error: ${e}`);
+            // pass  // end_of_initQR
+        }
+    }
+
+    // DOM ready hook
+    document.addEventListener("DOMContentLoaded", function () {
+        try {
+            initQR();
+        } catch (e) {
+            console.error(`DOMContentLoaded initQR error: ${e}`);
+            // pass
+        }
+    }); // end_of_DOMContentLoaded
+
+    /* ---- Optional tiny "test object" for manual checks (won't run automatically) ---- */
+    const DonationQRE2E = {
+        /*
+        '''Purpose:
+        Simple manual tests for QR logic. Call DonationQRE2E.run() in console.
+        '''
+        */
+        run: function () {
+            try {
+                const methods = Object.keys(QR_IMAGE_MAP);
+                methods.forEach((m) => {
+                    document.getElementById("qrSelect").value = m;
+                    onQRChange();
+                    console.log(`[E2E] switched to: ${m}, img.src=`, document.getElementById("qrImage").src);
+                });
+                return true;
+            } catch (e) {
+                console.error(`DonationQRE2E error: ${e}`);
+                return false;
+            } // end_of_run
+        }
+    }; // end_of_DonationQRE2E
+    </script>
+
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
