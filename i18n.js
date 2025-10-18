@@ -47,10 +47,23 @@ const TRANSLATIONS = {
     "index.h.links": "Useful Links",
     "index.th.hyper_link": "Hyper Link",
 
+    "index.banner.title": "Automation tool, GUI design",
+    "index.banner.link_tool": "Automation tool",
+    "index.banner.link_gui": "GUI design",
+
+
     "products.title": "Supported Hardware",
     "products.price": "Price:",
     "products.view_details": "View Details",
     "products.buy_now": "Buy Now",
+
+    "products.supported_title": "Supported Hardware",
+    "products.supported_desc": "g-Pico tool is able to run on any of MCU list below directly.",
+    "products.expansion_title": "Expansion Boards",
+    "products.expansion_desc": "These boards complement MCUs to unlock more IO and automation scenarios with g-Pico.",
+
+    "products.page_title": "Products & Compatibility",
+    "products.page_desc": "This page offers an overview of hardware and the expansion boards that pair with g-Pico tool.",
 
     "contact.title": "Contact Us",
     "contact.p.intro": "Our team is not only professional and passionate but also highly values work-life balance. In addition to our YouTube channel and discussion forums, we also have an official Instagram account where we share updates. We hope to connect with fellow engineering enthusiasts like you, sharing both our daily lives and experiences, making every step of this life journey count.",
@@ -118,10 +131,25 @@ const TRANSLATIONS = {
     "index.h.links": "實用連結",
     "index.th.hyper_link": "超連結",
 
+    "index.banner.title": "自動化工具、圖形介面（GUI）設計",
+    "index.banner.link_tool": "自動化工具",
+    "index.banner.link_gui": "GUI 設計",
+
+
     "products.title": "相容硬體一覽",
     "products.price": "價格：",
     "products.view_details": "查看詳情",
     "products.buy_now": "立即購買",
+
+    "products.supported_title": "支援硬體",
+    "products.supported_desc": "g-Pico 工具可直搭配下方任何一款 MCU 來進行使用。",
+    "products.expansion_title": "擴充板",
+    "products.expansion_desc": "這些擴充板可搭配 MCU，擴充 I/O 與自動化情境，讓 g-Pico 的應用更完善。",
+
+    "products.page_title": "產品與相容性一覽",
+    "products.page_desc": "本頁提供與 g-Pico 工具搭配使用的硬體及擴展板概覽。",
+
+
 
     "contact.title": "聯絡我們",
     "contact.p.intro": "我們的團隊專業且熱情，同時重視工作與生活的平衡。除了 YouTube 與討論社團外，也有官方 Instagram 分享近況。我們希望與同好工程師彼此連結，分享日常與經驗，讓人生每一步都更有意義。",
@@ -186,10 +214,23 @@ const TRANSLATIONS = {
     "index.h.links": "实用链接",
     "index.th.hyper_link": "超链接",
 
+    "index.banner.title": "自动化工具、图形界面（GUI）设计",
+    "index.banner.link_tool": "自动化工具",
+    "index.banner.link_gui": "GUI 设计",
+
+
     "products.title": "兼容硬件一览",
     "products.price": "价格：",
     "products.view_details": "查看详情",
     "products.buy_now": "立即购买",
+
+    "products.supported_title": "支持硬體",
+    "products.supported_desc": "g-Pico 工具可直接运行于下方列表中的任一 MCU。",
+    "products.expansion_title": "扩展板",
+    "products.expansion_desc": "这些扩展板可搭配 MCU，扩展 I/O 与自动化场景，让 g-Pico 的应用更完善。",
+
+    "products.page_title": "产品与兼容性一览",
+    "products.page_desc": "本页提供与 g-Pico 工具搭配使用的硬件及扩展板概览。",
 
     "contact.title": "联系我们",
     "contact.p.intro": "我们的团队专业且热情，同时重视工作与生活的平衡。除了 YouTube 与讨论社群，也有官方 Instagram 分享近况。期待与工程同好建立连接，分享日常与经验，让人生每一步都更有意义。",
@@ -305,6 +346,16 @@ function applyTranslations(root) {
         // pass
       }
     });
+
+    try {
+      const lang = typeof getCurrentLanguage === 'function'
+          ? getCurrentLanguage()
+          : (document.documentElement.getAttribute('lang') || 'en');
+      document.dispatchEvent(new CustomEvent("i18n:applied", { detail: { lang } }));
+    } catch (e) {
+      console.error(`dispatch i18n:applied error: ${e}`); // end_of_i18n_applied_dispatch
+    }
+
   } catch (e) {
     console.error(`applyTranslations error: ${e}`);
     // pass

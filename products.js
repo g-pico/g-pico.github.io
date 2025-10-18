@@ -231,5 +231,59 @@ const products = {
             "assets/extend_board/extend.jpg",
 
         ]
-    }
+    },
+    // --- Example: NEW MCU (product6) ---
+    product6: {
+    name: {
+        "en": "Raspberry Pi Pico 2",
+        "zh-TW": "Raspberry Pi Pico 2",
+        "zh-CN": "Raspberry Pi Pico 2",
+    },
+    description: {
+        "en": `A next-gen Pico-family board offering improved performance and compatibility.<br>
+            <li>RP2350 microcontroller (example)</li>
+            <li>Backward compatible pinout</li>
+            <li>Ideal for learning and rapid prototyping</li>`,
+        "zh-TW": `新一代 Pico 家族開發板，帶來更高效能與相容性。<br>
+                <li>RP2350 微控制器（示例）</li>
+                <li>相容既有腳位配置</li>
+                <li>適合學習與快速原型</li>`,
+        "zh-CN": `新一代 Pico 系列开发板，提供更高性能与兼容性。<br>
+                <li>RP2350 微控制器（示例）</li>
+                <li>兼容既有引脚</li>
+                <li>适合学习与快速原型</li>`
+    },
+    price: "NTD$xxx",         // 留著也沒關係（你現在頁面不顯示）
+    note: note_const,          // 可沿用
+    images: [
+        "assets/pico2/board_front.jpg"
+    ]
+    },
+    // --- Example: NEW Expansion (product7) ---
+    product7: {
+    name: {
+        "en": "Pico High-Voltage DAC Expansion",
+        "zh-TW": "Pico 高電壓 DAC 擴充板",
+        "zh-CN": "Pico 高电压 DAC 扩展板"
+    },
+    description: {
+        "en": `An add-on board to provide multi-channel high-resolution DAC outputs for lab automation.<br>
+            <li>Up to 16 channels (example)</li>
+            <li>16-bit precision</li>
+            <li>SPI-based interface</li>`,
+        "zh-TW": `提供多通道高解析度 DAC 的擴充板，用於實驗室自動化。<br>
+                <li>最多 16 通道（示例）</li>
+                <li>16-bit 解析度</li>
+                <li>SPI 介面</li>`,
+        "zh-CN": `提供多通道高分辨率 DAC 的扩展板，用于实验室自动化。<br>
+                <li>最多 16 通道（示例）</li>
+                <li>16-bit 分辨率</li>
+                <li>SPI 接口</li>`
+    },
+    price: "NTD$yyy",
+    note: note_const,
+    images: [
+        "assets/exp_dac81416/board.jpg"
+    ]
+    },
 };

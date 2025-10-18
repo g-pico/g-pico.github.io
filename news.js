@@ -29,7 +29,7 @@ const news = {
             our best to make people's lives better.
             </p>
         `,
-        image: "party_time_pico_release.webp"
+        image: "assets/pic/party_time_pico_release.webp"
     },
     news2: {
         title: "Story about g-Pico",

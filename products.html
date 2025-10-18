@@ -14,6 +14,8 @@
             -webkit-line-clamp: 4;
             /* 設置顯示的行數 */
             -webkit-box-orient: vertical;
+            /* Add standard property for better tooling compatibility */
+            line-clamp: 4; /* not widely supported yet, safe as a hint */
         }
 
         .note-short {
@@ -22,6 +24,8 @@
             -webkit-line-clamp: 2;
             /* 設置顯示的行數 */
             -webkit-box-orient: vertical;
+            /* Add standard property for better tooling compatibility */
+            line-clamp: 2; /* not widely supported yet, safe as a hint */
         }
 
         .card {
@@ -54,10 +58,32 @@
     </nav>
 
     <div class="container mt-5">
-        <h1 data-i18n="products.title">Our Products</h1>
-        <div id="productsContainer">
-            <!-- Product Items will be dynamically inserted here -->
-        </div>
+
+        <!-- New: Page-level big title & intro -->
+        <h1 class="display-4" data-i18n="products.page_title">Products & Compatibility</h1>
+        <p class="lead text-muted" data-i18n="products.page_desc">
+            Explore what this page offers: an overview of g-Pico–ready hardware and the expansion boards that pair with them.
+        </p>
+        <hr class="my-4">
+
+
+        <!-- Change existing Supported Hardware H1 -> H2 -->
+        <h2 data-i18n="products.supported_title">Supported Hardware</h2>
+        <p class="text-muted" data-i18n="products.supported_desc">
+            This page lists hardware that works smoothly with g-Pico — start here to see what MCUs and expansion boards we recommend.
+        </p>
+
+        <!-- Top section: MCUs -->
+        <div id="mcusContainer"></div>
+
+        <!-- Mid title & description for expansions -->
+        <h2 class="mt-4" data-i18n="products.expansion_title">Expansion Boards</h2>
+        <p class="text-muted" data-i18n="products.expansion_desc">
+            These boards complement MCUs to unlock more IO and automation scenarios with g-Pico.
+        </p>
+
+        <!-- Bottom section: expansion boards -->
+        <div id="expansionsContainer"></div>
     </div>
 
     <!-- Footer -->
@@ -69,8 +95,46 @@
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.amazonaws.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
     <script>
+        /*
+        '''Purpose:
+        Convert description HTML to a safe plain-text summary for cards.
+        - Keep list page tidy; avoid <li> escaping from <p>.
+        - Preserve i18n by passing tField(product.description).
+        Vars:
+        - html: string (may contain tags)
+        - maxLen: int (truncate length)
+        '''
+        */
+        function htmlToText(html) {
+        try {
+            const tmp = document.createElement('div');
+            tmp.innerHTML = html || '';
+            const text = tmp.textContent || tmp.innerText || '';
+            return text.replace(/\s+/g, ' ').trim();
+        } catch (e) {
+            console.error(`htmlToText error: ${e}`);
+            return ''; // end_of_htmlToText
+        }
+        }
+
+        function summarizeHTML(html, maxLen) {
+        try {
+            const text = htmlToText(html);
+            if (!text) return '';
+            if (text.length <= maxLen) return text;
+            return text.slice(0, maxLen) + '…';
+        } catch (e) {
+            console.error(`summarizeHTML error: ${e}`);
+            return ''; // end_of_summarizeHTML
+        }
+        }
+
+
+
+
         function createProductCard(product, id) {
             return `
             <div class="col-md-3 mb-4"> <!-- 調整每行顯示的產品數量和列間距 -->
@@ -80,50 +144,131 @@
                         <img src="${product.images[0]}" class="card-img-top" alt="Product Image">
                     </a>
                     <div class="card-body">
-                        <h5 class="card-title">${product.name}</h5>
-                        <p class="card-text description-short">${product.description.split('<br>').slice(0, 3).join('<br>')}</p> <!-- 設置顯示的行數 -->
-                        <p class="card-text"><strong><span data-i18n="products.price">Price:</span></strong> ${product.price}</p>
+                        <h5 class="card-title">${tField(product.name)}</h5>
+                        <p class="card-text description-short">${summarizeHTML(tField(product.description), 180)}</p> <!-- 設置顯示的行數 -->
+                        <!--<p class="card-text"><strong><span data-i18n="products.price">Price:</span></strong> ${product.price}</p> -->
                         <a href="product_single.html?product=${id}" class="btn btn-primary"><span data-i18n="products.view_details">View Details</span></a>
-                        <a href="buy_page.html?product=${id}" class="btn btn-success"><span data-i18n="products.buy_now">Buy Now</span></a>
-                        <p class="card-text note-short">${product.note.split('<br>').slice(0, 3).join('<br>')}</p> <!-- 設置顯示的行數 -->
+                        <!--<a href="buy_page.html?product=${id}" class="btn btn-success"><span data-i18n="products.buy_now">Buy Now</span></a> -->
+                        <!--<p class="card-text note-short">${product.note.split('<br>').slice(0, 3).join('<br>')}</p> -->  <!-- 設置顯示的行數 -->
                     </div>
                 </div>
             </div>
         `;
         }
 
-        function initializeProducts() {
-            const productsContainer = document.getElementById('productsContainer');
-            let productRows = '';
 
-            // 動態生成產品卡片
-            for (let i = 1; i <= 5; i++) { // 設置要顯示的產品數量
-                const product = products[`product${i}`];
-                if (product) {
-                    if ((i - 1) % 4 === 0) { // 每行顯示4個產品
-                        if (i !== 1) {
-                            productRows += '</div>'; // 關閉上一行
-                        }
-                        productRows += '<div class="row">'; // 開始新的一行
+
+        /*
+        '''Purpose:
+        Render Supported Hardware page in two blocks (MCUs & Expansion Boards) with minimal change.
+        Variables:
+        - #mcusContainer: rows of product1..product4
+        - #expansionsContainer: rows of product5.. (future expansions)
+        Acceptable Range:
+        - MCU IDs: [1,2,3,4]; Expansion IDs: [5] (current)
+        '''
+        */
+
+        function rowWrapCards(idList) {
+            try {
+                let rows = '';
+                idList.forEach((id, idx) => {
+                    const product = products[`product${id}`];
+                    if (!product) {
+                        console.error(`Product product${id} not found.`);
+                        return; // continue
                     }
-                    productRows += createProductCard(product, i);
-                } else {
-                    console.error(`Product product${i} not found.`);
-                }
+                    if (idx % 4 === 0) {
+                        if (idx !== 0) rows += '</div>';
+                        rows += '<div class="row">';
+                    }
+                    rows += createProductCard(product, id);
+                });
+                rows += '</div>';
+                return rows;
+            } catch (e) {
+                console.error(`rowWrapCards error: ${e}`);
+                return ''; // end_of_rowWrapCards
             }
-            productRows += '</div>'; // 關閉最後一行
-
-            productsContainer.innerHTML = productRows;
         }
 
-        window.onload = function(){
-    try{
-        initializeProducts();
-        if (typeof applyTranslations === 'function'){ applyTranslations(document); }
-    }catch(e){
-        console.error('init error:', e); // end_of_window_onload
-    }
-};
+        function initializeProducts() {
+            try {
+                // Top block: MCUs (product1..4)
+                const mcus = [1, 2, 3, 4, 6];
+                const mcusContainer = document.getElementById('mcusContainer');
+                mcusContainer.innerHTML = rowWrapCards(mcus);
+
+                // Bottom block: Expansion boards (product5..)
+                const expansions = [5, 7]; // extend later as needed
+                const expansionsContainer = document.getElementById('expansionsContainer');
+                expansionsContainer.innerHTML = rowWrapCards(expansions);
+            } catch (e) {
+                console.error(`initializeProducts error: ${e}`);
+                // pass  // end_of_initializeProducts
+            }
+
+            /*
+            '''Purpose:
+            Re-render product cards when i18n translations are applied.
+            Variables:
+            - event.detail.lang: current language code
+            '''
+            */
+            try {
+            document.addEventListener("i18n:applied", function (ev) {
+                try {
+                // 清空再渲染，避免殘留
+                const mcusContainer = document.getElementById('mcusContainer');
+                const expansionsContainer = document.getElementById('expansionsContainer');
+                if (mcusContainer) mcusContainer.innerHTML = '';
+                if (expansionsContainer) expansionsContainer.innerHTML = '';
+                initializeProducts();
+                } catch (e) {
+                console.error(`products i18n:applied handler error: ${e}`); // end_of_products_i18n_applied
+                }
+            });
+            } catch (e) {
+            console.error(`bind products i18n handler error: ${e}`); // end_of_bind_products_i18n_handler
+            }
+
+        }
+
+
+
+
+
+        window.onload = function () {
+            try {
+                initializeProducts();
+                if (typeof applyTranslations === 'function') { applyTranslations(document); }
+            } catch (e) {
+                console.error('init error:', e);
+                // pass  // end_of_window_onload
+            }
+        };
+
+        /* ---- Tiny test object (manual run only) ---- */
+        const ProductsSplitE2E = {
+            /*
+            '''Purpose:
+            Manual smoke test for two-section rendering. Call ProductsSplitE2E.run() in console.
+            '''
+            */
+            run: function () {
+                try {
+                    initializeProducts();
+                    console.log('[E2E] MCUs & Expansions rendered.');
+                    return true;
+                } catch (e) {
+                    console.error(`ProductsSplitE2E error: ${e}`);
+                    return false;
+                } // end_of_run
+            }
+        }; // end_of_ProductsSplitE2E
+        
+
+
     </script>
 </body>
 

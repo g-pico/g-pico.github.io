@@ -24,6 +24,8 @@
             display: -webkit-box;
             -webkit-line-clamp: 5;
             -webkit-box-orient: vertical;
+            /* Add standard property for better tooling compatibility */
+            line-clamp: 5; /* not widely supported yet, safe as a hint */
         }
 
         .show-more {
@@ -37,72 +39,138 @@
         }
     </style>
     <script>
+        /*
+        '''Purpose:
+        Initialize single product page without price/buy/note (commented out).
+        Variables:
+        - URL ?product={id}: used to pick products["product{id}"]
+        - tField: language-aware field getter
+        Acceptable Range:
+        - id must map to products.js key
+        '''
+        */
         function showImage(src) {
-            document.getElementById('mainImage').src = src; // 設置主圖片
-        }
-
-        function initializeProduct() {
-            const urlParams = new URLSearchParams(window.location.search);
-            const productId = urlParams.get('product');
-            const productDetails = products[`product${productId}`];
-                const _lang = (typeof getCurrentLanguage==='function')?getCurrentLanguage():document.documentElement.getAttribute('lang')||'en';
-                const tField = (val)=>{ try{ if(val && typeof val==='object'){ return val[_lang] || val['en'] || Object.values(val)[0]; } return val; }catch(e){ console.error('tField error:', e); return val; } }; // 根據 URL 中的 product 參數動態獲取產品信息
-
-            if (productDetails) {
-                // 設置產品頁面標題
-                document.title = tField(productDetails.name);
-
-                // 設置產品詳情
-                document.getElementById('productName').textContent = tField(productDetails.name);
-                document.getElementById('productDescription').innerHTML = tField(productDetails.description);
-                document.getElementById('productPrice').textContent = tField(productDetails.price);
-                document.getElementById('productNote').innerHTML = tField(productDetails.note);
-
-                // 初始化圖片
-                const mainImage = document.getElementById('mainImage');
-                mainImage.src = productDetails.images[0];
-                const thumbnails = document.getElementById('thumbnails');
-                productDetails.images.forEach((src, index) => {
-                    const thumbImg = document.createElement('img');
-                    thumbImg.src = src;
-                    thumbImg.alt = 'Product Image ' + (index + 1);
-                    thumbImg.onclick = () => showImage(src);
-                    thumbnails.appendChild(thumbImg);
-                });
-
-                // 設置購買按鈕連結，指向帶有產品 ID 的購買頁面
-                const buyNowLink = document.getElementById('buyNowLink');
-                buyNowLink.href = `buy_page.html?product=${productId}`;
-
-                // 添加 "Show More" 功能
-                const description = document.getElementById('productDescription');
-                const showMore = document.getElementById('showMore');
-                if (description.scrollHeight > description.clientHeight) {
-                    showMore.style.display = 'inline';
-                    showMore.onclick = () => {
-                        if (description.classList.contains('description-short')) {
-                            description.classList.remove('description-short');
-                            showMore.textContent = 'Show Less';
-                        } else {
-                            description.classList.add('description-short');
-                            showMore.textContent = 'Show More';
-                        }
-                    };
-                }
-            } else {
-                console.error(`Product product${productId} not found.`);
+            try {
+                document.getElementById('mainImage').src = src;
+                return true;
+            } catch (e) {
+                console.error(`showImage error: ${e}`);
+                return false; // end_of_showImage
             }
         }
 
+        function initializeProduct(refresh=false) {
+            try {
+                const urlParams = new URLSearchParams(window.location.search);
+                const productId = urlParams.get('product');
+                const productDetails = products[`product${productId}`];
+
+                const _lang = (typeof getCurrentLanguage==='function')
+                                ? getCurrentLanguage()
+                                : (document.documentElement.getAttribute('lang')||'en');
+                const tField = (val)=>{
+                try{
+                    if(val && typeof val==='object'){ return val[_lang] || val['en'] || Object.values(val)[0]; }
+                    return val;
+                }catch(e){ console.error('tField error:', e); return val; }
+                };
+
+                if (!productDetails) return;
+
+                // title & name
+                document.title = tField(productDetails.name);
+                const nameEl = document.getElementById('productName');
+                if (nameEl) nameEl.textContent = tField(productDetails.name);
+
+                // description（先寫入，再加 clamp class）
+                const descEl = document.getElementById('productDescription');
+                if (descEl) {
+                descEl.innerHTML = tField(productDetails.description);
+                if (!descEl.classList.contains('description-short')) {
+                    descEl.classList.add('description-short');
+                }
+                }
+
+                // thumbnails：refresh 時先清空再生成
+                const mainImage = document.getElementById('mainImage');
+                const thumbnails = document.getElementById('thumbnails');
+                if (thumbnails) thumbnails.innerHTML = '';
+                if (Array.isArray(productDetails.images) && productDetails.images.length > 0) {
+                if (mainImage) mainImage.src = productDetails.images[0];
+                if (thumbnails) {
+                    productDetails.images.forEach((src, idx) => {
+                    const img = document.createElement('img');
+                    img.src = src;
+                    img.alt = 'Product Image ' + (idx + 1);
+                    img.onclick = () => showImage(src);
+                    thumbnails.appendChild(img);
+                    });
+                }
+                }
+
+                // ShowMore 顯示與切換（綁一次即可；若已綁，這裡只更新文字）
+                const showMore = document.getElementById('showMore');
+                if (descEl && showMore) {
+                setTimeout(()=>{
+                    try{
+                    if (descEl.scrollHeight > descEl.clientHeight) {
+                        showMore.style.display = 'inline';
+                    } else {
+                        showMore.style.display = 'none';
+                    }
+                    }catch(e){ console.error(`measure desc error: ${e}`); }
+                }, 0);
+
+                if (!showMore._bound) {
+                    showMore.onclick = () => {
+                    try{
+                        if (descEl.classList.contains('description-short')) {
+                        descEl.classList.remove('description-short');
+                        showMore.textContent = 'Show Less';
+                        } else {
+                        descEl.classList.add('description-short');
+                        showMore.textContent = 'Show More';
+                        }
+                    }catch(e){ console.error(`showMore toggle error: ${e}`); /* pass */ }
+                    };
+                    showMore._bound = true; // 防止重複綁定
+                }
+                }
+
+                // price/buy/note 仍維持隱藏（HTML 已註解；JS 不賦值）
+            } catch (e) {
+                console.error(`initializeProduct error: ${e}`); // end_of_initializeProduct
+            }
+            }
+
+        
+        /*
+        '''Purpose:
+        Re-render single product page when i18n translations are applied.
+        '''
+        */
+        try {
+        document.addEventListener("i18n:applied", function (ev) {
+            try {
+            initializeProduct(true); // 傳 true 表示 refresh 模式（可選）
+            } catch (e) {
+            console.error(`single i18n:applied handler error: ${e}`); // end_of_single_i18n_applied
+            }
+        });
+        } catch (e) {
+        console.error(`bind single i18n handler error: ${e}`); // end_of_bind_single_i18n_handler
+        }    
+
         window.onload = function(){
-    try {
-        initializeProduct();
-        if (typeof applyTranslations === 'function'){ applyTranslations(document); }
-    } catch(e) {
-        console.error('init error:', e); // end_of_window_onload
-    }
-}; // 當頁面載入時初始化產品信息
-    </script>
+            try {
+                initializeProduct();
+                if (typeof applyTranslations === 'function'){ applyTranslations(document); }
+            } catch(e) {
+                console.error('init error:', e); // end_of_window_onload
+            }
+        };
+        </script>
+
     <script src="i18n.js"></script>
 </head>
 
@@ -138,15 +206,24 @@
         </div>
         <div class="mt-3">
             <!-- 產品詳情和購買連結 -->
-            <h5 class="card-title" id="productName"></h5>
+            <h5 class="card-title" id="productName_sub"></h5>
             <p class="card-text description-short description" id="productDescription"></p>
             <a id="showMore" class="show-more">Show More</a>
-            <p class="card-text"><strong><span data-i18n="products.price">Price:</span></strong> <span id="productPrice"></span></p>
-            <a id="buyNowLink" class="btn btn-primary"><span data-i18n="products.buy_now">Buy Now</span></a> <!-- 動態設置購買按鈕連結 -->
+
+
+            <!--
+            <p class="card-text">
+                <strong><span data-i18n="products.price">Price:</span></strong> <span id="productPrice"></span></p>
+            <a id="buyNowLink" class="btn btn-primary"><span data-i18n="products.buy_now">Buy Now</span></a> -->  <!-- 動態設置購買按鈕連結 -->
+            
+            <!--
             <div class="mt-3">
                 <h5>Note:</h5>
                 <p id="productNote"></p>
             </div>
+            -->
+
+            
         </div>
     </div>
 
