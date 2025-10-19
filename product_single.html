@@ -137,6 +137,24 @@
                 }
                 }
 
+                // ---- Note: controlled by productDetails.showNote ----
+                try {
+                const noteWrap = document.getElementById('noteBlock');
+                const noteEl = document.getElementById('productNote');
+                if (noteWrap && noteEl) {
+                    if (productDetails.showNote && productDetails.note) {
+                    // 支援多語（若未來 note 也改成多語物件，tField 會自動處理）
+                    noteEl.innerHTML = tField(productDetails.note);
+                    noteWrap.style.display = '';  // 顯示
+                    } else {
+                    noteEl.innerHTML = '';
+                    noteWrap.style.display = 'none'; // 隱藏
+                    }
+                }
+                } catch (e) {
+                console.error(`render note error: ${e}`); // end_of_render_note
+                }
+
                 // price/buy/note 仍維持隱藏（HTML 已註解；JS 不賦值）
             } catch (e) {
                 console.error(`initializeProduct error: ${e}`); // end_of_initializeProduct
@@ -216,6 +234,12 @@
             <h5 class="card-title" id="productName_sub"></h5>
             <p class="card-text description-short description" id="productDescription"></p>
             <a id="showMore" class="show-more">Show More</a>
+
+            <!-- Note block: 由 JS 依 showNote 決定是否顯示 -->
+            <div id="noteBlock" class="mt-3" style="display:none;">
+            <h5 data-i18n="products.note_title">Note:</h5>
+            <p id="productNote"></p>
+            </div>
 
 
             <!--

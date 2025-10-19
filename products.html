@@ -202,10 +202,13 @@
         function initializeProducts() {
             try {
                 // Top block: MCUs (product1..4)
-                const mcus = [1, 2, 3, 4, 6];
+                //const mcus = [1, 2, 3, 4, 6];
+                const mcus = [1, 2, 3,];
                 const mcusContainer = document.getElementById('mcusContainer');
                 mcusContainer.innerHTML = rowWrapCards(mcus);
 
+
+                
                 // Bottom block: Expansion boards (product5..)
                 const expansions = [5, 7]; // extend later as needed
                 const expansionsContainer = document.getElementById('expansionsContainer');

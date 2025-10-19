@@ -65,6 +65,8 @@ const TRANSLATIONS = {
     "products.page_title": "Products & Compatibility",
     "products.page_desc": "This page offers an overview of hardware and the expansion boards that pair with g-Pico tool.",
 
+    "products.note_title": "Note:",
+
     "contact.title": "Contact Us",
     "contact.p.intro": "Our team is not only professional and passionate but also highly values work-life balance. In addition to our YouTube channel and discussion forums, we also have an official Instagram account where we share updates. We hope to connect with fellow engineering enthusiasts like you, sharing both our daily lives and experiences, making every step of this life journey count.",
     "contact.youtube": "YouTube Channel:",
@@ -149,6 +151,7 @@ const TRANSLATIONS = {
     "products.page_title": "產品與相容性一覽",
     "products.page_desc": "本頁提供與 g-Pico 工具搭配使用的硬體及擴展板概覽。",
 
+    "products.note_title": "注意：",
 
 
     "contact.title": "聯絡我們",
@@ -231,6 +234,8 @@ const TRANSLATIONS = {
 
     "products.page_title": "产品与兼容性一览",
     "products.page_desc": "本页提供与 g-Pico 工具搭配使用的硬件及扩展板概览。",
+
+    "products.note_title": "注意：",
 
     "contact.title": "联系我们",
     "contact.p.intro": "我们的团队专业且热情，同时重视工作与生活的平衡。除了 YouTube 与讨论社群，也有官方 Instagram 分享近况。期待与工程同好建立连接，分享日常与经验，让人生每一步都更有意义。",
