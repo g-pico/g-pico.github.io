@@ -49,7 +49,7 @@ const TRANSLATIONS = {
 
     "index.banner.title": "Solution we offer: ",
     "index.banner.link_tool": "Automation tool",
-    "index.banner.link_gui": "GUI design",
+    "index.banner.link_gui": "Bespoke GUI Development",
 
 
     "products.title": "Supported Hardware",
@@ -133,7 +133,7 @@ const TRANSLATIONS = {
 
     "index.banner.title": "我們的解決方案: ",
     "index.banner.link_tool": "自動化工具",
-    "index.banner.link_gui": "GUI 設計",
+    "index.banner.link_gui": "量身打造的 GUI 設計",
 
 
     "products.title": "相容硬體一覽",
@@ -216,7 +216,7 @@ const TRANSLATIONS = {
 
     "index.banner.title": "我们的解决方案: ",
     "index.banner.link_tool": "自动化工具",
-    "index.banner.link_gui": "GUI 设计",
+    "index.banner.link_gui": "量身定制的 GUI 设计",
 
 
     "products.title": "兼容硬件一览",
