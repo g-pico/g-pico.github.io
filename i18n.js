@@ -396,3 +396,27 @@ document.addEventListener("DOMContentLoaded", function () {
     // pass
   }
 }); // end_of_DOMReady
+
+/*
+'''Purpose:
+Return a translation by key without mutating DOM or dispatching events.
+- Use current language from getCurrentLanguage()
+- Fallback to DEFAULT_LANG, then fallback param, then the key itself
+Vars:
+- key: string token like "products.view_details"
+- fallback: optional string fallback
+'''
+*/
+function t(key, fallback = '') {
+  try {
+    const lang = getCurrentLanguage();
+    const dict = TRANSLATIONS[lang] || TRANSLATIONS[DEFAULT_LANG] || {};
+    if (dict && Object.prototype.hasOwnProperty.call(dict, key)) return dict[key];
+    const def = (TRANSLATIONS[DEFAULT_LANG] || {});
+    if (Object.prototype.hasOwnProperty.call(def, key)) return def[key];
+    return fallback || key;
+  } catch (e) {
+    console.error(`t error: ${e}`);
+    return fallback || key; // end_of_t
+  }
+}

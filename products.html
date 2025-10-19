@@ -142,26 +142,45 @@
 
 
 
+        /*
+        '''Purpose:
+        Create a product card with i18n-safe button text (no applyTranslations needed).
+        Variables:
+        - product: object from products.js
+        - id: product numeric id used in URL
+        Acceptable Range:
+        - product.images[0] may be undefined -> fallback to empty string
+        Notes:
+        - Keep commented lines for future re-enable (price/buy/note).
+        '''
+        */
         function createProductCard(product, id) {
+        try {
+            const viewLabel = (typeof t === 'function') ? t('products.view_details') : 'View Details'; // 直接取翻譯字串
+            const img0 = (product.images && product.images[0]) ? product.images[0] : '';
+
             return `
             <div class="col-md-3 mb-4"> <!-- 調整每行顯示的產品數量和列間距 -->
                 <div class="card">
-                    <a href="product_single.html?product=${id}">
-
-                        <img src="${product.images[0]}" class="card-img-top" alt="Product Image">
-                    </a>
-                    <div class="card-body">
-                        <h5 class="card-title">${tField(product.name)}</h5>
-                        <p class="card-text description-short">${summarizeHTML(tField(product.description), 180)}</p> <!-- 設置顯示的行數 -->
-                        <!--<p class="card-text"><strong><span data-i18n="products.price">Price:</span></strong> ${product.price}</p> -->
-                        <a href="product_single.html?product=${id}" class="btn btn-primary"><span data-i18n="products.view_details">View Details</span></a>
-                        <!--<a href="buy_page.html?product=${id}" class="btn btn-success"><span data-i18n="products.buy_now">Buy Now</span></a> -->
-                        <!--<p class="card-text note-short">${product.note.split('<br>').slice(0, 3).join('<br>')}</p> -->  <!-- 設置顯示的行數 -->
-                    </div>
+                <a href="product_single.html?product=${id}">
+                    <img src="${img0}" class="card-img-top" alt="${tField(product.name)}">
+                </a>
+                <div class="card-body">
+                    <h5 class="card-title">${tField(product.name)}</h5>
+                    <p class="card-text description-short">${summarizeHTML(tField(product.description), 180)}</p> <!-- 設置顯示的行數 -->
+                    <!--<p class="card-text"><strong><span data-i18n="products.price">Price:</span></strong> ${product.price}</p> -->
+                    <a href="product_single.html?product=${id}" class="btn btn-primary">${viewLabel}</a>
+                    <!--<a href="buy_page.html?product=${id}" class="btn btn-success"><span data-i18n="products.buy_now">Buy Now</span></a> -->
+                    <!--<p class="card-text note-short">${(product.note || '').split('<br>').slice(0, 3).join('<br>')}</p> -->  <!-- 設置顯示的行數 -->
+                </div>
                 </div>
             </div>
-        `;
+            `;
+        } catch (e) {
+            console.error(`createProductCard error: ${e}`);
+            return ''; // end_of_createProductCard
         }
+        } // end_of_createProductCard
 
 
 
@@ -225,6 +244,7 @@
             - event.detail.lang: current language code
             '''
             */
+            /*
             try {
             document.addEventListener("i18n:applied", function (ev) {
                 try {
@@ -241,7 +261,43 @@
             } catch (e) {
             console.error(`bind products i18n handler error: ${e}`); // end_of_bind_products_i18n_handler
             }
+            */
 
+        }
+
+        /*
+        '''Purpose:
+        Re-render product cards when i18n translations are applied (language changed).
+        - Bind once globally, not inside initializeProducts()
+        - Avoid re-entrancy loops
+        '''
+        */
+        try {
+        if (!window.__boundProductsI18N) {
+            let _rendering = false;
+            document.addEventListener("i18n:applied", function () {
+            try {
+                if (_rendering) return; // 防重入
+                _rendering = true;
+
+                // 清空再渲染
+                const mcusContainer = document.getElementById('mcusContainer');
+                const expansionsContainer = document.getElementById('expansionsContainer');
+                if (mcusContainer) mcusContainer.innerHTML = '';
+                if (expansionsContainer) expansionsContainer.innerHTML = '';
+                initializeProducts();
+
+            } catch (e) {
+                console.error(`products i18n:applied handler error: ${e}`);
+            } finally {
+                // 下一個 event-loop 再解除旗標
+                setTimeout(()=>{ _rendering = false; }, 0);
+            }
+            });
+            window.__boundProductsI18N = true; // end_of_bind_once
+        }
+        } catch (e) {
+        console.error(`bind products i18n handler error: ${e}`); // end_of_bind_products_i18n_handler
         }
 
 
