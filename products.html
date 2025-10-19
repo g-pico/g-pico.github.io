@@ -167,7 +167,7 @@
                 </a>
                 <div class="card-body">
                     <h5 class="card-title">${tField(product.name)}</h5>
-                    <p class="card-text description-short">${summarizeHTML(tField(product.description), 180)}</p> <!-- 設置顯示的行數 -->
+                    <p class="card-text description-short">${getBriefText(product, 180)}</p> <!-- 設置顯示的行數 -->
                     <!--<p class="card-text"><strong><span data-i18n="products.price">Price:</span></strong> ${product.price}</p> -->
                     <a href="product_single.html?product=${id}" class="btn btn-primary">${viewLabel}</a>
                     <!--<a href="buy_page.html?product=${id}" class="btn btn-success"><span data-i18n="products.buy_now">Buy Now</span></a> -->
@@ -333,6 +333,29 @@
             }
         }; // end_of_ProductsSplitE2E
         
+
+        /*
+        '''Purpose:
+        Return brief text for list cards.
+        - Prefer product.brief_description (multi-lang object), fallback to product.description
+        - Keep existing summarizeHTML/description-short behavior
+        Vars:
+        - product: one item in products
+        - maxLen: truncate length
+        '''
+        */
+        function getBriefText(product, maxLen) {
+        try {
+            // 優先 brief_description，沒有就退回 description（舊資料仍可用）
+            const raw = (product && product.brief_description)
+                        ? tField(product.brief_description)
+                        : tField(product.description);
+            return summarizeHTML(raw, maxLen || 180);
+        } catch (e) {
+            console.error(`getBriefText error: ${e}`);
+            return ''; // end_of_getBriefText
+        }
+        } // end_of_getBriefText
 
 
     </script>
