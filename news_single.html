@@ -14,29 +14,90 @@
         }
     </style>
     <script>
-        function initializeNews() {
-            // 獲取 URL 中的新聞 ID
-            const urlParams = new URLSearchParams(window.location.search);
-            const newsId = urlParams.get('news');
-            const newsItem = news[`news${newsId}`];
+    /*
+    '''Purpose:
+    Render a single news article by URL param ?news={id}, with i18n-ready fields.
+    Variables:
+    - newsId: string from URLSearchParams ("1", "2", ...)
+    - tField: i18n-safe field accessor (object or string)
+    Acceptable Range:
+    - newsId must match a key "news{N}" in news.js
+    '''
+    */
+    function initializeNews(refresh=false) {
+    try {
+        const urlParams = new URLSearchParams(window.location.search);
+        const newsId = urlParams.get('news');
+        const key = `news${newsId}`;
+        const newsItem = (typeof news === 'object') ? news[key] : null;
 
-            // 設置新聞內容
-            if (newsItem) {
-                document.title = newsItem.title; // 設置標題
-                document.getElementById('newsTitle').textContent = newsItem.title;
-                document.getElementById('newsImage').src = newsItem.image;
-                document.getElementById('newsSubtitle').textContent = newsItem.subtitle;
-                document.getElementById('newsContent').innerHTML = newsItem.content; // 設置內容，保留 HTML 格式
-
-                // 設置副標題顏色
-                document.getElementById('newsSubtitle').style.color = newsItem.subtitleColor || '#007bff'; // 預設藍色
-            } else {
-                document.getElementById('newsTitle').textContent = "News not found.";
-            }
+        if (!newsItem) {
+        document.getElementById('newsTitle').textContent = "News not found.";
+        return; // end_of_initializeNews
         }
 
-        window.onload = initializeNews;
+        // i18n-safe field access
+        const _lang = (typeof getCurrentLanguage==='function')
+                        ? getCurrentLanguage()
+                        : (document.documentElement.getAttribute('lang')||'en');
+        const _t = (v)=>{ try{ return (typeof tField === 'function') ? tField(v) : ( (v&&typeof v==='object')? (v[_lang]||v['en']||Object.values(v)[0]) : v ); }catch(e){ console.error('local tField error:', e); return v;} };
+
+        // Title / Subtitle / Content / Image
+        document.title = _t(newsItem.title);
+        document.getElementById('newsTitle').textContent = _t(newsItem.title);
+
+        const imgEl = document.getElementById('newsImage');
+        if (imgEl) imgEl.src = newsItem.image || '';
+
+        const subEl = document.getElementById('newsSubtitle');
+        if (subEl){
+        subEl.textContent = _t(newsItem.subtitle);
+        subEl.style.color = newsItem.subtitleColor || '#007bff';
+        }
+
+        const contentEl = document.getElementById('newsContent');
+        if (contentEl) contentEl.innerHTML = _t(newsItem.content);
+
+    } catch (e) {
+        console.error(`initializeNews error: ${e}`); // end_of_initializeNews
+    }
+    } // end_of_initializeNews
+
+    /*
+    '''Purpose:
+    Re-render when i18n translations are applied (language changed).
+    '''
+    */
+    try{
+    if(!window.__boundNewsI18N){
+        document.addEventListener("i18n:applied", function(ev){
+        try{
+            initializeNews(true);
+        }catch(e){
+            console.error(`news i18n:applied handler error: ${e}`); // end_of_news_i18n_handler
+        }
+        });
+        window.__boundNewsI18N = true; // end_of_bind_once
+    }
+    }catch(e){
+    console.error(`bind news i18n handler error: ${e}`); // end_of_bind_news_i18n_handler
+    }
+
+    /*
+    '''Purpose:
+    Page onload: first render article, then applyTranslations for nav & static labels.
+    '''
+    */
+    window.onload = function(){
+    try{
+        initializeNews();
+        if (typeof applyTranslations === 'function'){ applyTranslations(document); }
+    }catch(e){
+        console.error('init error:', e); // end_of_window_onload
+    }
+    };
     </script>
+
     <script src="i18n.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
