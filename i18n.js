@@ -29,11 +29,11 @@ const TRANSLATIONS = {
     "nav.donation": "Donation",
 
     "index.hero_title": "Welcome to g-Pico Automation site",
-    "index.hero_paragraph": `Designed for beginners, with simple deployment and ease of use in mind, 
+    "index.hero_paragraph": `Designed for beginners, with simple deployment and ease of use in mind,
     our automation tools allow anyone to get started quickly, without the need for technical expertise.
     We provide comprehensive resources and guides to ensure a smooth learning experience. <br><br>
-    Our mission is to make automation accessible across the globe, starting from essential tools to advanced 
-    automation solutions for all industries. We aim to free you from tedious tasks, so you can focus on what 
+    Our mission is to make automation accessible across the globe, starting from essential tools to advanced
+    automation solutions for all industries. We aim to free you from tedious tasks, so you can focus on what
     truly drives your passion. Enjoy and have fun! :) <br><br>g-Pico team`,
     "index.tab.news": "News",
     "index.tab.tech_docs": "Tech Documents",
@@ -91,7 +91,7 @@ const TRANSLATIONS = {
     "donation.alert.fail": "There was an issue with your donation. Please try again.",
     "donation.alert.error": "An error occurred while processing your donation.",
     "donation.alert.cancel": "Donation cancelled.",
-    
+
     "donation.qr.label": "Choose a method",
     "donation.qr.opt.paypal": "PayPal (USD) ",
     "donation.qr.opt.wechat": "WeChat Pay (RMB) ",
@@ -99,7 +99,7 @@ const TRANSLATIONS = {
     "donation.qr.opt.jko": "JKOPay (NTD)",
     "donation.qr.opt.taiwanpay": "Taiwan Pay (NTD)",
 
-    "donation.p3.paypal_html": "Prefer desktop flow? Click <a href=\"https://www.paypal.com/\" target=\"_blank\" rel=\"noopener noreferrer\">PayPal</a> to open in a new tab, then complete your donation there. The QR works on mobile scanners.",
+    "donation.p3.paypal_html": "Prefer desktop flow? Click <a href=\"https://www.paypal.com/ncp/payment/RLH6H4ABWD4NJ\" target=\"_blank\" rel=\"noopener noreferrer\">PayPal</a> to open in a new tab, then complete your donation there. The QR works on mobile scanners.",
     "donation.p3.wechat_html": "Only support for related app.",
     "donation.p3.yoyo_html": "Only support for related app.",
     "donation.p3.jko_html": "Only support for related app.",
@@ -177,7 +177,7 @@ const TRANSLATIONS = {
     "donation.alert.ok": "贊助已確認！感謝您的支持。",
     "donation.alert.fail": "處理您的贊助時發生問題，請再試一次。",
     "donation.alert.error": "系統處理時發生錯誤。",
-    "donation.alert.cancel": "已取消贊助。", 
+    "donation.alert.cancel": "已取消贊助。",
 
     "donation.qr.label": "選擇付款方式",
     "donation.qr.opt.paypal": "PayPal",
@@ -191,7 +191,7 @@ const TRANSLATIONS = {
     "donation.p3.yoyo_html": "請使用悠遊付掃描 QR  code",
     "donation.p3.jko_html": "請使用街口支付掃描 QR code",
     "donation.p3.taiwanpay_html": "請使用台灣Pay 掃描QR code. 請先確認已安裝支援的銀行 App。",
-    
+
   },
 
   "zh-CN": {
@@ -260,7 +260,7 @@ const TRANSLATIONS = {
     "donation.alert.ok": "赞助已确认！感谢您的支持。",
     "donation.alert.fail": "处理赞助时出现问题，请重试。",
     "donation.alert.error": "系统处理时发生错误。",
-    "donation.alert.cancel": "已取消赞助。", 
+    "donation.alert.cancel": "已取消赞助。",
 
     "donation.qr.label": "选择付款方式",
     "donation.qr.opt.paypal": "PayPal",
@@ -275,7 +275,7 @@ const TRANSLATIONS = {
     "donation.p3.jko_html": "请使用街口支付扫描二维码",
     "donation.p3.taiwanpay_html": "请使用台湾Pay 扫码。请先确认已安装支持的银行 App。",
 
-    
+
   }
 };
 
@@ -420,3 +420,173 @@ function t(key, fallback = '') {
     return fallback || key; // end_of_t
   }
 }
+
+/*
+'''Purpose:
+Centralize language-specific tables for index page (news / tech docs / links).
+Provide getters so pages don't duplicate big data blobs.
+Variables:
+- I18N_TABLES: structured data normalized across languages
+- getTables(lang): returns arrays compatible with index's renderer
+Acceptable Range:
+- lang in {"en","zh-TW","zh-CN"}; fallback to "en"
+'''
+*/
+
+// ---- 1) Safe language-aware field accessor for objects like { "en": "...", "zh-TW": "..." }
+function tField(field, langOpt) {
+  try {
+    const lang = langOpt || getCurrentLanguage();
+    if (field && typeof field === 'object') {
+      return field[lang] || field["en"] || Object.values(field)[0];
+    }
+    return field;
+  } catch (e) {
+    console.error(`tField error: ${e}`);
+    return field; // end_of_tField
+  }
+}
+
+// ---- 2) Centralized structured data (moved from index.html)
+// NOTE: We normalize to objects (href + text/desc per lang) to avoid duplicating anchors per language.
+// link 的部分將對應到 news.js 內的順序~
+let I18N_TABLES = {
+  newsData: [
+    { date: '2024-01-01', href: 'news_single.html?news=1',
+      text: { "en": "A thousand-mile journey must begin with one step!",
+              "zh-TW": "千里之行，始於足下！",
+              "zh-CN": "千里之行，始于足下！" } },
+    { date: '2022-08-06', href: 'news_single.html?news=2',
+      text: { "en": "The Genesis of g-Pico.",
+              "zh-TW": "g-Pico 的起源",
+              "zh-CN": "g-Pico 的起源" } },
+    /*
+    { date: '2024-02-01', href: 'news_single.html?news=3',
+      text: { "en": "Quarterly earnings report",
+              "zh-TW": "季報重點",
+              "zh-CN": "季度报告要点" } },
+        */
+  ],
+  techDocsData: [
+    { date: '2024-01-01', href: 'https://drive.google.com/file/d/1BwiJEt2XEy-A1BeOzIdatUN9_ICwYsKm/view?usp=drive_link',
+      text: { "en": "Take the first step, and sow the seed of change.",
+              "zh-TW": "踏出第一步, 種下改變的種子。",
+              "zh-CN": "踏出第一步，种下改变的种子。" },
+      desc: { "en": "Getting start with g-Pico automation tool",
+              "zh-TW": "從零開始使用 g-Pico 自動化工具",
+              "zh-CN": "从零开始使用 g-Pico 自动化工具" } },
+    { date: '2024-01-15', href: 'https://drive.google.com/file/d/11iaoZwgSqMLEH7hejEjOvKp6w8G7h32G/view?usp=drive_link',
+      text: { "en": "Menu is right here!",
+              "zh-TW": "菜單看這邊",
+              "zh-CN": "菜单看这边" },
+      desc: { "en": "Function introduction of different plans.",
+              "zh-TW": "不同支援方案選擇",
+              "zh-CN": "不同支援方案选择" } },
+    { date: '2024-02-01', href: 'doc3.pdf',
+      text: { "en": "Technical Document 3",
+              "zh-TW": "技術文件三",
+              "zh-CN": "技术文档三" },
+      desc: { "en": "Getting start with g-Pico automation tool",
+              "zh-TW": "進階功能與案例",
+              "zh-CN": "进阶功能与案例" } },
+  ],
+  usefulLinksData: [
+    { href: 'https://www.raspberrypi.com/products/raspberry-pi-pico/',
+      text: { "en": "Raspberry Pi Pico",
+              "zh-TW": "Raspberry Pi Pico",
+              "zh-CN": "Raspberry Pi Pico" },
+      desc: { "en": "Respberry Pi Pico official",
+              "zh-TW": "Pico 官方頁",
+              "zh-CN": "Pico 官方页面" } },
+    { href: 'https://www.youtube.com/@automation-pico',
+      text: { "en": "g-Pico Youtube channel",
+              "zh-TW": "g-Pico YouTube 頻道",
+              "zh-CN": "g-Pico YouTube 频道" },
+      desc: { "en": "g-Pico video resource sharing",
+              "zh-TW": "影片教學與分享",
+              "zh-CN": "视频教学与分享" } },
+    { href: 'https://www.facebook.com/groups/464020849771652',
+      text: { "en": "Supporting center",
+              "zh-TW": "支援社群",
+              "zh-CN": "支持社群" },
+      desc: { "en": "g-Pico technical discussion community",
+              "zh-TW": "g-Pico 技術討論區",
+              "zh-CN": "g-Pico 技术讨论区" } },
+    { href: 'https://www.instagram.com/garysharing/',
+      text: { "en": "Daily life of Engineer",
+              "zh-TW": "工程師的日常",
+              "zh-CN": "工程师的日常" },
+      desc: { "en": "Life of g-Pico team",
+              "zh-TW": "g-Pico 團隊日常",
+              "zh-CN": "g-Pico 团队日常" } },
+    { href: 'https://mega.nz/folder/LMghWDTK#nwB-SLKMdwVmczKRTHo1lQ',
+      text: { "en": "PC side main program",
+              "zh-TW": "PC 端主程式",
+              "zh-CN": "PC 端主程序" },
+      desc: { "en": "Download link of our GUI interface",
+              "zh-TW": "GUI 介面下載點",
+              "zh-CN": "GUI 界面下载点" } },
+    { href: 'http://vcc-gnd.com/',
+      text: { "en": "VCC-GND studio",
+              "zh-TW": "VCC-GND 工坊",
+              "zh-CN": "VCC-GND 工坊" },
+      desc: { "en": "VCC-GND studio official site",
+              "zh-TW": "官方網站",
+              "zh-CN": "官方网站" } },
+  ]
+};
+
+// ---- 3) Adapter: return arrays compatible with index.html renderer
+function getTables(langOpt) {
+  try {
+    const lang = langOpt || getCurrentLanguage();
+
+    // Build HTML fragments to keep index.html unchanged
+    const newsData = I18N_TABLES.newsData.map(item => ({
+      date: item.date,
+      info: `<a href="${item.href}">${tField(item.text, lang)}</a>`
+    }));
+
+    const techDocsData = I18N_TABLES.techDocsData.map(item => ({
+      date: item.date,
+      link: `<a href="${item.href}" target="_blank" rel="noopener">${tField(item.text, lang)}</a>`,
+      description: tField(item.desc, lang)
+    }));
+
+    const usefulLinksData = I18N_TABLES.usefulLinksData.map(item => ({
+      link: `<a href="${item.href}" target="_blank" rel="noopener">${tField(item.text, lang)}</a>`,
+      description: tField(item.desc, lang)
+    }));
+
+    return { newsData, techDocsData, usefulLinksData };
+  } catch (e) {
+    console.error(`getTables error: ${e}`);
+    // Fallback: empty arrays keep index renderer safe
+    return { newsData: [], techDocsData: [], usefulLinksData: [] };
+  } // end_of_getTables
+}
+
+// ---- 4) Optional: allow pages to override or extend tables at runtime
+function setStructuredTables(newTables) {
+  try {
+    if (newTables && typeof newTables === 'object') {
+      I18N_TABLES = newTables;
+    }
+  } catch (e) {
+    console.error(`setStructuredTables error: ${e}`);
+    // pass
+  } // end_of_setStructuredTables
+}
+
+// ---- 5) Expose helpers on a namespaced object (non-breaking)
+try{
+  window.i18n = Object.assign({}, window.i18n || {}, {
+    getTables,
+    setStructuredTables,
+    tField
+  });
+}catch(e){
+  console.error(`expose i18n tables error: ${e}`);
+  // pass
+} // end_of_expose_i18n_tables
+

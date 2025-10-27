@@ -62,250 +62,180 @@
 
     <!-- Data sets for each language. Extend/replace as needed. -->
     <script>
-    /* 
-        Tech/Links data are now language-aware.
-        - Add items under each language key.
-        - If a language has no specific items, fallback order is: exact lang -> en.
+    /*
+    '''Purpose:
+    Render index tables (news / tech docs / links) using centralized tables from i18n.js.
+    Variables:
+    - rowsPerPage/currentPage/activeTab: same behavior as before
+    Acceptable Range:
+    - lang in {"en","zh-TW","zh-CN"}; fallback to "en"
+    '''
     */
-    const DATA_BY_LANG = {
-        "en": {
-            newsData: [
-                { date: '2024-01-01', info: '<a href="news_single.html?news=1">Every journey starts from small!</a>' },
-                { date: '2022-08-06', info: '<a href="news_single.html?news=2">Starting Point of g-Pico</a>' },
-                { date: '2024-02-01', info: '<a href="news_single.html?news=3">Quarterly earnings report</a>' }
-            ],
-            techDocsData: [
-                { date: '2024-01-01', link: '<a href="https://drive.google.com/file/d/1BwiJEt2XEy-A1BeOzIdatUN9_ICwYsKm/view?usp=drive_link">First step to g-Pico~</a>', description: 'Getting start with g-Pico automation tool' },
-                { date: '2024-01-15', link: '<a href="https://drive.google.com/file/d/11iaoZwgSqMLEH7hejEjOvKp6w8G7h32G/view?usp=drive_link">Menu is right here!</a>', description: 'Function introduction of different plans.' },
-                { date: '2024-02-01', link: '<a href="doc3.pdf">Technical Document 3</a>', description: 'Getting start with g-Pico automation tool' }
-            ],
-            usefulLinksData: [
-                { link: '<a href="https://www.raspberrypi.com/products/raspberry-pi-pico/" target="_blank">Raspberry Pi Pico</a>', description: 'Respberry Pi Pico official' },
-                { link: '<a href="https://www.youtube.com/@automation-pico" target="_blank">g-Pico Youtube channel</a>', description: 'g-Pico video resource sharing' },
-                { link: '<a href="https://www.facebook.com/groups/464020849771652" target="_blank">Supporting center</a>', description: 'g-Pico technical discussion community' },
-                { link: '<a href="https://www.instagram.com/garysharing/" target="_blank">Daily life of Engineer</a>', description: 'Life of g-Pico team' },
-                { link: '<a href="https://mega.nz/folder/LMghWDTK#nwB-SLKMdwVmczKRTHo1lQ" target="_blank">PC side main program</a>', description: 'Download link of our GUI interface' },
-                { link: '<a href="http://vcc-gnd.com/" target="_blank">VCC-GND studio</a>', description: 'VCC-GND studio official site' }
-            ]
-        },
-        "zh-TW": {
-            newsData: [
-                { date: '2024-01-01', info: '<a href="news_single.html?news=1">萬事起頭難，但開始最關鍵！</a>' },
-                { date: '2022-08-06', info: '<a href="news_single.html?news=2">g-Pico 的起點</a>' },
-                { date: '2024-02-01', info: '<a href="news_single.html?news=3">季報重點</a>' },
-            ],
-            techDocsData: [
-                { date: '2024-01-01', link: '<a href="https://drive.google.com/file/d/1BwiJEt2XEy-A1BeOzIdatUN9_ICwYsKm/view?usp=drive_link">g‑Pico 入門指南</a>', description: '從零開始使用 g‑Pico 自動化工具' },
-                { date: '2024-01-15', link: '<a href="https://drive.google.com/file/d/11iaoZwgSqMLEH7hejEjOvKp6w8G7h32G/view?usp=drive_link">技術文件二</a>', description: '快速理解核心概念與操作' },
-                { date: '2024-02-01', link: '<a href="doc3.pdf">技術文件三</a>', description: '進階功能與案例' },
-            ],
-            usefulLinksData: [
-                { link: '<a href="https://www.raspberrypi.com/products/raspberry-pi-pico/" target="_blank">Raspberry Pi Pico</a>', description: 'Pico 官方頁' },
-                { link: '<a href="https://www.youtube.com/@automation-pico" target="_blank">g‑Pico YouTube 頻道</a>', description: '影片教學與分享' },
-                { link: '<a href="https://www.facebook.com/groups/464020849771652" target="_blank">支援社群</a>', description: 'g‑Pico 技術討論區' },
-                { link: '<a href="https://www.instagram.com/garysharing/" target="_blank">工程師的日常</a>', description: 'g‑Pico 團隊日常' },
-                { link: '<a href="https://mega.nz/folder/LMghWDTK#nwB-SLKMdwVmczKRTHo1lQ" target="_blank">PC 端主程式</a>', description: 'GUI 介面下載點' },
-                { link: '<a href="http://vcc-gnd.com/" target="_blank">VCC‑GND 工坊</a>', description: '官方網站' },
-            ]
-        },
-        "zh-CN": {
-            newsData: [
-                { date: '2024-01-01', info: '<a href="news_single.html?news=1">万事开头难，但开始最关键！</a>' },
-                { date: '2022-08-06', info: '<a href="news_single.html?news=2">g‑Pico 的起点</a>' },
-                { date: '2024-02-01', info: '<a href="news_single.html?news=3">季度报告要点</a>' }
-            ],
-            techDocsData: [
-                { date: '2024-01-01', link: '<a href="https://drive.google.com/file/d/1BwiJEt2XEy-A1BeOzIdatUN9_ICwYsKm/view?usp=drive_link">g‑Pico 入门指南</a>', description: '从零开始使用 g‑Pico 自动化工具' },
-                { date: '2024-01-15', link: '<a href="https://drive.google.com/file/d/11iaoZwgSqMLEH7hejEjOvKp6w8G7h32G/view?usp=drive_link">技术文档二</a>', description: '快速理解核心概念与操作' },
-                { date: '2024-02-01', link: '<a href="doc3.pdf">技术文档三</a>', description: '进阶功能与案例' }
-            ],
-            usefulLinksData: [
-                { link: '<a href="https://www.raspberrypi.com/products/raspberry-pi-pico/" target="_blank">Raspberry Pi Pico</a>', description: 'Pico 官方页面' },
-                { link: '<a href="https://www.youtube.com/@automation-pico" target="_blank">g‑Pico YouTube 频道</a>', description: '视频教学与分享' },
-                { link: '<a href="https://www.facebook.com/groups/464020849771652" target="_blank">支持社群</a>', description: 'g‑Pico 技术讨论区' },
-                { link: '<a href="https://www.instagram.com/garysharing/" target="_blank">工程师的日常</a>', description: 'g‑Pico 团队日常' },
-                { link: '<a href="https://mega.nz/folder/LMghWDTK#nwB-SLKMdwVmczKRTHo1lQ" target="_blank">PC 端主程序</a>', description: 'GUI 界面下载点' },
-                { link: '<a href="http://vcc-gnd.com/" target="_blank">VCC‑GND 工坊</a>', description: '官方网站' }
-            ]
-        }
-    };
 
     const rowsPerPage = 20;
     let currentPage = 1;
     let activeTab = 'news';
 
-    // Helper: get current lang from select or i18n.js (if available)
+    // Get current language via i18n.js if present
     function getCurrentLang() {
-        try {
-            if (window.i18n && typeof window.i18n.getCurrentLanguage === 'function') {
-                return window.i18n.getCurrentLanguage();
-            }
-            const sel = document.getElementById('langSelect');
-            return sel ? sel.value : 'en';
-        } catch (e) {
-            console.warn('getCurrentLang fallback to en:', e);
-            return 'en';
-        } //end_of_getCurrentLang
+    try {
+        if (window.i18n && typeof window.i18n.getCurrentLanguage === 'function') {
+        return window.i18n.getCurrentLanguage();
+        }
+        const sel = document.getElementById('langSelect');
+        return sel ? sel.value : 'en';
+    } catch (e) {
+        console.warn('getCurrentLang fallback to en:', e);
+        return 'en';
+    } //end_of_getCurrentLang
     }
 
-    // Helper: retrieve proper dataset with fallback
+    // Unified dataset provider via i18n.js
     function getDataSet(lang) {
-        try {
-            const pack = DATA_BY_LANG[lang] || DATA_BY_LANG['en'];
-            return {
-                newsData: pack.newsData || DATA_BY_LANG['en'].newsData,
-                techDocsData: pack.techDocsData || DATA_BY_LANG['en'].techDocsData,
-                usefulLinksData: pack.usefulLinksData || DATA_BY_LANG['en'].usefulLinksData
-            };
-        } catch (e) {
-            console.error('getDataSet error:', e);
-            return DATA_BY_LANG['en'];
-        } //end_of_getDataSet
+    try {
+        if (window.i18n && typeof window.i18n.getTables === 'function') {
+        return window.i18n.getTables(lang || getCurrentLang());
+        }
+        return { newsData: [], techDocsData: [], usefulLinksData: [] };
+    } catch (e) {
+        console.error('getDataSet error:', e);
+        return { newsData: [], techDocsData: [], usefulLinksData: [] };
+    } //end_of_getDataSet
     }
 
-    // Keep tab wrapper height stable (avoid layout jump)
     function adjustWrapperHeight() {
-        try {
-            const wrapper = document.querySelector('.tab-wrapper');
-            if (!wrapper) { return; }
-            const panels = wrapper.querySelectorAll('.tab-content');
-            let maxH = 0;
-            panels.forEach(p => { 
-                const wasActive = p.classList.contains('active');
-                if (!wasActive) p.style.display = 'block';
-                const h = p.offsetHeight;
-                if (!wasActive) p.style.display = '';
-                if (h > maxH) maxH = h;
-            });
-            wrapper.style.minHeight = Math.max(420, maxH) + 'px';
-        } catch (e) {
-            console.warn('adjustWrapperHeight:', e);
-        } //end_of_adjustWrapperHeight
+    try {
+        const wrapper = document.querySelector('.tab-wrapper');
+        if (!wrapper) { return; }
+        const panels = wrapper.querySelectorAll('.tab-content');
+        let maxH = 0;
+        panels.forEach(p => {
+        const wasActive = p.classList.contains('active');
+        if (!wasActive) p.style.display = 'block';
+        const h = p.offsetHeight;
+        if (!wasActive) p.style.display = '';
+        if (h > maxH) maxH = h;
+        });
+        wrapper.style.minHeight = Math.max(420, maxH) + 'px';
+    } catch (e) {
+        console.warn('adjustWrapperHeight:', e);
+    } //end_of_adjustWrapperHeight
     }
 
     function showContent(event, contentId) {
-        try {
-            activeTab = contentId;
-            var i, tabcontent, tablinks;
-            tabcontent = document.getElementsByClassName('tab-content');
-            for (i = 0; i < tabcontent.length; i++) {
-                tabcontent[i].classList.remove('active');
-            }
-            tablinks = document.getElementsByClassName('nav-link');
-            for (i = 0; i < tablinks.length; i++) {
-                tablinks[i].classList.remove('active');
-            }
-            document.getElementById(contentId).classList.add('active');
-            if (event && event.currentTarget) {
-                event.currentTarget.classList.add('active');
-            }
-            currentPage = 1;
-            renderTable(contentId);
-            adjustWrapperHeight();
-        } catch (e) {
-            console.error('showContent error:', e);
-        } //end_of_showContent
+    try {
+        activeTab = contentId;
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName('tab-content');
+        for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].classList.remove('active');
+        }
+        tablinks = document.getElementsByClassName('nav-link');
+        for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].classList.remove('active');
+        }
+        document.getElementById(contentId).classList.add('active');
+        if (event && event.currentTarget) {
+        event.currentTarget.classList.add('active');
+        }
+        currentPage = 1;
+        renderTable(contentId);
+        adjustWrapperHeight();
+    } catch (e) {
+        console.error('showContent error:', e);
+    } //end_of_showContent
     }
 
     function renderTable(contentId) {
-        try {
-            const lang = getCurrentLang();
-            const { newsData, techDocsData, usefulLinksData } = getDataSet(lang);
-            const data = contentId === 'news' ? newsData : contentId === 'tech-docs' ? techDocsData : usefulLinksData;
-            const table = document.querySelector(`#${contentId} table tbody`);
-            const pagination = document.querySelector(`#${contentId} .pagination`);
-            const totalPages = Math.ceil(data.length / rowsPerPage) || 1;
+    try {
+        const lang = getCurrentLang();
+        const { newsData, techDocsData, usefulLinksData } = getDataSet(lang);
+        const data = contentId === 'news' ? newsData : contentId === 'tech-docs' ? techDocsData : usefulLinksData;
+        const table = document.querySelector(`#${contentId} table tbody`);
+        const pagination = document.querySelector(`#${contentId} .pagination`);
+        const totalPages = Math.ceil(data.length / rowsPerPage) || 1;
 
-            table.innerHTML = '';
-            pagination.innerHTML = '';
+        table.innerHTML = '';
+        pagination.innerHTML = '';
 
-            // current page slice
-            const start = (currentPage - 1) * rowsPerPage;
-            const end = start + rowsPerPage;
-            data.slice(start, end).forEach(row => {
-                const tr = document.createElement('tr');
-                if (contentId === 'news') {
-                    tr.innerHTML = `<td>${row.date}</td><td>${row.info}</td>`;
-                } else if (contentId === 'tech-docs') {
-                    tr.innerHTML = `<td>${row.date}</td><td>${row.link}</td><td>${row.description}</td>`;
-                } else {
-                    tr.innerHTML = `<td>${row.link}</td><td>${row.description}</td>`;
-                }
-                table.appendChild(tr);
-            });
+        const start = (currentPage - 1) * rowsPerPage;
+        const end = start + rowsPerPage;
 
-            // paginate
-            for (let i = 1; i <= totalPages; i++) {
-                const li = document.createElement('li');
-                li.className = `page-item ${i === currentPage ? 'active' : ''}`;
-                li.innerHTML = `<a class="page-link" href="#">${i}</a>`;
-                li.addEventListener('click', (event) => {
-                    event.preventDefault();
-                    currentPage = i;
-                    renderTable(contentId);
-                });
-                pagination.appendChild(li);
-            }
-        } catch (e) {
-            console.error('renderTable error:', e);
-        } //end_of_renderTable
+        data.slice(start, end).forEach(row => {
+        const tr = document.createElement('tr');
+        if (contentId === 'news') {
+            tr.innerHTML = `<td>${row.date}</td><td>${row.info}</td>`;
+        } else if (contentId === 'tech-docs') {
+            tr.innerHTML = `<td>${row.date}</td><td>${row.link}</td><td>${row.description}</td>`;
+        } else {
+            tr.innerHTML = `<td>${row.link}</td><td>${row.description}</td>`;
+        }
+        table.appendChild(tr);
+        });
+
+        for (let i = 1; i <= totalPages; i++) {
+        const li = document.createElement('li');
+        li.className = `page-item ${i === currentPage ? 'active' : ''}`;
+        li.innerHTML = `<a class="page-link" href="#">${i}</a>`;
+        li.addEventListener('click', (event) => {
+            event.preventDefault();
+            currentPage = i;
+            renderTable(contentId);
+        });
+        pagination.appendChild(li);
+        }
+    } catch (e) {
+        console.error('renderTable error:', e);
+    } //end_of_renderTable
     }
 
-    // Listen to language changes: from our select or external i18n system
+    // Bind both: selector change & i18n.js event
     function bindLanguageChange() {
-        try {
-            const sel = document.getElementById('langSelect');
-            if (sel) {
-                sel.addEventListener('change', () => {
-                    // If you have i18n.js, it should already update text nodes;
-                    // here we only need to re-render the tabbed tables.
-                    renderTable(activeTab);
-                    adjustWrapperHeight();
-                });
-            }
-            // Optional: support a custom event dispatched by i18n.js when language changes
-            window.addEventListener('i18n:changed', () => {
-                renderTable(activeTab);
-                adjustWrapperHeight();
-            });
-        } catch (e) {
-            console.warn('bindLanguageChange:', e);
-        } //end_of_bindLanguageChange
+    try {
+        const sel = document.getElementById('langSelect');
+        if (sel) {
+        sel.addEventListener('change', () => {
+            renderTable(activeTab);
+            adjustWrapperHeight();
+        });
+        }
+        // IMPORTANT: listen to i18n.js canonical event
+        document.addEventListener('i18n:applied', () => {
+        renderTable(activeTab);
+        adjustWrapperHeight();
+        });
+    } catch (e) {
+        console.warn('bindLanguageChange:', e);
+    } //end_of_bindLanguageChange
     }
 
     document.addEventListener('DOMContentLoaded', () => {
-        try {
-            // Initial draw
-            renderTable('news');
-            // Activate first tab link visually
-            const firstTab = document.querySelector('.nav-tabs .nav-item .nav-link');
-            if (firstTab) firstTab.classList.add('active');
-            bindLanguageChange();
-            // After first render, lock a stable height
-            setTimeout(adjustWrapperHeight, 0);
-
-            // Keep height stable on resize
-            window.addEventListener('resize', () => {
-                adjustWrapperHeight();
-            });
-        } catch (e) {
-            console.error('DOMContentLoaded error:', e);
-        } //end_of_DOMContentLoaded
+    try {
+        renderTable('news');
+        const firstTab = document.querySelector('.nav-tabs .nav-item .nav-link');
+        if (firstTab) firstTab.classList.add('active');
+        bindLanguageChange();
+        setTimeout(adjustWrapperHeight, 0);
+        window.addEventListener('resize', () => { adjustWrapperHeight(); });
+    } catch (e) {
+        console.error('DOMContentLoaded error:', e);
+    } //end_of_DOMContentLoaded
     });
     </script>
+
     <script src="i18n.js"></script>
 </head>
 <body>
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="index.html" data-i18n="nav.brand">g-Pico Automation home</a>
-        
+
         <!-- NEW: 漢堡鍵 -->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        
+
         <!-- NEW: 折疊容器，id 要與 data-target 一致 -->
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
@@ -325,7 +255,7 @@
     <div class="container mt-5">
         <div class="row">
             <div class="col-md-4">
-                
+
                 <img src="assets/pic/general/logo.jpg" alt="Company Logo" class="img-fluid">
             </div>
             <div class="col-md-8 hero-text">
@@ -348,10 +278,10 @@
         <h2 class="m-0 mr-3" data-i18n="index.banner.title"
              style="color:#e91111; font-weight:600;">Solution we offer: </h2>
         <div class="d-flex align-items-center flex-wrap">
+            <a href="https://drive.google.com/file/d/1BwiJEt2XEy-A1BeOzIdatUN9_ICwYsKm/view?usp=drive_link" class="mx-4 banner-link"
+            data-i18n="index.banner.link_tool" target="_blank" rel="noopener" >Automation tool (manual)</a>
             <a href="#" class="mx-4 banner-link"
-            data-i18n="index.banner.link_tool" target="_blank" rel="noopener">Automation tool</a>
-            <a href="#" class="mx-4 banner-link"
-            data-i18n="index.banner.link_gui" target="_blank" rel="noopener">GUI design</a>
+            data-i18n="index.banner.link_gui" target="_blank" rel="noopener" href="https://g-pico.com/tool">GUI design</a>
         </div>
         </div>
         <hr class="my-3">
@@ -430,9 +360,9 @@
     <script src="https://stackpath.amazonaws.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>-->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-    <!-- 若覺得每個盪案都要設定 bootstrap 太麻煩, 可以使用 bootstrap_libs.html 來當作公用 lib 
+    <!-- 若覺得每個盪案都要設定 bootstrap 太麻煩, 可以使用 bootstrap_libs.html 來當作公用 lib
 
-    content: 
+    content:
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
@@ -449,7 +379,7 @@
 
     當未來規模擴大時可以這樣使用
     -->
-    
+
 
 </body>
 </html>
