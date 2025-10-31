@@ -50,34 +50,34 @@ const news = {
     content: {
       "en": `
 
-<p>After three years of dedicated preparation, we are 
-incredibly excited to officially launch the first 
+<p>After three years of dedicated preparation, we are
+incredibly excited to officially launch the first
 g-Pico product!</p>
 
-<p>As one of the creators passionate about engineering, 
-we deeply understand that repetitive tasks often consume 
-significant time in daily life and work, which is why we 
-chose to invest in the development of an automated 
+<p>As one of the creators passionate about engineering,
+we deeply understand that repetitive tasks often consume
+significant time in daily life and work, which is why we
+chose to invest in the development of an automated
 testing system.</p>
 
-<p>We started from scratch to learn Python and explore 
-the potential of the Raspberry Pi Pico. Through continuous 
-research and hands-on development, we gradually built 
-the prototype of the g-Pico system. Today, it is finally 
-ready, taking its first step into automation applications 
+<p>We started from scratch to learn Python and explore
+the potential of the Raspberry Pi Pico. Through continuous
+research and hands-on development, we gradually built
+the prototype of the g-Pico system. Today, it is finally
+ready, taking its first step into automation applications
 with the debut of the sensor control interface.</p>
 
-<p>Beyond being confident in the future, we look forward 
-to sharing the convenience and joy that automation brings. 
-Our goal is to make technology a powerful assistant in 
-everyone's life, simplifying tedious tasks through 
+<p>Beyond being confident in the future, we look forward
+to sharing the convenience and joy that automation brings.
+Our goal is to make technology a powerful assistant in
+everyone's life, simplifying tedious tasks through
 comprehensive solutions—and this is just the beginning!</p>
 
-<p>We sincerely thank everyone who has supported us 
-throughout this journey, as well as the inspiration 
-from countless open-source communities and online 
-resources. g-Pico will continue to move forward, 
-striving to make life better through the power of 
+<p>We sincerely thank everyone who has supported us
+throughout this journey, as well as the inspiration
+from countless open-source communities and online
+resources. g-Pico will continue to move forward,
+striving to make life better through the power of
 technology.</p>
 
       `,
@@ -143,7 +143,7 @@ technology.</p>
     content: {
       "zh-TW": `
 <p><strong>💡 緣起：從工程師的痛點到自動化的核心領悟</strong></p>
-<p>我是 g-Pico 的創辦人，一名來自臺灣的工程師。我的職業生涯起步於德州儀器（TI），擔任了三年的 FAE（現場應用工程師），隨後轉任臺灣 IC 設計公司的系統與應用工程師。在這些高強度、高複雜度的工作中，我深刻體悟到：<strong>「數據」是驅動工程進展與決策的核心要素之一</strong>。</p>
+<p>我是 g-Pico 的創辦人，一名來自臺灣的工程師。我的職業生涯起步於2016從德州儀器（TI）開始，擔任了三年的 FAE（現場應用工程師），隨後轉任臺灣 IC 設計公司的系統與應用工程師。在這些高強度、高複雜度的工作中，我深刻體悟到：<strong>「數據」是驅動工程進展與決策的核心要素之一</strong>。</p>
 
 <p>有效的工程決策，從來都不能憑藉感覺。它仰賴於有系統地蒐集、整理、分析數據，並根據精準的量化結果不斷修正，以達成最終的理想目標。</p>
 
@@ -180,7 +180,7 @@ technology.</p>
       `,
       "en": `
 <p><strong>💡 Origin: From an Engineer's Pain Points to the Core of Automation</strong></p>
-<p>I am the founder of g-Pico, an engineer from Taiwan. My career started at Texas Instruments (TI) as an FAE for three years, and I then transitioned to a system and application engineer role at a local IC design company. Through these high-intensity and complex tasks, I realized a core truth: <strong>"Data" is one of the key elements driving engineering progress and decision-making</strong>.</p>
+<p>I am the founder of g-Pico, an engineer from Taiwan. My career started from 2016 at Texas Instruments (TI) as an FAE for three years, and I then transitioned to a system and application engineer role at a local IC design company. Through these high-intensity and complex tasks, I realized a core truth: <strong>"Data" is one of the key elements driving engineering progress and decision-making</strong>.</p>
 
 <p>Effective engineering decisions are never based on mere feeling. They rely on systematically collecting, organizing, and analyzing data, and continuously adjusting based on precise quantitative results to achieve the ideal goal.</p>
 
@@ -217,7 +217,7 @@ technology.</p>
       `,
       "zh-CN": `
 <p><strong>💡 缘起：从工程师的痛点到自动化的核心领悟</strong></p>
-<p>我是 g-Pico 的创始人，一名来自台湾的工程师。我的职业生涯起步于德州仪器（TI），担任了三年的 FAE（现场应用工程师），随后转任台湾 IC 设计公司的系统与应用工程师。在这些高强度、高复杂度的工作中，我深刻体悟到：<strong>“数据”是驱动工程进展与决策的核心要素之一</strong>。</p>
+<p>我是 g-Pico 的创始人，一名来自台湾的工程师。我的职业生涯起步于2016从德州仪器（TI）开始，担任了三年的 FAE（现场应用工程师），随后转任台湾 IC 设计公司的系统与应用工程师。在这些高强度、高复杂度的工作中，我深刻体悟到：<strong>“数据”是驱动工程进展与决策的核心要素之一</strong>。</p>
 
 <p>有效的工程决策，从来都不能凭借感觉。它仰赖于有系统地搜集、整理、分析数据，并根据精准的量化结果不断修正，以达成最终的理想目标。</p>
 
@@ -336,7 +336,7 @@ technology.</p>
 
 
 
-/** 
+/**
 
 const news = {
     news1: {
@@ -352,18 +352,18 @@ const news = {
 
             <p>Starting with no knowledge of Python, we've spent the past two
              years working relentlessly to build and refine the g-Pico system.
-              Today, we're thrilled to see it finally ready to launch, opening 
+              Today, we're thrilled to see it finally ready to launch, opening
               doors to new possibilities in automation.
             </p>
 
-            <p>We are filled with hope for the future and eager to share the 
-            benefits of automation with others. Our goal is to help everyone 
-            lead more efficient and fulfilling lives through technology. This 
+            <p>We are filled with hope for the future and eager to share the
+            benefits of automation with others. Our goal is to help everyone
+            lead more efficient and fulfilling lives through technology. This
             is just the beginning!
             </p>
 
-            <p>We are deeply grateful to everyone who has helped us along the 
-            way, as well as the online resources that supported us. We will try 
+            <p>We are deeply grateful to everyone who has helped us along the
+            way, as well as the online resources that supported us. We will try
             our best to make people's lives better.
             </p>
         `,
@@ -418,51 +418,51 @@ const news = {
             <br>
             <br>
 
-            
+
 
             <p>I am an engineer in Taiwan. I previously worked as an FAE
-             at Texas Instruments for three years, and now I serve as a 
+             at Texas Instruments for three years, and now I serve as a
              system and application engineer at a local IC design company
               in Taiwan. As my experience accumulated, I gradually realized
-               the importance of automation in work. Automation not only 
-               enhances experiment speed and ensures consistency in 
-               experimental methods but also increases the coverage of 
-               experimental conditions. More importantly, it frees engineers' 
-               hands, allowing us to focus on data analysis. Automated data 
+               the importance of automation in work. Automation not only
+               enhances experiment speed and ensures consistency in
+               experimental methods but also increases the coverage of
+               experimental conditions. More importantly, it frees engineers'
+               hands, allowing us to focus on data analysis. Automated data
                organization also greatly aids in the analysis process.</p>
             <br>
 
             <p>Therefore, I decided to learn and improve automation technologies
-            , integrating automated verification systems and coupling them 
-            with efficient automated data organization systems to 
-            systematically organize data for easier subsequent analysis. 
-            I gradually developed a total automation solution called g-Pico, 
+            , integrating automated verification systems and coupling them
+            with efficient automated data organization systems to
+            systematically organize data for easier subsequent analysis.
+            I gradually developed a total automation solution called g-Pico,
             integrating everything from general fixture operations to automated
              experiments, automated data organization, and analysis.</p>
             <br>
 
-            <p>My goal is to develop a system that even beginners or those who 
-            don't understand programming can operate through a graphical GUI, 
-            and promote this system to engineers or users with similar needs. 
-            I hope to help everyone free their hands and spend time on more 
-            important things—not only in data analysis and understanding but 
-            also in pursuing their passions and finding other meanings 
+            <p>My goal is to develop a system that even beginners or those who
+            don't understand programming can operate through a graphical GUI,
+            and promote this system to engineers or users with similar needs.
+            I hope to help everyone free their hands and spend time on more
+            important things—not only in data analysis and understanding but
+            also in pursuing their passions and finding other meanings
             in life.</p>
             <br>
 
             <p>Looking ahead, I hope to let more people understand the benefits
              that automation brings and be willing to use it to improve their
-              lives. I plan to systematically collect and organize data, 
+              lives. I plan to systematically collect and organize data,
               leveraging current AI technologies, and use machine learning
                for advanced data analysis and applications. I believe this
                 will not only improve work efficiency but also bring new
                  possibilities to the industry.</p>
             <br>
 
-            <p>Throughout this journey, although I often encounter 
+            <p>Throughout this journey, although I often encounter
             difficulties in integrating software and hardware, I always
-             look forward to creating useful tools with my own hands. 
-             I look forward to working with more like-minded friends 
+             look forward to creating useful tools with my own hands.
+             I look forward to working with more like-minded friends
              to create a more efficient and better future together.</p>
             <br>
 
