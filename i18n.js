@@ -512,7 +512,7 @@ let I18N_TABLES = {
       desc: { "en": "g-Pico technical discussion community",
               "zh-TW": "g-Pico 技術討論區",
               "zh-CN": "g-Pico 技术讨论区" } },
-    { href: 'https://www.instagram.com/garysharing/',
+    { href: 'https://www.instagram.com/g.pico.automation/',
       text: { "en": "Daily life of Engineer",
               "zh-TW": "工程師的日常",
               "zh-CN": "工程师的日常" },
