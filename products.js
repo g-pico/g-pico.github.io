@@ -37,18 +37,21 @@ function tField(field){
 
 // products.js
 const note_const = `Now we only support shipment to Taiwan. <br>
-                    Please contact <a href="mailto:gary49902210@gmail.com" target="_blank">g-Pico service</a> 
+                    Please contact <a href="mailto:gary49902210@gmail.com" target="_blank">g-Pico service</a>
                     for shipment to other regions. <br>
-                    We will try our best to open the shipping service in other 
+                    We will try our best to open the shipping service in other
                     regions in the future. <br>
                     Great thanks for your support and understanding! :) <br>`;
 
 
 // 建議放在 note_const 之後
 const note_const_2 = `For stock and availibility, please contact with
-<a href="mailto:gary49902210@gmail.com" target="_blank" rel="noopener">g-Pico support team</a> 
-or check from <a href="https://www.facebook.com/groups/464020849771652">on-line community</a>.`; // end_of_note_const_2
+<a href="mailto:gary49902210@gmail.com" target="_blank" rel="noopener">g-Pico support team</a>
+or check from <a href="https://www.facebook.com/groups/464020849771652" target="_blank" rel="noopener">on-line community</a>.`; // end_of_note_const_2
 
+
+
+// 如果要控制是否顯示, 需要到 products 的頁面進行限制,
 
 const products = {
     product1: {
@@ -92,7 +95,7 @@ const products = {
                     <img src="assets/yd-2040/modification_board.png" alt="Description Image"> <br>
 
                     <br>
-                    
+
                     `,
             "zh-TW": `這是由 <a href="http://vcc-gnd.com/" target="_blank">VCC-GND Stdio</a> 打造的功能最全面的 Pico 板標準模型。<br>
                     除了滿足標準的 Pico 板規格外，它還支援重置功能、外部按鈕和額外的 RGB LED。<br>
@@ -150,8 +153,8 @@ const products = {
         price: "NTD$200",
         note: note_const,
         showNote: false, // <--- 新增：不顯示 note
-        // us this method to add different string 
-        // note: note_const + `Please note that we are` 
+        // us this method to add different string
+        // note: note_const + `Please note that we are`
         images: [
             "assets/yd-2040/IMG_1-1.jpg",
             "assets/yd-2040/IMG_1-2.jpg",
@@ -173,7 +176,7 @@ const products = {
         },
         description: {
             "en": `A standard product released by <a href="https://www.raspberrypi.com/products/raspberry-pi-pico/" target="_blank">Raspberry Pi</a>
-             and finalize the dimension of general pico with a 2MB (16Mb, W25Q16) 
+             and finalize the dimension of general pico with a 2MB (16Mb, W25Q16)
             flash configuration that meets basic requirements.
             Micro USB port and BOOTSEL button is used for PC interface.
             <br>
@@ -233,7 +236,7 @@ const products = {
 
         price: "NTD$200",
         note: note_const,
-        // us this method to add different string 
+        // us this method to add different string
         // note: note_const + `Please note that we are`
         showNote: false, // <--- 新增：不顯示 note
         images: [
@@ -302,10 +305,10 @@ const products = {
         <li><a href="assets/pico_w/pico-w-datasheet.pdf" target="_blank">Raspberry Pi Pico W</a> 数据手册和原理图</li>
         <br>`
         },
-        
+
         price: "$320",
         note: note_const,
-        // us this method to add different string 
+        // us this method to add different string
         // note: note_const + `Please note that we are`
         showNote: false, // <--- 新增：不顯示 note
         images: [
@@ -341,12 +344,12 @@ const products = {
                 <li>Suitable for IoT, robotics, and embedded development</li>
                 <br>
                 For more information, check the <a href="https://github.com/Xinyuan-LilyGO/T-PicoC3" target="_blank">LILYGO T-PicoC3 documentation</a>. <br>
-                
+
                 <br>
                 Detail description:   <br>
                 This is a versatile development board by <a href="https://www.lilygo.cc/" target="_blank">LILYGO</a> that combines the power of the Raspberry Pi RP2040 with the ESP32-C3. It is designed to support a wide range of embedded and IoT applications by providing extensive connectivity and processing capabilities. <br>
 
-                
+
                 `,
             "zh-TW": `A versatile development board by <a href="https://www.lilygo.cc/" target="_blank">LILYGO</a> that combines the power of RP2040 with ESP32-C3.<br>
         <br>
@@ -361,7 +364,7 @@ const products = {
         <li>適用於 IoT、機器人和嵌入式開發</li>
         <br>
         For more information, check the <a href="https://github.com/Xinyuan-LilyGO/T-PicoC3" target="_blank">LILYGO T-PicoC3 文件</a>. <br>
-        
+
         <br>
         Detail description:   <br>
         這是由 <a href="https://www.lilygo.cc/" target="_blank">LILYGO</a> 推出的一款多功能開發板，它結合了 Raspberry Pi RP2040 和 ESP32-C3 的強大功能。它旨在透過提供廣泛的連線能力和處理能力，支援各種嵌入式和 IoT 應用。 <br>`,
@@ -378,21 +381,21 @@ const products = {
         <li>适用于 IoT、机器人和嵌入式开发</li>
         <br>
         For more information, check the <a href="https://github.com/Xinyuan-LilyGO/T-PicoC3" target="_blank">LILYGO T-PicoC3 文档</a>. <br>
-        
+
         <br>
         Detail description:   <br>
         这是由 <a href="https://www.lilygo.cc/" target="_blank">LILYGO</a> 推出的一款多功能开发板，它结合了 Raspberry Pi RP2040 和 ESP32-C3 的强大功能。它旨在通过提供广泛的连接性和处理能力，支持各种嵌入式和 IoT 应用。 <br>`
         },
-        
+
         price: "NTD$600",
         note: note_const,
-        // us this method to add different string 
+        // us this method to add different string
         // note: note_const + `Please note that we are`
         showNote: false, // <--- 新增：不顯示 note
         images: [
             "assets/t-pico-c3/IMG_2-3.jpg",
             "assets/t-pico-c3/T-PicoC3_en.jpg",
-            
+
         ]
     },
 	product5: {
@@ -425,17 +428,17 @@ const products = {
 
                 <br>
                 Detail description:   <br>
-                This expansion board is designed to allow the standard Pico board to be 
-                better applied in automated testing systems. Inspired by the daily work of 
-                electronics engineers, we have integrated various expansion features that might 
-                be needed onto this board. By leveraging the RP2040-based standard Pico board, 
-                this expansion board can realize General Purpose IO, Relay, I2C, SPI, PWM, and 
-                Pulse output functionalities, greatly enhancing the efficiency of electronics 
-                engineers in their daily work. The g-Pico team has also developed a companion 
-                GUI that allows you to operate the board through a simple graphical interface on 
-                a Windows PC. With easy installation and setup, you can quickly start using this 
-                versatile expansion board. To further integrate automation, the g-Pico team will 
-                continue to develop other Pico-based comprehensive automation testing and verification 
+                This expansion board is designed to allow the standard Pico board to be
+                better applied in automated testing systems. Inspired by the daily work of
+                electronics engineers, we have integrated various expansion features that might
+                be needed onto this board. By leveraging the RP2040-based standard Pico board,
+                this expansion board can realize General Purpose IO, Relay, I2C, SPI, PWM, and
+                Pulse output functionalities, greatly enhancing the efficiency of electronics
+                engineers in their daily work. The g-Pico team has also developed a companion
+                GUI that allows you to operate the board through a simple graphical interface on
+                a Windows PC. With easy installation and setup, you can quickly start using this
+                versatile expansion board. To further integrate automation, the g-Pico team will
+                continue to develop other Pico-based comprehensive automation testing and verification
                 systems to free electronics engineers from repetitive testing tasks.
                         `,
             "zh-TW": `一般 Pico 的擴展板，可將 Pico 擴展成一個方便且強大的自動化工具。<br>
@@ -458,7 +461,7 @@ const products = {
                 此擴展板可實現通用輸入/輸出 (IO)、繼電器、I2C、SPI、PWM 和脈衝輸出功能，
                 極大地提高了電子工程師的日常工作效率。g-Pico 團隊還開發了一個配套的圖形化使用者介面 (GUI)，
                 讓您可以在 Windows PC 上透過簡單的圖形介面操作此板。憑藉便捷的安裝和設定，
-                您可以快速開始使用這個多功能擴展板。為了進一步整合自動化，g-Pico 團隊將持續開發其他基於 Pico 
+                您可以快速開始使用這個多功能擴展板。為了進一步整合自動化，g-Pico 團隊將持續開發其他基於 Pico
                 的綜合自動化測試和驗證系統，以將電子工程師從重複的測試任務中解放出來。`,
             "zh-CN": `一般 Pico 的扩展板，可将 Pico 扩展成一个方便且强大的自动化工具。<br>
                 <br>
@@ -477,17 +480,17 @@ const products = {
                 Detail description:   <br>
                 此扩展板旨在让标准 Pico 板能更好地应用于自动化测试系统。灵感来自电子工程师的日常工作，
                 我们将各种可能需要的扩展功能集成到此板上。通过利用基于 RP2040 的标准 Pico 板，此扩展板可实现通用输入/输出 (IO)、
-                继电器、I2C、SPI、PWM 和脉冲输出功能，极大地提高了电子工程师的日常工作效率。g-Pico 团队还开发了一个配套的图形用户界面 
+                继电器、I2C、SPI、PWM 和脉冲输出功能，极大地提高了电子工程师的日常工作效率。g-Pico 团队还开发了一个配套的图形用户界面
                 (GUI)，让您可以在 Windows PC 上通过简单的图形界面操作此板。凭借便捷的安装和设置，您可以快速开始使用这个多功能扩展板。
                 为了进一步集成自动化，g-Pico 团队将持续开发其他基于 Pico 的综合自动化测试和验证系统，
                 以将电子工程师从重复的测试任务中解放出来。`
         },
-        
+
         price: "NTD$2000",
         note: note_const_2,  // <--- 使用你要的新版 note
         showNote: true,      // <--- 新增：顯示 note
 
-        // us this method to add different string 
+        // us this method to add different string
         // note: note_const + `Please note that we are`
         images: [
             "assets/extend_board/extend.jpg",
@@ -563,7 +566,7 @@ const products = {
 
 
 
-/* 
+/*
 
 description: {
             "en": `The most versatile standard model of the Pico board created by the <a href="http://vcc-gnd.com/" target="_blank">VCC-GND Stdio</a>.<br>

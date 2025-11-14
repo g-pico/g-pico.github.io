@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <title>橘皮客自動化｜GUI 設計服務流程條款</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="橘皮客自動化 GUI 設計服務流程、服務範圍、價目表與合作條款說明">
+    <style>
+        /* === 全站基本樣式設定 === */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+            line-height: 1.7;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f7f7;
+            color: #222;
+        }
+        .page {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 24px 16px 48px 16px;
+            background-color: #ffffff;
+        }
+        h1, h2, h3 {
+            font-weight: 700;
+            color: #222;
+        }
+        h1 {
+            font-size: 1.8rem;
+            margin-top: 0;
+        }
+        h2 {
+            font-size: 1.4rem;
+            margin-top: 2.2rem;
+            border-left: 4px solid #4CAF50;
+            padding-left: 8px;
+        }
+        h3 {
+            font-size: 1.15rem;
+            margin-top: 1.4rem;
+        }
+        p {
+            margin: 0.6rem 0;
+        }
+        ul {
+            padding-left: 1.2rem;
+        }
+        ul li {
+            margin: 0.3rem 0;
+        }
+
+        /* === 首頁標題 / hero 區塊 === */
+        .hero {
+            text-align: center;
+            margin-bottom: 24px;
+        }
+        .hero-title {
+            font-size: 1.8rem;
+            margin-bottom: 0.2rem;
+        }
+        .hero-subtitle {
+            font-size: 0.95rem;
+            color: #555;
+        }
+        .brand {
+            margin-top: 0.5rem;
+            font-size: 0.95rem;
+            color: #555;
+        }
+
+        /* === 目錄區塊 === */
+        .toc {
+            margin: 24px 0;
+            padding: 12px 16px;
+            background-color: #fafafa;
+            border: 1px solid #e0e0e0;
+            border-radius: 6px;
+        }
+        .toc-title {
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+        .toc ul {
+            list-style: none;
+            padding-left: 0;
+            margin: 0;
+            font-size: 0.95rem;
+        }
+        .toc li {
+            margin: 4px 0;
+        }
+        .toc a {
+            text-decoration: none;
+            color: #0066cc;
+        }
+        .toc a:hover {
+            text-decoration: underline;
+        }
+
+        /* === 圖片與註解樣式 === */
+        .image-block {
+            margin: 16px 0 24px 0;
+            text-align: center;
+        }
+        .image-block img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #e0e0e0;
+            border-radius: 4px;
+        }
+        .image-caption {
+            font-size: 0.85rem;
+            color: #777;
+            margin-top: 6px;
+        }
+
+        /* === 小提醒文字 === */
+        .section-note {
+            font-size: 0.9rem;
+            color: #666;
+        }
+        .highlight {
+            color: #d32f2f;
+            font-weight: 600;
+        }
+
+        /* === 聯絡 / 區塊樣式 === */
+        .contact-block {
+            padding: 12px 16px;
+            background-color: #fafafa;
+            border-radius: 6px;
+            border: 1px solid #e0e0e0;
+            margin-top: 8px;
+        }
+
+        /* === 表格樣式（時程示例用） === */
+        table.table-schedule {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 12px 0 20px 0;
+            font-size: 0.95rem;
+        }
+        table.table-schedule th,
+        table.table-schedule td {
+            border: 1px solid #ddd;
+            padding: 8px 10px;
+            text-align: left;
+        }
+        table.table-schedule th {
+            background-color: #f0f5f0;
+            font-weight: 600;
+        }
+
+        /* === footer === */
+        .footer {
+            margin-top: 32px;
+            font-size: 0.8rem;
+            color: #888;
+            text-align: center;
+        }
+
+        /* === RWD: 螢幕較寬時增加 padding === */
+        @media (min-width: 768px) {
+            .page {
+                padding: 32px 32px 56px 32px;
+            }
+        }
+    </style>
+
+    <!--
+        i18n 多語系說明：
+        - 之後若要支援英文 / 簡體中文，可以：
+          1. 在每個需要切換語系的元素上加 data-i18n="某個 key"
+          2. 另外建立 JSON，例如：
+             {
+               "zh-TW": { "section.about.title": "關於橘皮客" },
+               "en":    { "section.about.title": "About g-Pico Automation" }
+             }
+          3. 由前端 JavaScript 讀取 JSON，根據使用者選擇的語系，
+             將擁有 data-i18n 的元素 innerText 替換掉。
+        - 本檔中先示範在 section title 上加 data-i18n，未來可逐步擴充。
+    -->
+</head>
+<body>
+<div class="page">
+
+    <!-- === Hero 區：主要標題與品牌資訊 === -->
+    <header class="hero">
+        <!-- 若有封面圖片，可以在此放置（目前先註解） -->
+        <!-- <img src="images/gui_cover.png" alt="GUI 設計服務封面" /> -->
+
+        <div class="hero-title" data-i18n="page.title">GUI 設計服務流程條款</div>
+        <div class="brand" data-i18n="page.brand">橘皮客自動化　Gary Chu</div>
+        <p class="hero-subtitle" data-i18n="page.subtitle">
+            在自動化與資料導向的時代，我們協助您打造穩定、可靠、具彈性的專業 GUI 介面。
+        </p>
+    </header>
+
+    <!-- === 目錄：方便客戶快速跳轉到指定段落 === -->
+    <nav class="toc">
+        <div class="toc-title" data-i18n="toc.title">目錄</div>
+        <ul>
+            <li><a href="#about" data-i18n="toc.about">關於橘皮客</a></li>
+            <li><a href="#scope" data-i18n="toc.scope">服務範圍</a></li>
+            <li><a href="#use-cases" data-i18n="toc.use_cases">應用場景</a></li>
+            <li><a href="#requirements-guide" data-i18n="toc.requirements_guide">客戶需求填寫指引</a></li>
+            <li><a href="#process" data-i18n="toc.process">專案開發流程</a></li>
+            <li><a href="#client-checklist" data-i18n="toc.client_checklist">客戶需事先準備的資料</a></li>
+            <li><a href="#pricing" data-i18n="toc.pricing">價目表</a></li>
+            <li><a href="#gui-style" data-i18n="toc.gui_style">GUI 設計風格示例</a></li>
+            <li><a href="#terms" data-i18n="toc.terms">合作條款細節</a></li>
+            <li><a href="#contact" data-i18n="toc.contact">聯絡資料</a></li>
+        </ul>
+    </nav>
+
+    <!-- === SECTION 1：關於橘皮客 === -->
+    <section id="about">
+        <h2 data-i18n="section.about.title">關於橘皮客</h2>
+        <p data-i18n="section.about.p1">
+            在當今自動化與數據導向的時代，人機介面（GUI）已不僅僅是顯示數據的工具，
+            而是客戶與系統互動的核心。
+        </p>
+        <p data-i18n="section.about.p2">
+            我們深信，一個好的設計服務不只是完成專案，而是要陪伴客戶一起走過挑戰，
+            確保每一步都能帶來價值。
+        </p>
+        <p data-i18n="section.about.p3">因此，我們的服務理念建立在三個核心精神上：</p>
+        <ul>
+            <li data-i18n="section.about.list1">
+                <strong>韌性（Resilience）</strong>：面對專案中不可避免的挑戰與突發狀況，我們具備足夠的耐力與解決問題的能力，確保系統最終能穩定落地。
+            </li>
+            <li data-i18n="section.about.list2">
+                <strong>毅力（Perseverance）</strong>：我們不斷優化模組化架構與開發流程，憑藉日積月累的經驗與持續投入，為客戶帶來可靠且高品質的成果。
+            </li>
+            <li data-i18n="section.about.list3">
+                <strong>彈性（Flexibility）</strong>：每個客戶的需求都不同，我們擅長在既有框架上快速調整，提供最適合的方案，無論是 GUI 設計、硬體控制還是系統整合。
+            </li>
+        </ul>
+
+        <p data-i18n="section.about.p4">本文件的目的，是希望客戶在專案開始之前，就能清楚了解：</p>
+        <ul>
+            <li data-i18n="section.about.list4">我們能夠提供的服務範圍</li>
+            <li data-i18n="section.about.list5">專案的開發流程與時間規劃</li>
+            <li data-i18n="section.about.list6">雙方應遵守的合作條款</li>
+            <li data-i18n="section.about.list7">各項服務的價值與成本依據</li>
+        </ul>
+
+        <p data-i18n="section.about.p5">
+            透過這樣的規劃，我們不僅交付一個 GUI，而是交付一個能伴隨企業成長、
+            具備 <strong>韌性、毅力與彈性</strong> 的完整解決方案，讓客戶能安心專注於核心業務。
+        </p>
+    </section>
+
+    <!-- === SECTION 2：服務範圍 === -->
+    <section id="scope">
+        <h2 data-i18n="section.scope.title">服務範圍</h2>
+
+        <h3 data-i18n="section.scope.func_title">功能性範圍</h3>
+        <ul>
+            <li data-i18n="section.scope.func1">GUI 主視窗設計、選單列（menubar）、對話框</li>
+            <li data-i18n="section.scope.func2">資料顯示（表格、圖表、即時數據）</li>
+            <li data-i18n="section.scope.func3">儀器／硬體控制介面（UART、I2C、SPI、GPIB）</li>
+            <li data-i18n="section.scope.func4">報告輸出（Excel、CSV、自動化格式）</li>
+        </ul>
+
+        <h3 data-i18n="section.scope.nonfunc_title">非功能性範圍（排除事項）</h3>
+        <ul>
+            <li data-i18n="section.scope.nonfunc1">不包含硬體現場調試（如需，將另行報價）</li>
+            <li data-i18n="section.scope.nonfunc2">不包含第三方商業授權軟體費用（例如專業版工具授權等）</li>
+        </ul>
+    </section>
+
+    <!-- === SECTION 3：應用場景 === -->
+    <section id="use-cases">
+        <h2 data-i18n="section.use_cases.title">應用場景</h2>
+        <p data-i18n="section.use_cases.p1">
+            本服務主要針對符合下列開發規格的軟硬體系統，
+            其餘操作環境若有需求，歡迎另行討論可行性。
+        </p>
+        <ul>
+            <li data-i18n="section.use_cases.item1">電腦作業系統：<strong>Windows 11 24H2</strong></li>
+            <li data-i18n="section.use_cases.item2">報告輸入／輸出工具：<strong>Excel 2019 64-bit</strong></li>
+            <li data-i18n="section.use_cases.item3">
+                必要系統驅動程式：
+                <ul>
+                    <li data-i18n="section.use_cases.subitem1">NI MAX（NI VISA 488.2）</li>
+                    <li data-i18n="section.use_cases.subitem2">USB-RS-232 相關驅動</li>
+                </ul>
+            </li>
+        </ul>
+
+        <p class="section-note" data-i18n="section.use_cases.note">
+            ※ 若系統需支援其他版本作業系統或額外軟體環境，請於需求討論階段主動說明。<br>
+			※ 必要系統驅動程式部分若有搭配其他的韌體或硬體，可能增加額外使用限制<br>
+        </p>
+    </section>
+
+    <!-- === SECTION 4：客戶需求填寫指引 === -->
+    <!--
+        這一段是「教客戶怎麼描述需求」的重點區塊。
+        若未來要精簡 / 延伸，可直接在這個 section 內調整文字與小標。
+    -->
+    <section id="requirements-guide">
+        <h2 data-i18n="section.req_guide.title">客戶需求填寫指引</h2>
+
+        <p data-i18n="section.req_guide.intro">
+            為了讓我們能更精準估算工時與成本，並減少後續反覆修改，
+            建議您在提出需求時，盡量依照下列項目進行描述。
+            不需要一次寫得非常完整，可以先用簡單條列，我們會在郵件或會議中協助補充與釐清。
+        </p>
+
+        <h3 data-i18n="section.req_guide.gui_layout_title">1. GUI 版面與畫面配置</h3>
+        <p data-i18n="section.req_guide.gui_layout_p1">
+            您可以使用簡單手繪、PowerPoint、Excel 或任何工具，畫出想像中的畫面配置，
+            並標註大致位置與功能，例如：「左側為測試設定區、右側為即時曲線圖、下方為 Log 區」。
+        </p>
+        <ul>
+            <li data-i18n="section.req_guide.gui_layout_item1">主視窗大致尺寸（例如：1280×720 或全螢幕）</li>
+            <li data-i18n="section.req_guide.gui_layout_item2">按鈕、輸入欄位、列表、圖表等大致位置</li>
+            <li data-i18n="section.req_guide.gui_layout_item3">是否需要多分頁（Tab）或多個對話框視窗</li>
+        </ul>
+
+        <h3 data-i18n="section.req_guide.flow_title">2. 操作流程（使用步驟）</h3>
+        <p data-i18n="section.req_guide.flow_p1">
+            請以「使用者實際操作」的角度，簡單描述一個完整流程。例如：
+        </p>
+        <ul>
+            <li data-i18n="section.req_guide.flow_item1">開啟程式 → 選擇 COM Port → 按下「連線」</li>
+            <li data-i18n="section.req_guide.flow_item2">載入測試條件檔 → 按下「開始測試」</li>
+            <li data-i18n="section.req_guide.flow_item3">等測試完成 → 顯示結果 → 匯出報表到指定資料夾</li>
+        </ul>
+        <p class="section-note" data-i18n="section.req_guide.flow_note">
+            若有多種情境（例如：工程模式 / 操作員模式），也可以分別描述，我們會協助拆分為不同頁面或權限。
+        </p>
+
+        <h3 data-i18n="section.req_guide.hw_title">3. 儀器／硬體控制需求</h3>
+        <p data-i18n="section.req_guide.hw_p1">
+            若 GUI 需要控制儀器、測試板或其他硬體，請盡量提供以下資訊：
+        </p>
+        <ul>
+            <li data-i18n="section.req_guide.hw_item1">儀器或搭配硬體型號與廠牌（例如：電源供應器、DMM、示波器、Pico 等）</li>
+            <li data-i18n="section.req_guide.hw_item2">通訊介面：UART / I2C / SPI / GPIB / LAN / USB 等</li>
+            <li data-i18n="section.req_guide.hw_item3">是否有現成範例程式（例如：Python、LabVIEW、C）</li>
+            <li data-i18n="section.req_guide.hw_item4">是否能提供通訊協議、指令表或 SCPI 命令文件</li>
+        </ul>
+
+        <h3 data-i18n="section.req_guide.report_title">4. 報表與資料輸出需求</h3>
+        <p data-i18n="section.req_guide.report_p1">
+            請簡單說明您希望最後的測試結果以什麼形式呈現，例如：
+        </p>
+        <ul>
+            <li data-i18n="section.req_guide.report_item1">是否需要 Excel 報表（請提供範例檔或欄位名稱）</li>
+            <li data-i18n="section.req_guide.report_item2">是否需要 CSV / JSON 等機器可讀格式</li>
+            <li data-i18n="section.req_guide.report_item3">是否需支援多次量測結果比對或合併報告</li>
+        </ul>
+
+        <h3 data-i18n="section.req_guide.user_title">5. 使用者族群與使用情境</h3>
+        <p data-i18n="section.req_guide.user_p1">
+            不同使用者（研發工程師、產線作業員、FAE、客戶端工程師）對介面與功能的需求會不同。
+            若您能提供預期使用族群與環境，我們可以在設計上更貼近實際需求。
+        </p>
+        <ul>
+            <li data-i18n="section.req_guide.user_item1">主要使用者類型：研發 / 量產 / 實驗室 / 教學 等</li>
+            <li data-i18n="section.req_guide.user_item2">是否需要權限區分（例如：一般使用者 vs 管理者）</li>
+            <li data-i18n="section.req_guide.user_item3">預期每天或每週使用頻率</li>
+        </ul>
+
+        <p class="section-note" data-i18n="section.req_guide.end_note">
+            以上內容不需要一次完成，只要先提供大致方向即可。
+            我們會在需求訪談與會議中協助補充細節，並整理為正式的專案計畫書。
+        </p>
+    </section>
+
+    <!-- === SECTION 5：專案開發流程 === -->
+    <section id="process">
+        <h2 data-i18n="section.process.title">專案開發流程</h2>
+
+        <p data-i18n="section.process.p1">
+            企劃進行時，開發方與客戶需要共同配合，並留意以下主要流程。
+        </p>
+
+        <!-- 主要流程圖：請將 src 改成實際圖片路徑 -->
+        <div class="image-block">
+            <!--
+                TODO: 將 src 改成實際檔案位置，例如：
+                src="images/gui_flow_main.png"
+                目前先使用佔位檔名 process_overview.png。
+            -->
+            <img src="images/process_overview.png" alt="專案主要開發流程示意圖">
+            <div class="image-caption" data-i18n="section.process.img_main_caption">
+                圖示：專案主要開發流程（請依實際圖片路徑替換 src）
+            </div>
+        </div>
+
+		
+        <h3 data-i18n="section.process.detail_flow_title">階段性細節流程</h3>
+        <p data-i18n="section.process.detail_flow_p1">
+            更細部的階段性流程，將依下列示意圖說明。若您已有內部標準開發流程，
+            也可以在雙方討論後進行整合。
+        </p>
+
+        <!-- 階段性流程圖：請依實際檔名替換 src -->
+        <div class="image-block">
+            <img src="images/process_stage_1.png" alt="專案階段性流程圖 1">
+            <div class="image-caption" data-i18n="section.process.img_stage1_caption">
+                圖示：專案階段性流程（第一部分）
+            </div>
+        </div>
+
+        <div class="image-block">
+            <img src="images/process_stage_2.png" alt="專案階段性流程圖 2">
+            <div class="image-caption" data-i18n="section.process.img_stage2_caption">
+                圖示：專案階段性流程（第二部分）
+            </div>
+        </div>
+
+        <div class="image-block">
+            <img src="images/process_stage_3.png" alt="專案階段性流程圖 3">
+            <div class="image-caption" data-i18n="section.process.img_stage3_caption">
+                圖示：專案階段性流程（第三部分）
+            </div>
+        </div>
+		
+		<p class="section-note" data-i18n="section.process.rough_timeline_note">
+            實際時程會依專案範圍、技術難度及資源配合情況調整，將於專案計畫書中明確載明。
+        </p>
+    </section>
+
+    <!-- === SECTION 6：客戶需事先準備的資料清單 === -->
+    <!--
+        若未來你想把這一段整理成「可下載的表單」或「Google Form 問卷」，可以直接參考此清單項目。
+    -->
+    <section id="client-checklist">
+        <h2 data-i18n="section.client_checklist.title">客戶需事先準備的資料</h2>
+
+        <p data-i18n="section.client_checklist.p1">
+            為了縮短前期溝通時間並提升專案準確度，建議您在首次會議或需求提出前，
+            儘可能準備以下資料（可先準備已有的部分，其餘可於後續補充）：
+        </p>
+
+        <ul>
+            <li data-i18n="section.client_checklist.item1">
+                <strong>現有系統或 Demo 影片（若有）</strong>：可以是手機拍攝的操作影片，方便我們了解實際流程。
+            </li>
+            <li data-i18n="section.client_checklist.item2">
+                <strong>儀器與硬體清單</strong>：包含儀器型號、通訊介面（UART / I2C / SPI / GPIB / LAN / USB）等。
+            </li>
+            <li data-i18n="section.client_checklist.item3">
+                <strong>通訊協議與指令文件</strong>：例如 SCPI 指令表、通訊時序圖、廠商提供的 PDF 等。
+            </li>
+            <li data-i18n="section.client_checklist.item4">
+                <strong>測試流程或 SOP 文件</strong>：說明平時如何操作、量測哪些數據、判斷 Pass / Fail 的條件。
+            </li>
+            <li data-i18n="section.client_checklist.item5">
+                <strong>報表範例或欄位需求</strong>：可提供舊報表或 Excel 範本，標註必需欄位與格式要求。
+            </li>
+            <li data-i18n="section.client_checklist.item6">
+                <strong>GUI 草圖或舊 GUI 截圖（若有）</strong>：有助於我們理解排版習慣與風格偏好。
+            </li>
+            <li data-i18n="section.client_checklist.item7">
+                <strong>預計使用環境與電腦規格</strong>：例如 OS 版本、螢幕解析度、是否在產線環境等。
+            </li>
+            <li data-i18n="section.client_checklist.item8">
+                <strong>專案時程與內部里程碑</strong>：若您已有內部專案排程，可一併提供，方便我們對齊時程。
+            </li>
+			<li data-i18n="section.client_checklist.item8">
+                <strong>專案驗收項目檢核表</strong>：專案驗收階段各功能項目的測試條件以及驗收標準，判斷產品是否有符合客戶規格。
+            </li>
+        </ul>
+
+        <p class="section-note" data-i18n="section.client_checklist.note">
+            若以上資料尚未齊備，也歡迎先與我們討論，我們可以協助一起整理，逐步補齊。專案的規格剛開始很難完全確定，但希望透過這份文件以及後續的郵件、開會討論可以協助您逐步達成您喜要的目標!
+        </p>
+    </section>
+
+    <!-- === SECTION 7：價目表 === -->
+    <section id="pricing">
+        <h2 data-i18n="section.pricing.title">價目表</h2>
+        <p data-i18n="section.pricing.p1">
+            各功能項目請參考下方價目表示意圖。實際費用可能會依照
+            專案複雜度、客製程度及整體規劃而有所調整。
+        </p>
+        <p data-i18n="section.pricing.p2">
+            每一個專案方案，預設皆包含
+            <strong>專案完成後 3 個月內，每月 3 小時的客戶服務（線上討論／技術諮詢）</strong>。
+        </p>
+
+        <!-- 價目表圖：請將 src 改成實際圖片路徑 -->
+        <div class="image-block">
+            <!-- TODO: 把 pricing_table.png 改成實際圖片路徑，例如 images/gui_pricing_v1.png -->
+            <img src="images/pricing_table.png" alt="GUI 設計服務價目表">
+            <div class="image-caption" data-i18n="section.pricing.img_caption">
+                圖示：GUI 設計服務價目表（請依實際圖片路徑替換 src）
+            </div>
+        </div>
+
+        <p class="section-note" data-i18n="section.pricing.note">
+            ※ 若有大型專案、長期合作或需多階段擴充之情況，歡迎洽談專案制報價。
+        </p>
+    </section>
+
+    <!-- === SECTION 8：GUI 設計風格示例 === -->
+    <!--
+        這一段不是強制的條款，而是幫助客戶理解「可以如何溝通風格」的說明，可視情況增減。
+    -->
+    <section id="gui-style">
+        <h2 data-i18n="section.gui_style.title">GUI 設計風格示例</h2>
+
+        <p data-i18n="section.gui_style.p1">
+            雖然本服務主要以技術功能與穩定性為優先，但介面風格仍會影響使用體驗。
+            您可以先思考希望整體感覺偏向哪一類型，我們會在設計時盡量配合：
+        </p>
+
+        <ul>
+            <li data-i18n="section.gui_style.item1">
+                <strong>技術型 / 工具型</strong>：偏向工程師使用，畫面以表格、參數與 Log 為主，重視資訊密度與操作效率。
+            </li>
+            <li data-i18n="section.gui_style.item2">
+                <strong>儀表板型</strong>：使用大型數值、指針表、狀態燈號等呈現重點資訊，適合監控與展示。
+            </li>
+            <li data-i18n="section.gui_style.item3">
+                <strong>簡潔扁平風格</strong>：按鈕與元件設計較為現代、線條簡單，適合對外展示或客戶端使用。
+            </li>
+            <li data-i18n="section.gui_style.item4">
+                <strong>客製混合風格</strong>：若您有既有軟體或品牌識別（Logo、色系），我們可以依現有風格調整 GUI 視覺。
+            </li>
+        </ul>
+
+        <p class="section-note" data-i18n="section.gui_style.note">
+            若目前尚無特別偏好，也可以先以「清楚、好操作」為主，我們會依常見工程用 GUI 的習慣進行設計。
+        </p>
+    </section>
+
+    <!-- === SECTION 9：合作條款細節 === -->
+    <section id="terms">
+        <h2 data-i18n="section.terms.title">合作條款細節</h2>
+
+        <h3 data-i18n="section.terms.need_eval_title">一、需求討論與可行性評估</h3>
+        <p data-i18n="section.terms.need_eval_p1">
+            開發方將依照客戶提供的相關資料，分析技術可行性、估算開發工時與成本，
+            並提出所需之測試儀器與相關資源，請客戶評估是否能提供開發所需條件。
+            若無法提供，雙方將另行討論替代方案與調整方式。
+        </p>
+        <p data-i18n="section.terms.need_eval_p2">
+            對於已有範例程式或明確客製目標的專案，客戶需在韌體或驅動開發前，
+            提供完整可測試之硬體與接線資訊，以確保能開發出功能相同或可正常對接之系統。
+            主要需配合事項如下：
+        </p>
+        <ul>
+            <li data-i18n="section.terms.need_eval_list1">提供 Demo 機與示範操作，並向開發方說明實際需求。</li>
+            <li data-i18n="section.terms.need_eval_list2">由開發方進行 Log 抓取，評估介面協定與實作可行性。</li>
+            <li data-i18n="section.terms.need_eval_list3">開發方與客戶技術工程師進行技術討論，確認需求細節與可行性。</li>
+        </ul>
+        <p data-i18n="section.terms.need_eval_p3">
+            根據專案複雜程度，如有必要，可行性評估階段可能需收取評估費，將於事前與客戶說明。
+        </p>
+
+        <h3 data-i18n="section.terms.quote_deposit_title">二、報價與訂金</h3>
+        <p data-i18n="section.terms.quote_deposit_p1">
+            確認需求並完成可行性評估後，開發方將依結果進行專案時程規劃與報價。
+            雙方確認專案目標、報價與時程無誤並達成共識後，
+            客戶需支付 <strong>20% 訂金</strong>，以確認專案計畫書內所載之目標與範圍。
+        </p>
+        <p data-i18n="section.terms.quote_deposit_p2">
+            專案啟動後開始計算時程。若後續有新增或重大修改需求，
+            需針對新增項目另行估價。若遇開發方無法完成之情況，
+            將與客戶討論調整計畫與報價方式。
+        </p>
+        <p data-i18n="section.terms.quote_deposit_p3">
+            若客戶需開發方提供原始碼，將依專案大小與難度另行評估費用，
+            並提供具詳細註解之程式碼。
+        </p>
+        <p data-i18n="section.terms.quote_deposit_p4">
+            訂金收據將以開發方銀行帳戶記錄截圖方式回傳給客戶留存。
+        </p>
+
+        <h3 data-i18n="section.terms.change_title">三、變更需求與加價原則</h3>
+        <p data-i18n="section.terms.change_p1">
+            為避免專案過程中因需求持續變動而導致時程與成本大幅增加，
+            雙方將以「專案計畫書」作為主要依據，必要時再透過「變更單」進行調整。
+        </p>
+        <ul>
+            <li data-i18n="section.terms.change_list1">
+                <strong>小幅調整（通常不另外計價）：</strong> 文案修正、欄位名稱調整、顏色或字體微調等，不影響整體架構者。
+            </li>
+            <li data-i18n="section.terms.change_list2">
+                <strong>中度變更（需評估追加費用）：</strong> 新增按鈕與對應功能、新增報表格式、增加與新儀器的對接等。
+            </li>
+            <li data-i18n="section.terms.change_list3">
+                <strong>重大變更（需重新估價或開新專案）：</strong> 主要流程改寫、測試邏輯全面調整、作業系統平台改變等。
+            </li>
+        </ul>
+        <p class="section-note" data-i18n="section.terms.change_note">
+            通常在初版 GUI 確認後，若版面或流程有大幅變更需求，我們會先與您說明影響範圍與工時，
+            經雙方同意後再進行調整。
+        </p>
+
+        <h3 data-i18n="section.terms.terminate_title">四、中止條款與責任歸屬</h3>
+        <ul>
+            <li data-i18n="section.terms.terminate_list1">
+                若因開發方遇不可預期因素（例如評估錯誤等）需中止專案，
+                客戶可選擇要求全額退還訂金，或接收已完成之部分成果並由雙方協議處理方式。
+            </li>
+            <li data-i18n="section.terms.terminate_list2">
+                若因客戶遇不可預期因素需中止專案，開發方得依照已執行之工作項目與進度進行收費。
+            </li>
+        </ul>
+
+        <h3 data-i18n="section.terms.plan_update_title">五、開發規劃與進度更新</h3>
+        <p data-i18n="section.terms.plan_update_p1">
+            開發方應於收取訂金前提供專案計畫書，
+            內容包括：對專案需求功能的理解、預計驗收項目與驗收方式。
+            此文件將作為專案完成時之驗收依據，雙方皆不得單方面修改專案目標與驗收項目。
+        </p>
+        <p data-i18n="section.terms.plan_update_p2">
+            專案啟動後，每 <strong>2～3 週</strong> 開發方將向客戶進行進度彙報與已完成功能之展示，
+            以線上會議為主，並將相關資料上傳至雲端硬碟供客戶參考。
+            客戶須於會議中協助確認功能是否符合需求，以避免方向偏差造成交期延誤。
+        </p>
+        <p data-i18n="section.terms.plan_update_p3">
+            GUI（使用者介面）設計將於開發過程中提供初稿給客戶審閱與確認。
+            完成確認後，除專案計畫書原列之功能必要調整外，將不再進行額外美化或大幅版面修改。
+        </p>
+        <p data-i18n="section.terms.plan_update_p4">
+            客戶應盡量於前期明確提供 GUI 版面初始設計與後續調整需求，
+            以降低來回修正次數。專案提供 <strong>3 次免費版面修改</strong>，
+            超過 3 次者，將以每次新台幣 2,000 元計入尾款。
+            若為開發方遺漏之需求，則不計入此修改次數。
+        </p>
+        <p data-i18n="section.terms.plan_update_p5">
+            開發方與客戶皆需指定一位專案經理與技術溝通窗口（可為同一人），
+            遇到非預期專案調整或技術討論需求時，得以迅速聯繫並維持專案順利進行。
+        </p>
+
+        <h3 data-i18n="section.terms.accept_title">六、測試驗收與成果交付</h3>
+        <p data-i18n="section.terms.accept_p1">
+            當專案完成時，開發方將與客戶於會議中進行測試與驗收。
+            若專案涉及實體硬體，則需安排實體會議或現場測試。
+        </p>
+        <p data-i18n="section.terms.accept_p2">
+            驗收將依照訂金前雙方確認之專案計畫書與驗收項目進行。
+            開發方應針對功能缺失進行修正，但不包含 GUI 額外美化調整。
+            若此階段客戶提出新的需求，將視為新專案或新階段內容，需另行評估與報價。
+        </p>
+        <p data-i18n="section.terms.accept_p3">
+            專案成果交付後，客戶應於 <strong>一週內</strong> 支付尾款，以完成結案程序。
+            結案後，若遇到非原專案計畫中功能缺失之修改需求，將視為新專案需求。
+        </p>
+
+        <h3 data-i18n="section.terms.warranty_title">七、後續維護、服務與保固</h3>
+        <p data-i18n="section.terms.warranty_p1">
+            專案成果交付後，開發方將提供
+            <strong>2 個月功能保固</strong>，
+            期間若發現專案功能缺失，可免費協助修正。
+        </p>
+        <p data-i18n="section.terms.warranty_p2">
+            此外，專案結案後 <strong>6 個月內</strong>，
+            每月提供最多 <strong>3 小時</strong> 的線上討論與售後技術諮詢服務。
+            若超過此時數，或需開發方到場（on-site）支援，將另行評估費用。
+        </p>
+    </section>
+
+    <!-- === SECTION 10：聯絡資料 === -->
+    <section id="contact">
+        <h2 data-i18n="section.contact.title">聯絡資料</h2>
+        <p data-i18n="section.contact.p1">
+            為了讓專案能順利進行，請客戶提供以下兩位聯絡人資訊：
+        </p>
+
+        <div class="contact-block">
+            <h3 data-i18n="section.contact.client_pm_title">客戶端聯絡窗口</h3>
+            <ul>
+                <li data-i18n="section.contact.client_pm_item1">
+                    <strong>專案經理</strong>（負責時程、功能與一般溝通）
+                    <ul>
+                        <li data-i18n="section.contact.client_pm_name">稱呼：__________________</li>
+                        <li data-i18n="section.contact.client_pm_mail">Mail：__________________</li>
+                        <li data-i18n="section.contact.client_pm_phone">手機或 Line ID：__________________</li>
+                    </ul>
+                </li>
+                <li data-i18n="section.contact.client_eng_item1">
+                    <strong>技術討論工程師</strong>（負責專案進行中的技術細節討論）
+                    <ul>
+                        <li data-i18n="section.contact.client_eng_name">稱呼：__________________</li>
+                        <li data-i18n="section.contact.client_eng_mail">Mail：__________________</li>
+                        <li data-i18n="section.contact.client_eng_phone">手機或 Line ID：__________________</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <div class="contact-block">
+            <h3 data-i18n="section.contact.dev_title">開發方聯絡窗口（橘皮客自動化）</h3>
+            <ul>
+                <li data-i18n="section.contact.dev_engineer"><strong>技術工程師：</strong>Gary Chu</li>
+                <li data-i18n="section.contact.dev_mail">
+                    <strong>Mail：</strong><a href="mailto:gary49902210@gmail.com">gary49902210@gmail.com</a>
+                </li>
+                <li data-i18n="section.contact.dev_line"><strong>Line ID：</strong>tigarychu</li>
+            </ul>
+        </div>
+    </section>
+
+    <div class="footer" data-i18n="page.footer">
+        本頁內容僅供專案合作與需求溝通使用。若有未盡事宜，歡迎直接與開發方聯繫討論。
+    </div>
+
+</div>
+</body>
+</html>
