@@ -185,6 +185,71 @@ body {
                 padding: 32px 32px 56px 32px;
             }
         }
+
+        /* === 表格樣式（時程示例用） === */
+        table.table-schedule {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 12px 0 20px 0;
+            font-size: 0.95rem;
+        }
+        table.table-schedule th,
+        table.table-schedule td {
+            border: 1px solid #ddd;
+            padding: 8px 10px;
+            text-align: left;
+        }
+        table.table-schedule th {
+            background-color: #f0f5f0;
+            font-weight: 600;
+        }
+
+        /* === 價目表專用樣式 === */
+        table.pricing-table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 12px 0 20px 0;
+            font-size: 0.9rem;
+        }
+        table.pricing-table th,
+        table.pricing-table td {
+            border: 1px solid #999;
+            padding: 6px 8px;
+            vertical-align: top;
+        }
+        table.pricing-table thead th {
+            background-color: #dbeef4;   /* 類似你 Excel header 的淡藍色 */
+            text-align: center;
+        }
+        table.pricing-table tbody tr:nth-child(odd) {
+            background-color: #f9f9f9;
+        }
+        table.pricing-table td.col-no {
+            width: 40px;
+            text-align: center;
+            background-color: #f5f5f5;
+            font-weight: 600;
+        }
+        table.pricing-table td.col-cat {
+            width: 80px;
+            text-align: center;
+            background-color: #fce4d6;   /* 淡橘/淡粉，模擬「類別」欄的底色 */
+        }
+        table.pricing-table td.col-name {
+            width: 140px;
+            font-weight: 600;
+        }
+        table.pricing-table td.col-price {
+            width: 80px;
+            text-align: right;
+            background-color: #e2f0d9;   /* 淡綠，模擬金額欄位底色 */
+            white-space: nowrap;
+        }
+
+
+
+
+
     </style>
 <!--
         i18n 多語系說明：
@@ -377,49 +442,26 @@ body {
 </section>
 <!-- === SECTION 5：專案開發流程 === -->
 <section id="process">
-<h2 data-i18n="section.process.title">專案開發流程</h2>
-<p data-i18n="section.process.p1">
-            企劃進行時，開發方與客戶需要共同配合，並留意以下主要流程。
-        </p>
-<!-- 主要流程圖：請將 src 改成實際圖片路徑 -->
-<div class="image-block">
-<!--
-                TODO: 將 src 改成實際檔案位置，例如：
-                src="images/gui_flow_main.png"
-                目前先使用佔位檔名 process_overview.png。
-            -->
-<img alt="專案主要開發流程示意圖" data-i18n="img.process_overview.src" data-i18n-attr="src" src="images/process_overview.png"/>
-<div class="image-caption" data-i18n="section.process.img_main_caption">
-                圖示：專案主要開發流程（請依實際圖片路徑替換 src）
-            </div>
-</div>
-<h3 data-i18n="section.process.detail_flow_title">階段性細節流程</h3>
-<p data-i18n="section.process.detail_flow_p1">
-            更細部的階段性流程，將依下列示意圖說明。若您已有內部標準開發流程，
-            也可以在雙方討論後進行整合。
-        </p>
-<!-- 階段性流程圖：請依實際檔名替換 src -->
-<div class="image-block">
-<img alt="專案階段性流程圖 1" data-i18n="img.process_stage_1.src" data-i18n-attr="src" src="images/process_stage_1.png"/>
-<div class="image-caption" data-i18n="section.process.img_stage1_caption">
-                圖示：專案階段性流程（第一部分）
-            </div>
-</div>
-<div class="image-block">
-<img alt="專案階段性流程圖 2" data-i18n="img.process_stage_2.src" data-i18n-attr="src" src="images/process_stage_2.png"/>
-<div class="image-caption" data-i18n="section.process.img_stage2_caption">
-                圖示：專案階段性流程（第二部分）
-            </div>
-</div>
-<div class="image-block">
-<img alt="專案階段性流程圖 3" data-i18n="img.process_stage_3.src" data-i18n-attr="src" src="images/process_stage_3.png"/>
-<div class="image-caption" data-i18n="section.process.img_stage3_caption">
-                圖示：專案階段性流程（第三部分）
-            </div>
-</div>
-<p class="section-note" data-i18n="section.process.rough_timeline_note">
-            實際時程會依專案範圍、技術難度及資源配合情況調整，將於專案計畫書中明確載明。
-        </p>
+    <h2 data-i18n="section.process.title">專案開發流程</h2>
+    <p data-i18n="section.process.p1">...</p>
+
+    <!-- 原本 overview 圖改成第一張「專案評估」表格 -->
+    <div class="process-table-wrapper" data-i18n="section.process.eval_table_html">
+        <!-- 這裡可以放一個非常簡單的 fallback 表格 or 先留空 -->
+    </div>
+
+    <h3 data-i18n="section.process.detail_flow_title">階段性細節流程</h3>
+    <p data-i18n="section.process.detail_flow_p1">...</p>
+
+    <!-- 第二張：專案開發 -->
+    <div class="process-table-wrapper" data-i18n="section.process.dev_table_html"></div>
+
+    <!-- 第三張：保固與維護 -->
+    <div class="process-table-wrapper" data-i18n="section.process.warranty_table_html"></div>
+
+    <p class="section-note" data-i18n="section.process.rough_timeline_note">...</p>
+</section>
+
 </section>
 <!-- === SECTION 6：客戶需事先準備的資料清單 === -->
 <!--
@@ -466,23 +508,57 @@ body {
 </section>
 <!-- === SECTION 7：價目表 === -->
 <section id="pricing">
-<h2 data-i18n="section.pricing.title">價目表</h2>
-<p data-i18n="section.pricing.p1">
-            各功能項目請參考下方價目表示意圖。實際費用可能會依照
-            專案複雜度、客製程度及整體規劃而有所調整。
-        </p>
-<p data-i18n="section.pricing.p2">
-            每一個專案方案，預設皆包含
-            <strong>專案完成後 3 個月內，每月 3 小時的客戶服務（線上討論／技術諮詢）</strong>。
-        </p>
-<!-- 價目表圖：請將 src 改成實際圖片路徑 -->
-<div class="image-block">
-<!-- TODO: 把 pricing_table.png 改成實際圖片路徑，例如 images/gui_pricing_v1.png -->
-<img alt="GUI 設計服務價目表" data-i18n="img.pricing_table.src" data-i18n-attr="src" src="images/pricing_table.png"/>
-<div class="image-caption" data-i18n="section.pricing.img_caption">
-                圖示：GUI 設計服務價目表（請依實際圖片路徑替換 src）
-            </div>
-</div>
+    <h2 data-i18n="section.pricing.title">價目表</h2>
+    <p data-i18n="section.pricing.p1">
+        各功能項目請參考下方價目表示意圖。實際費用可能會依照
+        專案複雜度、客製程度及整體規劃而有所調整。
+    </p>
+    <p data-i18n="section.pricing.p2">
+        每一個專案方案，預設皆包含
+        <strong>專案完成後 3 個月內，每月 3 小時的客戶服務（線上討論／技術諮詢）</strong>。
+    </p>
+
+    <!-- 新：用 data-i18n 直接灌入整張 HTML 價目表 -->
+    <div class="pricing-table-wrapper" data-i18n="section.pricing.table_html">
+        <!-- Fallback：如果 JS 沒載入，先顯示繁中版本（簡化示例） -->
+        <table class="pricing-table">
+            <thead>
+                <tr>
+                    <th>編號</th>
+                    <th>類別</th>
+                    <th>功能名稱</th>
+                    <th>功能敘述</th>
+                    <th>功能底價 (NT$)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="col-no">1</td>
+                    <td class="col-cat">Software</td>
+                    <td class="col-name">GUI-Welcome 畫面</td>
+                    <td>
+                        可顯示公司資訊或其他結案畫面。<br/>
+                        Default 為顯示圖片後淡出（需客戶提供圖片）。
+                    </td>
+                    <td class="col-price">2,500</td>
+                </tr>
+                <!-- 其餘列就不在 fallback 中全部展開，交給 JS 多語系灌入 -->
+            </tbody>
+        </table>
+    </div>
+
+    <!-- 保留舊圖片（註解起來），未來若要還原可以解開 -->
+    <!--
+    <div class="image-block">
+        <img alt="GUI 設計服務價目表"
+             data-i18n="img.pricing_table.src"
+             data-i18n-attr="src"
+             src="images/pricing_table.png" />
+        <div class="image-caption" data-i18n="section.pricing.img_caption">
+            圖示：GUI 設計服務價目表（請依實際圖片路徑替換 src）
+        </div>
+    </div>
+    -->
 <p class="section-note" data-i18n="section.pricing.note">
             ※ 若有大型專案、長期合作或需多階段擴充之情況，歡迎洽談專案制報價。
         </p>

@@ -184,6 +184,187 @@
         'toc.terms': '合作條款細節',
         'toc.title': '目錄',
         'toc.use_cases': '應用場景',
+
+        /* ==== 新增：繁體中文價目表 HTML ==== */
+        'section.pricing.table_html': `
+<table class="pricing-table">
+  <thead>
+    <tr>
+      <th>編號</th>
+      <th>類別</th>
+      <th>功能名稱</th>
+      <th>功能敘述</th>
+      <th>功能底價 (NT$)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="col-no">1</td>
+      <td class="col-cat">Software</td>
+      <td class="col-name">GUI-Welcome 畫面</td>
+      <td>
+        &#10022; 可顯示公司資訊或其他初始畫面，Default 為顯示圖片後淡出（需客戶提供圖片）。<br/>
+        &#10022; 第一次製作底價為 2500，未來重複使用只收工錢 1000<br/>
+      </td>
+      <td class="col-price">2,500</td>
+    </tr>
+    <tr>
+      <td class="col-no">2</td>
+      <td class="col-cat">Software</td>
+      <td class="col-name">GUI-顏色調整</td>
+      <td>
+        &#10022; 依客戶品牌色或既有系統風格，調整整體 GUI 配色（背景色、按鈕色系、文字顏色等）。
+      </td>
+      <td class="col-price">2,000</td>
+    </tr>
+    <tr>
+      <td class="col-no">3</td>
+      <td class="col-cat">Software</td>
+      <td class="col-name">GUI-Logo 顯示</td>
+      <td>
+        &#10022; 於左上角與畫面適當區域顯示公司 Logo。<br/>
+        &#10022; 可支援 PNG / JPG 等常見格式；如需多個 Logo 或特殊排版，費用依實際需求調整。<br/>
+        &#10022; 在主畫面新增Logo圖示, 加價 1000 , 調整3次以內不額外收修改費, 超過每次收取 500 修改費<br/>
+        &#10022; 協助去背-加價 500
+      </td>
+      <td class="col-price">800</td>
+    </tr>
+    <tr>
+      <td class="col-no">4</td>
+      <td class="col-cat">Software</td>
+      <td class="col-name">GUI-主要介面及功能</td>
+      <td>
+        &#10022; 建立主要操作介面與核心功能元件（按鈕、文字框、表格、狀態指示、互動介面等）。<br/>
+        &#10022; 含一般複雜度之版面規劃，若功能數量較多或邏輯較複雜，將依實際工時調整報價。<br/>
+        &#10022; 介面修改提供3次免費版面修改, 超過每次收取 2000 元修改費<br/>
+      </td>
+      <td class="col-price">6,000</td>
+    </tr>
+    <tr>
+      <td class="col-no">5</td>
+      <td class="col-cat">Software</td>
+      <td class="col-name">GUI-Menu bar</td>
+      <td>
+        &#10022; 規劃與實作上方選單列（Menu bar），例如「檔案 / 檢視 / 編輯 / 工具 / 說明」等。<br/>
+        &#10022; 可依需求新增階層式選單與快捷鍵。
+        &#10022; 五個功能以內適用底價(載入設定, 儲存設定, 關於, 離開程式 + 自選*1 )
+      </td>
+      <td class="col-price">3,000</td>
+    </tr>
+    <tr>
+      <td class="col-no">6</td>
+      <td class="col-cat">Software</td>
+      <td class="col-name">GUI-關於資訊</td>
+      <td>
+        提供「關於本程式」視窗，顯示版本號、開發方資訊、聯絡方式與版權聲明等。
+      </td>
+      <td class="col-price">1,500</td>
+    </tr>
+    <tr>
+      <td class="col-no">7</td>
+      <td class="col-cat">Software</td>
+      <td class="col-name">GUI-輸入輸出</td>
+      <td>
+        依需求設計一般資料輸入畫面與基本輸出功能。<br/>
+        Default 支援 Excel 或 CSV 格式匯出；若需客製報表格式，將依實際欄位與排版需求調整。
+      </td>
+      <td class="col-price">1,500</td>
+    </tr>
+    <tr>
+      <td class="col-no">8</td>
+      <td class="col-cat">Software</td>
+      <td class="col-name">GUI-通訊 driver 介面</td>
+      <td>
+        &#10022; 建立 RS-232 / RS-485 / I2C / SPI 等通訊介面之 GUI 操作區，並與既有韌體或驅動程式對接（此項目僅含 software driver 介面實作，不含硬體端韌體開發）。<br/>
+        &#10022; 此報價內含一種通訊介面建立。<br/>
+        &#10022; <br/>
+      </td>
+      <td class="col-price">13,000</td>
+    </tr>
+    <tr>
+      <td class="col-no">9</td>
+      <td class="col-cat">Software</td>
+      <td class="col-name">GUI-介面新增多語言</td>
+      <td>
+        在既有 GUI 架構上新增多語系支援（例如：繁中 / 簡中 / 英文），<br/>
+        由統一的字串表管理顯示文字，方便後續擴充。
+      </td>
+      <td class="col-price">3,000</td>
+    </tr>
+    <tr>
+      <td class="col-no">10</td>
+      <td class="col-cat">Software</td>
+      <td class="col-name">GUI-舊版改進 / 重構</td>
+      <td>
+        針對既有 GUI 進行版面調整、流程優化或程式架構重構。<br/>
+        適合既有專案需要優化可維護性或延伸新功能的情境。
+      </td>
+      <td class="col-price">3,000</td>
+    </tr>
+    <tr>
+      <td class="col-no">11</td>
+      <td class="col-cat">Software<br/>Firmware<br/>Hardware</td>
+      <td class="col-name">延長線上客服保固方案（一）</td>
+      <td>
+        提供專案結案後額外線上技術支援與客製諮詢，<br/>
+        詳細內容（服務期間與次數）可於合約中約定。
+      </td>
+      <td class="col-price">5,400</td>
+    </tr>
+    <tr>
+      <td class="col-no">12</td>
+      <td class="col-cat">Software<br/>Firmware<br/>Hardware</td>
+      <td class="col-name">延長線上客服保固方案（二）</td>
+      <td>
+        針對較長期或高頻率支援需求的方案，<br/>
+        內容包含定期檢視、功能調整建議與遠端協助。
+      </td>
+      <td class="col-price">9,000</td>
+    </tr>
+    <tr>
+      <td class="col-no">13</td>
+      <td class="col-cat">Other</td>
+      <td class="col-name">其他加項服務</td>
+      <td>
+        例如客製報表格式、特殊硬體整合、教育訓練或到場支援等，<br/>
+        將依實際需求與工時另行報價。
+      </td>
+      <td class="col-price">N/A</td>
+    </tr>
+  </tbody>
+</table>
+        `,
+
+        'section.process.eval_table_html': `
+<table class="table-schedule">
+  <thead>
+    <tr>
+      <th>專案受理日期</th>
+      <th>預計完成時程</th>
+      <th>持續時間 (工作天)</th>
+      <th>進行項目</th>
+      <th>進行細節</th>
+      <th>一般需求時間</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>2025/1/1</td>
+      <td>2025/1/15</td>
+      <td>10</td>
+      <td>可行性評估</td>
+      <td>
+        根據客戶需求討論與提供的資料進行評估。<br/>
+        列出需客戶提供的必要開發資源。<br/>
+        必要時評估可能需要收取之評估費用。
+      </td>
+      <td>約 1–4 週</td>
+    </tr>
+    <!-- 第二列 2025/1/29 開發規劃 同樣方式填入 -->
+  </tbody>
+</table>
+        `,
+
     },
     'en': {
     'img.pricing_table.src': 'images/pricing_table.png',
@@ -350,6 +531,75 @@
     'toc.terms': 'Detailed Terms of Collaboration',
     'toc.title': 'Table of Contents',
     'toc.use_cases': 'Application Scenarios',
+
+
+
+    'section.pricing.table_html': `
+<table class="pricing-table">
+  <thead>
+    <tr>
+      <th>No.</th>
+      <th>Category</th>
+      <th>Feature Name</th>
+      <th>Description</th>
+      <th>Base Price (NT$)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="col-no">1</td>
+      <td class="col-cat">Software</td>
+      <td class="col-name">GUI Welcome Screen</td>
+      <td>
+        Shows company information or a project closing screen.<br/>
+        Default behavior: fade-in/fade-out image (image provided by client).<br/>
+        If multiple welcome pages are required, the final price will be adjusted
+        according to page count and design complexity.
+      </td>
+      <td class="col-price">2,500</td>
+    </tr>
+    <!-- 其他列一樣依照繁中內容翻成英文即可 -->
+  </tbody>
+</table>
+        `,
+
+
+        'section.process.eval_table_html': `
+<table class="table-schedule">
+  <thead>
+    <tr>
+      <th>專案受理日期</th>
+      <th>預計完成時程</th>
+      <th>持續時間 (工作天)</th>
+      <th>進行項目</th>
+      <th>進行細節</th>
+      <th>一般需求時間</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>2025/1/1</td>
+      <td>2025/1/15</td>
+      <td>10</td>
+      <td>可行性評估</td>
+      <td>
+        根據客戶需求討論與提供的資料進行評估。<br/>
+        列出需客戶提供的必要開發資源。<br/>
+        必要時評估可能需要收取之評估費用。
+      </td>
+      <td>約 1–4 週</td>
+    </tr>
+    <!-- 第二列 2025/1/29 開發規劃 同樣方式填入 -->
+  </tbody>
+</table>
+        `,
+
+
+
+
+
+
+
 	},
     'zh-CN': {
       // TODO: 請依需求逐步翻譯為簡體中文，以下為預設先沿用繁中內容。
@@ -517,6 +767,66 @@
       'toc.terms': '合作条款细节',
       'toc.title': '目录',
       'toc.use_cases': '应用场景',
+
+
+      'section.pricing.table_html': `
+<table class="pricing-table">
+  <thead>
+    <tr>
+      <th>编号</th>
+      <th>类别</th>
+      <th>功能名称</th>
+      <th>功能说明</th>
+      <th>功能底价 (NT$)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="col-no">1</td>
+      <td class="col-cat">Software</td>
+      <td class="col-name">GUI-Welcome 画面</td>
+      <td>
+        用于显示公司资讯或其他结案画面。<br/>
+        默认为显示图片后淡出（需客户提供图片）。<br/>
+        若有多页欢迎画面，实际费用依页数与设计复杂度另估。
+      </td>
+      <td class="col-price">2,500</td>
+    </tr>
+    <!-- 其餘列同繁中邏輯，將文字改成簡體即可 -->
+  </tbody>
+</table>
+        `,
+
+        'section.process.eval_table_html': `
+<table class="table-schedule">
+  <thead>
+    <tr>
+      <th>專案受理日期</th>
+      <th>預計完成時程</th>
+      <th>持續時間 (工作天)</th>
+      <th>進行項目</th>
+      <th>進行細節</th>
+      <th>一般需求時間</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>2025/1/1</td>
+      <td>2025/1/15</td>
+      <td>10</td>
+      <td>可行性評估</td>
+      <td>
+        根據客戶需求討論與提供的資料進行評估。<br/>
+        列出需客戶提供的必要開發資源。<br/>
+        必要時評估可能需要收取之評估費用。
+      </td>
+      <td>約 1–4 週</td>
+    </tr>
+    <!-- 第二列 2025/1/29 開發規劃 同樣方式填入 -->
+  </tbody>
+</table>
+        `,
+
     }
   };
 
