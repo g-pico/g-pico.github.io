@@ -439,24 +439,30 @@ body {
             以上內容不需要一次完成，只要先提供大致方向即可。
             我們會在需求訪談與會議中協助補充細節，並整理為正式的專案計畫書。
         </p>
-</section>
 <!-- === SECTION 5：專案開發流程 === -->
 <section id="process">
     <h2 data-i18n="section.process.title">專案開發流程</h2>
-    <p data-i18n="section.process.p1">...</p>
+    <p data-i18n="section.process.p1">
+        <!-- 這裡文字會由 ts_cs.js 控制，先用佔位即可 -->
+        ...
+    </p>
 
-    <!-- 原本 overview 圖改成第一張「專案評估」表格 -->
-    <div class="process-table-wrapper" data-i18n="section.process.eval_table_html">
-        <!-- 這裡可以放一個非常簡單的 fallback 表格 or 先留空 -->
+    <!-- ① 整體溝通流程介紹表（10 個討論步驟） -->
+    <div class="process-table-wrapper" data-i18n="section.process.overview_table_html">
+        <!-- 內容由 ts_cs.js 注入 -->
     </div>
 
+    <!-- ② 階段性細節流程：三張時程表（評估 / 開發 / 保固） -->
     <h3 data-i18n="section.process.detail_flow_title">階段性細節流程</h3>
     <p data-i18n="section.process.detail_flow_p1">...</p>
 
-    <!-- 第二張：專案開發 -->
+    <!-- 專案評估 -->
+    <div class="process-table-wrapper" data-i18n="section.process.eval_table_html"></div>
+
+    <!-- 專案開發 -->
     <div class="process-table-wrapper" data-i18n="section.process.dev_table_html"></div>
 
-    <!-- 第三張：保固與維護 -->
+    <!-- 保固與維護 -->
     <div class="process-table-wrapper" data-i18n="section.process.warranty_table_html"></div>
 
     <p class="section-note" data-i18n="section.process.rough_timeline_note">...</p>
