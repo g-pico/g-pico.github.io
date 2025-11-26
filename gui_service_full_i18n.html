@@ -246,7 +246,15 @@ body {
             white-space: nowrap;
         }
 
+        .table-intro {
+            margin: 0.75rem 0 0.25rem;
+        }
 
+        .table-footnote {
+            margin: 0.25rem 0 1.25rem;
+            font-size: 0.75rem;
+            color: #666666;
+        }
 
 
 
@@ -452,18 +460,37 @@ body {
         <!-- 內容由 ts_cs.js 注入 -->
     </div>
 
-    <!-- ② 階段性細節流程：三張時程表（評估 / 開發 / 保固） -->
+        <!-- ② 階段性細節流程：三張時程表（評估 / 開發 / 保固） -->
     <h3 data-i18n="section.process.detail_flow_title">階段性細節流程</h3>
     <p data-i18n="section.process.detail_flow_p1">...</p>
 
-    <!-- 專案評估 -->
+    <!-- 專案評估：說明 + 表格 + 附註 -->
+    <p class="table-intro" data-i18n="section.process.eval_intro">
+        <!-- 專案評估表格的說明文字（多語系由 ts_cs.js 控制） -->
+    </p>
     <div class="process-table-wrapper" data-i18n="section.process.eval_table_html"></div>
+    <p class="table-footnote" data-i18n="section.process.eval_note">
+        <!-- 專案評估表格的備註（灰色小字） -->
+    </p>
 
-    <!-- 專案開發 -->
+    <!-- 專案開發：說明 + 表格 + 附註 -->
+    <p class="table-intro" data-i18n="section.process.dev_intro">
+        <!-- 專案開發表格的說明文字 -->
+    </p>
     <div class="process-table-wrapper" data-i18n="section.process.dev_table_html"></div>
+    <p class="table-footnote" data-i18n="section.process.dev_note">
+        <!-- 專案開發表格的備註 -->
+    </p>
 
-    <!-- 保固與維護 -->
+    <!-- 保固與維護：說明 + 表格 + 附註 -->
+    <p class="table-intro" data-i18n="section.process.warranty_intro">
+        <!-- 保固與維護表格的說明文字 -->
+    </p>
     <div class="process-table-wrapper" data-i18n="section.process.warranty_table_html"></div>
+    <p class="table-footnote" data-i18n="section.process.warranty_note">
+        <!-- 保固與維護表格的備註 -->
+    </p>
+
 
     <p class="section-note" data-i18n="section.process.rough_timeline_note">...</p>
 </section>
