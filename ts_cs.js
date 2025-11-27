@@ -690,6 +690,7 @@
     'section.client_checklist.item6': 'GUI sketches or old GUI screenshots (if any): Helps us understand layout habits and style preferences.',
     'section.client_checklist.item7': 'Expected usage environment and computer specifications: E.g., OS version, screen resolution, whether it\'s in a production line environment, etc.',
     'section.client_checklist.item8': 'Project schedule and internal milestones: If you already have an internal project timeline, please provide it so we can align our schedules.',
+    'section.client_checklist.item9': '<strong>Project Acceptance Checklist</strong>: During the acceptance phase, this checklist defines the test conditions and acceptance criteria for each function, to verify whether the product meets the customer\'s specifications.',
     'section.client_checklist.note': 'If the above information is not yet complete, you are welcome to discuss it with us first. We can help organize it together and gradually fill in the gaps. Project specifications are often hard to finalize at the start, but we hope this document and subsequent email/meeting discussions will help you gradually achieve your desired goals!',
     'section.client_checklist.p1': 'To shorten initial communication time and improve project accuracy, it is recommended that you prepare the following information as much as possible before the first meeting or requirement submission (you may start with what you have, and supplement the rest later):',
     'section.client_checklist.title': 'Required Preparation Materials from the Client',
@@ -825,142 +826,474 @@
 
 
 
-    'section.pricing.table_html': `
+    /* ==== Pricing table – English ==== */
+  'section.pricing.table_html': `
 <table class="pricing-table">
   <thead>
     <tr>
       <th>No.</th>
       <th>Category</th>
-      <th>Feature Name</th>
+      <th>Function Name</th>
       <th>Description</th>
-      <th>Base Price (NT$)</th>
+      <th>Base Price (USD)</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td class="col-no">1</td>
       <td class="col-cat">Software</td>
-      <td class="col-name">GUI Welcome Screen</td>
+      <td class="col-name">GUI – Welcome Screen</td>
       <td>
-        Shows company information or a project closing screen.<br/>
-        Default behavior: fade-in/fade-out image (image provided by client).<br/>
-        If multiple welcome pages are required, the final price will be adjusted
-        according to page count and design complexity.
+        &#10022; Displays company information or an initial splash screen. Default behavior: show the image and fade out (image provided by customer).<br/>
+        &#10022; First-time setup base price is USD 80. For later reuse in other projects, only a labor fee of USD 32 is charged.<br/>
       </td>
-      <td class="col-price">2,500</td>
+      <td class="col-price">80</td>
     </tr>
-    <!-- 其他列一樣依照繁中內容翻成英文即可 -->
+    <tr>
+      <td class="col-no">2</td>
+      <td class="col-cat">Software</td>
+      <td class="col-name">GUI – Color Theme Adjustment</td>
+      <td>
+        &#10022; Adjust the overall GUI color theme (background, buttons, text color, etc.) to match the customer’s brand colors or existing system style.
+      </td>
+      <td class="col-price">64</td>
+    </tr>
+    <tr>
+      <td class="col-no">3</td>
+      <td class="col-cat">Software</td>
+      <td class="col-name">GUI – Logo Display</td>
+      <td>
+        &#10022; Show the company logo at the top-left corner and other appropriate locations in the GUI.<br/>
+        &#10022; Supports common formats such as PNG / JPG. If multiple logos or special layouts are required, the fee will be adjusted according to actual needs.<br/>
+        &#10022; Adding an extra logo icon on the main screen: + USD 32. Up to 3 layout adjustments are free; each additional change costs USD 16.<br/>
+        &#10022; Background removal support: USD 16.
+      </td>
+      <td class="col-price">26</td>
+    </tr>
+    <tr>
+      <td class="col-no">4</td>
+      <td class="col-cat">Software</td>
+      <td class="col-name">GUI – Main Interface & Core Functions</td>
+      <td>
+        &#10022; Build the main operation interface and core functional widgets (buttons, text entries, tables, status indicators, interactive panels, etc.).<br/>
+        &#10022; Includes layout design of normal complexity. If there are many functions or complex logic, the quotation will be adjusted based on actual workload.<br/>
+        &#10022; Up to 3 free layout revisions are included. Each additional revision costs USD 64.
+      </td>
+      <td class="col-price">192</td>
+    </tr>
+    <tr>
+      <td class="col-no">5</td>
+      <td class="col-cat">Software</td>
+      <td class="col-name">GUI – Menu Bar</td>
+      <td>
+        &#10022; Design and implement a top menu bar (e.g. “File / View / Edit / Tools / Help”, etc.).<br/>
+        &#10022; Hierarchical menus and shortcut keys can be added as needed.<br/>
+        &#10022; Base price includes up to five menu actions (Load Settings, Save Settings, About, Exit, plus one custom item).
+      </td>
+      <td class="col-price">96</td>
+    </tr>
+    <tr>
+      <td class="col-no">6</td>
+      <td class="col-cat">Software</td>
+      <td class="col-name">GUI – About Dialog (Enhanced)</td>
+      <td>
+        &#10022; Enhanced “About” dialog which can embed images or link to specific company / partner websites.
+      </td>
+      <td class="col-price">48</td>
+    </tr>
+    <tr>
+      <td class="col-no">7</td>
+      <td class="col-cat">Software</td>
+      <td class="col-name">GUI – Data I/O</td>
+      <td>
+        &#10022; Record measurement status and export results.<br/>
+        &#10022; Default export format is Excel or CSV without fixed formatting and without charts or additional processing. If a customized report layout is required, the fee will be adjusted based on the number of fields and formatting complexity.<br/>
+      </td>
+      <td class="col-price">48</td>
+    </tr>
+    <tr>
+      <td class="col-no">8</td>
+      <td class="col-cat">Software</td>
+      <td class="col-name">GUI – Communication Driver Interface</td>
+      <td>
+        &#10022; Create GUI control panels for interfaces such as RS-232 / RS-485 / I²C / SPI, and connect them with existing firmware or drivers (this item covers only the software driver GUI, not firmware development on the hardware side).<br/>
+        &#10022; The base price includes one communication interface.<br/>
+        &#10022; Additional interfaces or special requirements will be quoted separately.<br/>
+      </td>
+      <td class="col-price">415</td>
+    </tr>
+    <tr>
+      <td class="col-no">9</td>
+      <td class="col-cat">Software</td>
+      <td class="col-name">GUI – Multi-language Support</td>
+      <td>
+        &#10022; Add multi-language support (e.g. Traditional Chinese / Simplified Chinese / English) on top of the existing GUI structure.<br/>
+        &#10022; All display texts are managed through a centralized string table for easier future expansion and maintenance.<br/>
+      </td>
+      <td class="col-price">96</td>
+    </tr>
+    <tr>
+      <td class="col-no">10</td>
+      <td class="col-cat">Software</td>
+      <td class="col-name">GUI – Legacy GUI Enhancement</td>
+      <td>
+        &#10022; Extend or refine an existing GUI from a previous project.<br/>
+        &#10022; The quotation may be adjusted based on the actual modification scope.<br/>
+      </td>
+      <td class="col-price">96</td>
+    </tr>
+    <tr>
+      <td class="col-no">11</td>
+      <td class="col-cat">Software<br/>Firmware<br/>Hardware</td>
+      <td class="col-name">Extended Online Support Plan (A)</td>
+      <td>
+        &#10022; Online technical support and customized consulting, limited to the agreed project scope.<br/>
+        &#10022; Total of 3 hours, in units of 20 minutes each, with no expiry date.<br/>
+      </td>
+      <td class="col-price">173</td>
+    </tr>
+    <tr>
+      <td class="col-no">12</td>
+      <td class="col-cat">Software<br/>Firmware<br/>Hardware</td>
+      <td class="col-name">Extended Online Support Plan (B)</td>
+      <td>
+        &#10022; Online technical support and customized consulting, limited to the agreed project scope.<br/>
+        &#10022; Total of 1 hour, in units of 20 minutes each, with no expiry date.<br/>
+      </td>
+      <td class="col-price">64</td>
+    </tr>
+    <tr>
+      <td class="col-no">13</td>
+      <td class="col-cat">Other</td>
+      <td class="col-name">Additional Customized Services</td>
+      <td>
+        &#10022; Customized report layouts, special software / firmware / hardware integration, etc.<br/>
+        &#10022; Quotation will be provided after evaluation.<br/>
+      </td>
+      <td class="col-price">TBD</td>
+    </tr>
+    <tr>
+      <td class="col-no">14</td>
+      <td class="col-cat">Software<br/>Firmware<br/>Hardware</td>
+      <td class="col-name">System Integration Consulting</td>
+      <td>
+        &#10022; Consulting for various system design and integration issues.<br/>
+        &#10022; 20 minutes per session, to be used in a single call.<br/>
+        &#10022; Customers are required to provide the discussion topic and related information in advance. We will only proceed and charge the fee after confirming that we can reasonably assist.<br/>
+      </td>
+      <td class="col-price">64</td>
+    </tr>
+    <tr>
+      <td class="col-no">15</td>
+      <td class="col-cat">Other</td>
+      <td class="col-name">Operation Manual / User Documentation</td>
+      <td>
+        &#10022; Help create operation manuals or user guides.<br/>
+        &#10022; If a specific format or strict content requirements are needed, an additional quotation will be provided.<br/>
+        &#10022; The final price will be adjusted according to project complexity.<br/>
+      </td>
+      <td class="col-price">96</td>
+    </tr>
   </tbody>
 </table>
-        `,
+  `,
 
+  /* ==== Process tables – English ==== */
 
-        'section.process.dev_table_html': `
+  'section.process.eval_table_html': `
 <table class="table-schedule">
   <thead>
     <tr>
-      <th>專案啟動日期</th>
-      <th>預計完成時程</th>
-      <th>平均需求（工作天）</th>
-      <th>進行項目</th>
-      <th>進行細節</th>
-      <th>一般需求時間</th>
+      <th>Estimated Completion</th>
+      <th>Duration (working days)</th>
+      <th>Task</th>
+      <th>Details</th>
+      <th>Typical Timeframe</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>2025/3/1</td>
+      <td>2025/1/15</td>
+      <td>10</td>
+      <td>Feasibility Evaluation</td>
+      <td>
+        ▶ Evaluate project feasibility based on the requirements gathered during the requirement discussion (see the feasibility evaluation sheet for detailed items).<br/>
+        ▶ List the development resources that need to be provided by the customer.<br/>
+        ▶ Extra evaluation fees may apply depending on project size.
+      </td>
+      <td>1–4 weeks</td>
+    </tr>
+    <tr>
+      <td>2025/1/29</td>
+      <td>10</td>
+      <td>Development Planning</td>
+      <td>
+        ▶ Plan the expected development schedule and milestones.<br/>
+        ▶ Prepare a project proposal (integrating all related information and tables).<br/>
+        ▶ Consolidate cost estimates and prepare the quotation.
+      </td>
+      <td>1–4 weeks</td>
+    </tr>
+  </tbody>
+</table>
+  `,
+
+  'section.process.overview_table_html': `
+<table class="table-schedule">
+  <thead>
+    <tr>
+      <th>Step</th>
+      <th>Topic</th>
+      <th>Purpose</th>
+      <th>Developer Responsibilities</th>
+      <th>Customer Responsibilities</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>Requirement Discussion</td>
+      <td>Understand customer needs and define project scope and goals.</td>
+      <td>
+        ▶ Facilitate requirement interviews, record key points, and draft an initial feature list.<br/>
+        ▶ Clarify usage scenarios and system operation context.
+      </td>
+      <td>
+        ▶ Provide requirements, feature list, usage scenarios, and live demonstrations if available.<br/>
+        ▶ Fill out the requirement survey form.
+      </td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Feasibility Evaluation</td>
+      <td>Evaluate technical feasibility and resource requirements.</td>
+      <td>
+        ▶ Analyze technical feasibility and estimate development effort and cost.<br/>
+        ▶ Propose required test instruments and related resources.
+      </td>
+      <td>
+        ▶ Confirm requirement details and report available resources (instruments, documents, technical contacts, etc.).<br/>
+        ▶ Provide existing example code or protocol documents if available.
+      </td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Development Planning</td>
+      <td>Define timeline and version milestones.</td>
+      <td>
+        ▶ Create the project plan, schedule, and version control strategy.<br/>
+        ▶ Define phase goals and expected acceptance items.
+      </td>
+      <td>
+        ▶ Confirm schedule and phase goals.<br/>
+        ▶ Provide required test environments, accounts, or access permissions.
+      </td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Quotation</td>
+      <td>Prepare the official quotation and schedule based on confirmed requirements.</td>
+      <td>
+        ▶ Break down tasks and list unit prices and total cost.<br/>
+        ▶ Explain the estimated schedule and deliverables.
+      </td>
+      <td>
+        ▶ Confirm the quotation and delivery schedule.<br/>
+        ▶ Provide feedback or revision requests on the quotation.
+      </td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>Order & Deposit</td>
+      <td>Confirm collaboration and officially start the project.</td>
+      <td>
+        ▶ Provide contract terms and payment information.<br/>
+        ▶ Add the project to the formal development schedule after receiving the deposit.
+      </td>
+      <td>
+        ▶ Sign the contract and pay the deposit.<br/>
+        ▶ Confirm the project start date and main contact person.
+      </td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>Progress Updates</td>
+      <td>Provide updates and feedback every 2–3 weeks.</td>
+      <td>
+        ▶ Submit progress reports and demonstrate completed features.<br/>
+        ▶ Record meeting conclusions and action items.
+      </td>
+      <td>
+        ▶ Attend progress meetings and provide feedback.<br/>
+        ▶ Point out any deviations from expected direction as early as possible.
+      </td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>Mid-term Review</td>
+      <td>Verify development direction and completed features.</td>
+      <td>
+        ▶ Provide a testable build and testing instructions.<br/>
+        ▶ Make necessary adjustments based on feedback.
+      </td>
+      <td>
+        ▶ Test the system according to real usage scenarios.<br/>
+        ▶ Provide improvement suggestions and additional requirements if any.
+      </td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>Final Testing & Acceptance</td>
+      <td>Complete functional testing and bug fixing.</td>
+      <td>
+        ▶ Perform final integration tests and fix issues.<br/>
+        ▶ Prepare the acceptance report and related records.
+      </td>
+      <td>
+        ▶ Verify each acceptance item step by step.<br/>
+        ▶ Complete testing and sign the acceptance document.
+      </td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>Delivery</td>
+      <td>Deliver the final product and documentation.</td>
+      <td>
+        ▶ Provide the final executable, user guide, and related documents.<br/>
+        ▶ Source code or technology transfer materials can be provided with a separate quotation.
+      </td>
+      <td>
+        ▶ Confirm that all expected deliverables and documents are received.<br/>
+        ▶ Complete the final payment within 7 days.
+      </td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>Post-project Maintenance</td>
+      <td>Keep the system stable and continuously improved.</td>
+      <td>
+        ▶ Provide warranty and maintenance plans, and explain service scope and contacts.<br/>
+        ▶ Arrange online or on-site technical support depending on project needs.
+      </td>
+      <td>
+        ▶ Report issues and share improvement suggestions during use.<br/>
+        ▶ New requirements can be used as the basis for the next phase of the project.
+      </td>
+    </tr>
+  </tbody>
+</table>
+  `,
+
+  'section.process.dev_table_html': `
+<table class="table-schedule">
+  <thead>
+    <tr>
+      <th>Estimated Completion</th>
+      <th>Average Duration (working days)</th>
+      <th>Task</th>
+      <th>Details</th>
+      <th>Typical Timeframe</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
       <td>2025/3/14</td>
       <td>10</td>
-      <td>GUI 介面開發</td>
-      <td>依照客戶需求開發，開始 GUI 介面。</td>
-      <td>1–4 週</td>
+      <td>GUI Development</td>
+      <td>
+        ▶ Develop the main GUI interface according to customer requirements.<br/>
+        ▶ After the initial version is ready, schedule a meeting for review and adjustment.
+      </td>
+      <td>1–4 weeks</td>
     </tr>
     <tr>
-      <td>2025/3/1</td>
       <td>2025/3/28</td>
       <td>10</td>
-      <td>GUI 介面討論調校</td>
-      <td>持續與客戶討論、還有調整 GUI 設計。</td>
-      <td>1–4 週</td>
+      <td>GUI Review & Tuning</td>
+      <td>
+        ▶ Continuously discuss with the customer and refine the GUI design.<br/>
+        ▶ Adjust workflow and layout details to match real usage scenarios.
+      </td>
+      <td>1–4 weeks</td>
     </tr>
     <tr>
-      <td>2025/3/1</td>
       <td>2025/4/25</td>
       <td>20</td>
-      <td>功能開發與整合</td>
+      <td>Function Development & Integration</td>
       <td>
-        ▶ 開發目標所需實際功能。<br/>
-        ▶ 整合軟體、韌體以及硬體。<br/>
-        ▶ 上機測試、實機調較。<br/>
-        ▶ 視專案複雜度，可能超過 6 週。
+        ▶ Implement all required features.<br/>
+        ▶ Integrate software, firmware, and hardware, and perform bench tests and on-device tuning.<br/>
+        ▶ Depending on project complexity, this phase may take more than 6 weeks.
       </td>
-      <td>2–6 週</td>
+      <td>2–6 weeks</td>
     </tr>
     <tr>
-      <td>2025/3/1</td>
       <td>2025/5/2</td>
       <td>5</td>
-      <td>整機 Demo 測試、驗收會議</td>
+      <td>System Demo & Acceptance Meeting</td>
       <td>
-        ▶ 依照企劃書約定之項目進行驗收。<br/>
-        ▶ 完成驗收雙方在驗收單簽名確認。<br/>
-        ▶ 開發方交付打包後 EXE 檔。
+        ▶ Conduct acceptance testing according to the items listed in the project proposal.<br/>
+        ▶ Both parties sign the acceptance form upon completion.
       </td>
-      <td>1–2 週</td>
+      <td>1–2 weeks</td>
     </tr>
     <tr>
-      <td>2025/3/1</td>
       <td>2025/5/9</td>
       <td>5</td>
-      <td>結案準備</td>
-      <td>交付 EXE 檔之後，客戶需於一週內匯款完成結案，並開始計算保固。</td>
-      <td>1–2 週</td>
+      <td>Project Closure Preparation</td>
+      <td>
+        ▶ After delivering the EXE file, the customer is expected to complete the remaining payment within one week.<br/>
+        ▶ The project is then formally closed and the warranty period starts.
+      </td>
+      <td>1–2 weeks</td>
     </tr>
   </tbody>
 </table>
-`,
+  `,
 
-      'section.process.warranty_table_html': `
+  'section.process.warranty_table_html': `
 <table class="table-schedule">
   <thead>
     <tr>
-      <th>專案完成日期</th>
-      <th>預計到期時間</th>
-      <th>持續時間（天）</th>
-      <th>進行項目</th>
-      <th>進行細節</th>
+      <th>Estimated End Date</th>
+      <th>Duration (days)</th>
+      <th>Task</th>
+      <th>Details</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>2025/5/1</td>
       <td>2025/5/31</td>
       <td>30</td>
-      <td>產品保固</td>
+      <td>Product Warranty</td>
       <td>
-        ▶ 自專案完成驗收起 1 個月內，若發現功能缺失，開發方將協助修正進版。
+        ▶ Within 1 month after project acceptance, if any functional defects are found, we will help fix them.<br/>
+        ▶ The fix scope is limited to the functions defined in the original project specification.
       </td>
     </tr>
     <tr>
-      <td>2025/5/1</td>
       <td>2025/7/30</td>
       <td>90</td>
-      <td>客戶服務</td>
+      <td>Customer Service</td>
       <td>
-        ▶ 自專案完成起 3 個月內，提供每個月 3 小時以內線上技術討論支援。<br/>
-        ▶ 維護時間若超過時數，維護時間外或是需要 on-site，將另行評估收費。
+        ▶ Within 3 months after project completion, we provide up to 3 hours of online technical discussion per month.<br/>
+        ▶ If support time exceeds the quota or on-site service is required, additional charges will be quoted separately.
       </td>
     </tr>
   </tbody>
 </table>
-`,
-      'section.process.eval_intro': '...',
-      'section.process.eval_note': '...',
-      'section.process.dev_intro': '...',
-      'section.process.dev_note': '...',
-      'section.process.warranty_intro': '...',
-      'section.process.warranty_note': '...',
+  `,
+
+  /* ==== Process intro / notes – English ==== */
+
+  'section.process.eval_intro': 'Using a project accepted on 2025/1/1 as an example, the following table explains the typical schedule and responsibilities for the feasibility evaluation and development planning phases.',
+  'section.process.eval_note': '※ Actual schedule may vary depending on project complexity and the completeness of information provided by the customer. Details can be confirmed during requirement meetings.',
+
+  'section.process.dev_intro': 'Using a project started on 2025/3/1 as an example, the following table shows each phase of GUI development and feature integration, along with regular progress updates.',
+  'section.process.dev_note': '※ If the project includes many functions or requires integration with third-party equipment, the overall development period may be extended. We will explain this clearly during the quotation and scheduling phase.',
+
+  'section.process.warranty_intro': 'Using a project completed on 2025/5/1 as an example, the following table summarizes the warranty period and customer service support provided after completion and acceptance.',
+  'section.process.warranty_note': '※ Warranty coverage is limited to the functions agreed in the original specification and proposal. Additional requirements or feature extensions will be evaluated and quoted separately.',
 
 
 
@@ -1138,7 +1471,8 @@
       'toc.use_cases': '应用场景',
 
 
-      'section.pricing.table_html': `
+      /* ==== 价目表 – 简体中文 ==== */
+  'section.pricing.table_html': `
 <table class="pricing-table">
   <thead>
     <tr>
@@ -1146,62 +1480,465 @@
       <th>类别</th>
       <th>功能名称</th>
       <th>功能说明</th>
-      <th>功能底价 (NT$)</th>
+      <th>功能底价（NT$ / 约 US$ / 人民币）</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td class="col-no">1</td>
       <td class="col-cat">Software</td>
-      <td class="col-name">GUI-Welcome 画面</td>
+      <td class="col-name">GUI 欢迎画面</td>
       <td>
-        用于显示公司资讯或其他结案画面。<br/>
-        默认为显示图片后淡出（需客户提供图片）。<br/>
-        若有多页欢迎画面，实际费用依页数与设计复杂度另估。
+        &#10022; 显示公司资讯或其它起始画面。预设行为：显示图片后淡出（图片由客户提供）。<br/>
+        &#10022; 首次制作底价为 NT$2,500，后续在其它专案中重复使用，仅收 NT$1,000 工时费。<br/>
       </td>
-      <td class="col-price">2,500</td>
+      <td class="col-price">2,500（约 US$80 / ¥568）</td>
     </tr>
-    <!-- 其餘列同繁中邏輯，將文字改成簡體即可 -->
+    <tr>
+      <td class="col-no">2</td>
+      <td class="col-cat">Software</td>
+      <td class="col-name">GUI 配色调整</td>
+      <td>
+        &#10022; 依照客户品牌色或既有系统风格，调整整体 GUI 配色（背景色、按钮色系、文字颜色等）。
+      </td>
+      <td class="col-price">2,000（约 US$64 / ¥455）</td>
+    </tr>
+    <tr>
+      <td class="col-no">3</td>
+      <td class="col-cat">Software</td>
+      <td class="col-name">GUI Logo 显示</td>
+      <td>
+        &#10022; 在左上角与画面适当位置显示公司 Logo。<br/>
+        &#10022; 支持 PNG / JPG 等常见格式；如需多个 Logo 或特殊排版，费用将依实际需求调整。<br/>
+        &#10022; 在主画面新增 Logo 图示：加价 NT$1,000，3 次以内排版调整不额外收费，超过部分每次加收 NT$500。<br/>
+        &#10022; 协助去背：加价 NT$500。
+      </td>
+      <td class="col-price">800（约 US$26 / ¥182）</td>
+    </tr>
+    <tr>
+      <td class="col-no">4</td>
+      <td class="col-cat">Software</td>
+      <td class="col-name">GUI 主要界面与功能</td>
+      <td>
+        &#10022; 建立主要操作界面与核心功能元件（按钮、文字框、表格、状态指示、互动界面等）。<br/>
+        &#10022; 含一般复杂度的版面规划；若功能数量较多或逻辑较复杂，将依实际工时调整报价。<br/>
+        &#10022; 提供 3 次免费版面修改，超出部分每次加收 NT$2,000。<br/>
+      </td>
+      <td class="col-price">6,000（约 US$192 / ¥1,364）</td>
+    </tr>
+    <tr>
+      <td class="col-no">5</td>
+      <td class="col-cat">Software</td>
+      <td class="col-name">GUI 菜单列（Menu bar）</td>
+      <td>
+        &#10022; 规划与实现上方菜单列，例如 “文件 / 视图 / 编辑 / 工具 / 帮助”等。<br/>
+        &#10022; 可依需求新增阶层式菜单与快捷键。<br/>
+        &#10022; 底价含 5 个功能项目（载入设置、储存设置、关于、退出程序 + 客制自选 1 项）。<br/>
+      </td>
+      <td class="col-price">3,000（约 US$96 / ¥682）</td>
+    </tr>
+    <tr>
+      <td class="col-no">6</td>
+      <td class="col-cat">Software</td>
+      <td class="col-name">GUI 关于资讯（进阶版）</td>
+      <td>
+        &#10022; 强化版“关于”资讯视窗，可插入图片或连结到公司／合作厂商网站。
+      </td>
+      <td class="col-price">1,500（约 US$48 / ¥341）</td>
+    </tr>
+    <tr>
+      <td class="col-no">7</td>
+      <td class="col-cat">Software</td>
+      <td class="col-name">GUI 输入输出</td>
+      <td>
+        &#10022; 纪录量测状态并输出结果。<br/>
+        &#10022; 预设为 Excel 或 CSV 档，不指定排版、无图表与额外效果；若需客制报表格式，将依栏位数量与排版需求另外报价。<br/>
+      </td>
+      <td class="col-price">1,500（约 US$48 / ¥341）</td>
+    </tr>
+    <tr>
+      <td class="col-no">8</td>
+      <td class="col-cat">Software</td>
+      <td class="col-name">GUI 通讯驱动界面</td>
+      <td>
+        &#10022; 建立 RS-232 / RS-485 / I²C / SPI 等通讯界面的 GUI 操作区，并与既有韧体或驱动程式对接（本项目仅含软件端驱动界面，不含硬件端韧体开发）。<br/>
+        &#10022; 底价包含一种通讯介面。<br/>
+        &#10022; 其它需求将另行估价。<br/>
+      </td>
+      <td class="col-price">13,000（约 US$415 / ¥2,955）</td>
+    </tr>
+    <tr>
+      <td class="col-no">9</td>
+      <td class="col-cat">Software</td>
+      <td class="col-name">GUI 多语言支持</td>
+      <td>
+        &#10022; 在既有 GUI 结构上新增多语言支持（例如：繁体中文 / 简体中文 / 英文）。<br/>
+        &#10022; 以统一字串表管理所有显示文字，方便后续扩充与维护。<br/>
+      </td>
+      <td class="col-price">3,000（约 US$96 / ¥682）</td>
+    </tr>
+    <tr>
+      <td class="col-no">10</td>
+      <td class="col-cat">Software</td>
+      <td class="col-name">GUI 旧版改进</td>
+      <td>
+        &#10022; 以既有专案的 GUI 为基础进行延伸或功能优化。<br/>
+        &#10022; 报价将依实际修改内容进行调整。<br/>
+      </td>
+      <td class="col-price">3,000（约 US$96 / ¥682）</td>
+    </tr>
+    <tr>
+      <td class="col-no">11</td>
+      <td class="col-cat">Software<br/>Firmware<br/>Hardware</td>
+      <td class="col-name">延长线上客服保固方案（一）</td>
+      <td>
+        &#10022; 提供线上技术支援与客制咨询，仅限讨论本专案范围。<br/>
+        &#10022; 共 3 小时，以 20 分钟为单位计算，无使用期限。<br/>
+      </td>
+      <td class="col-price">5,400（约 US$173 / ¥1,227）</td>
+    </tr>
+    <tr>
+      <td class="col-no">12</td>
+      <td class="col-cat">Software<br/>Firmware<br/>Hardware</td>
+      <td class="col-name">延长线上客服保固方案（二）</td>
+      <td>
+        &#10022; 提供线上技术支援与客制咨询，仅限讨论本专案范围。<br/>
+        &#10022; 共 1 小时，以 20 分钟为单位计算，无使用期限。<br/>
+      </td>
+      <td class="col-price">2,000（约 US$64 / ¥455）</td>
+    </tr>
+    <tr>
+      <td class="col-no">13</td>
+      <td class="col-cat">Other</td>
+      <td class="col-name">其他加值服务</td>
+      <td>
+        &#10022; 客制报表格式、特殊软件／韧体／硬件整合等。<br/>
+        &#10022; 将依评估结果另行报价。<br/>
+      </td>
+      <td class="col-price">TBD</td>
+    </tr>
+    <tr>
+      <td class="col-no">14</td>
+      <td class="col-cat">Software<br/>Firmware<br/>Hardware</td>
+      <td class="col-name">软硬件整合咨询</td>
+      <td>
+        &#10022; 各种系统设计与整合问题咨询。<br/>
+        &#10022; 每次 20 分钟，需要一次用完。<br/>
+        &#10022; 需由客户事先提供讨论主题与相关资料，我们评估确实能协助后才进行后续讨论与收费。<br/>
+      </td>
+      <td class="col-price">2,000（约 US$64 / ¥455）</td>
+    </tr>
+    <tr>
+      <td class="col-no">15</td>
+      <td class="col-cat">Other</td>
+      <td class="col-name">操作手册／使用说明文件</td>
+      <td>
+        &#10022; 协助制作操作说明文件。<br/>
+        &#10022; 若需指定格式或严格内容要求则另行估价。<br/>
+        &#10022; 报价会依专案复杂度进行调整。<br/>
+      </td>
+      <td class="col-price">3,000（约 US$96 / ¥682）</td>
+    </tr>
   </tbody>
 </table>
-        `,
+  `,
 
-        'section.process.eval_table_html': `
+  /* ==== 流程表 – 简体中文 ==== */
+
+  'section.process.eval_table_html': `
 <table class="table-schedule">
   <thead>
     <tr>
-      <th>專案受理日期</th>
-      <th>預計完成時程</th>
-      <th>持續時間 (工作天)</th>
-      <th>進行項目</th>
-      <th>進行細節</th>
-      <th>一般需求時間</th>
+      <th>预计完成时间</th>
+      <th>持续时间（工作天）</th>
+      <th>进行项目</th>
+      <th>进行细节</th>
+      <th>一般需求时间</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>2025/1/1</td>
       <td>2025/1/15</td>
       <td>10</td>
-      <td>可行性評估</td>
+      <td>可行性评估</td>
       <td>
-        根據客戶需求討論與提供的資料進行評估。<br/>
-        列出需客戶提供的必要開發資源。<br/>
-        必要時評估可能需要收取之評估費用。
+        ▶ 依据需求讨论阶段所整理的需求，评估专案可行性（详细项目请参考可行性评估表）。<br/>
+        ▶ 列出需要由客户提供的必要开发资源。<br/>
+        ▶ 视专案规模，可能会酌收评估费用。
       </td>
-      <td>約 1–4 週</td>
+      <td>1–4 周</td>
     </tr>
-    <!-- 第二列 2025/1/29 開發規劃 同樣方式填入 -->
+    <tr>
+      <td>2025/1/29</td>
+      <td>10</td>
+      <td>开发规划</td>
+      <td>
+        ▶ 规划专案开发进度与预期里程碑。<br/>
+        ▶ 制作企划书（整合各项资料与表格）。<br/>
+        ▶ 汇整成本并准备报价。<br/>
+      </td>
+      <td>1–4 周</td>
+    </tr>
   </tbody>
 </table>
-        `,
+  `,
 
-        'section.process.eval_intro': '...',
-        'section.process.eval_note': '...',
-        'section.process.dev_intro': '...',
-        'section.process.dev_note': '...',
-        'section.process.warranty_intro': '...',
-        'section.process.warranty_note': '...',
+  'section.process.overview_table_html': `
+<table class="table-schedule">
+  <thead>
+    <tr>
+      <th>顺序</th>
+      <th>讨论主题</th>
+      <th>讨论目的</th>
+      <th>开发方负责项目</th>
+      <th>客户负责项目</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>需求讨论</td>
+      <td>了解客户需求，确定专案范围与目标。</td>
+      <td>
+        ▶ 引导需求访谈，记录重点，整理初步功能清单。<br/>
+        ▶ 釐清应用场景与系统使用情境。
+      </td>
+      <td>
+        ▶ 提供需求、功能清单、应用场景与实机示范（若有）。<br/>
+        ▶ 填写需求调查表。
+      </td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>可行性评估</td>
+      <td>进行技术可行性与资源评估。</td>
+      <td>
+        ▶ 分析技术可行性，估算开发工时与成本。<br/>
+        ▶ 提出测试仪器及相关资源需求。
+      </td>
+      <td>
+        ▶ 确认需求细节，并回报可用资源（仪器、文件、技术联系人等）。<br/>
+        ▶ 若有既有范例程式或协定文件，可一并提供。<br/>
+      </td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>开发规划</td>
+      <td>制定开发时程与版本里程碑。</td>
+      <td>
+        ▶ 建立专案计划书、排程与版本控管规划。<br/>
+        ▶ 规划阶段目标与预期验收项目。
+      </td>
+      <td>
+        ▶ 确认排程与阶段目标。<br/>
+        ▶ 提供必要的测试环境、帐号或存取权限。
+      </td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>报价</td>
+      <td>根据确认的需求提出正式报价与工期。</td>
+      <td>
+        ▶ 拆分工作项目，列出单价与总价。<br/>
+        ▶ 说明预估工期与交付内容。
+      </td>
+      <td>
+        ▶ 确认报价与交付时间。<br/>
+        ▶ 就报价内容提出修改意见（若有）。<br/>
+      </td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>下单与订金</td>
+      <td>确认合作关系并启动专案。</td>
+      <td>
+        ▶ 提供合约条款与付款资讯。<br/>
+        ▶ 收到订金后，将专案排入正式开发时程。
+      </td>
+      <td>
+        ▶ 签署合约并支付订金。<br/>
+        ▶ 确认专案启动日期与主要联络窗口。
+      </td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>开发进度更新</td>
+      <td>每 2～3 周更新开发进度与回馈。</td>
+      <td>
+        ▶ 提交进度报告并示范已完成功能。<br/>
+        ▶ 记录会议结论与待办事项。
+      </td>
+      <td>
+        ▶ 参与进度会议并提供回馈。<br/>
+        ▶ 尽早指出方向不符或需要调整之处。<br/>
+      </td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>中期验收</td>
+      <td>确认开发方向与已完成功能。</td>
+      <td>
+        ▶ 提供可测试版本与测试说明文件。<br/>
+        ▶ 依据回馈进行必要调整。
+      </td>
+      <td>
+        ▶ 依照实际使用情境进行测试。<br/>
+        ▶ 提出改善建议与新增需求（若有）。<br/>
+      </td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>测试验收</td>
+      <td>完成功能测试与 Bug 修正。</td>
+      <td>
+        ▶ 执行最终整合测试并修正问题。<br/>
+        ▶ 准备验收报告与相关纪录。
+      </td>
+      <td>
+        ▶ 依照验收项目逐项测试并确认结果。<br/>
+        ▶ 完成测试后签署验收确认文件。
+      </td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>成果交付</td>
+      <td>提供最终产品与文件。</td>
+      <td>
+        ▶ 提供最终执行档、使用说明与相关文件。<br/>
+        ▶ 若需提供原始码或技术移转资料，将另外报价。
+      </td>
+      <td>
+        ▶ 确认已取得所有预期成果与文件。<br/>
+        ▶ 于 7 日内完成尾款支付。
+      </td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>后续维护</td>
+      <td>维持系统稳定运作并持续优化。</td>
+      <td>
+        ▶ 提供保固与维护方案，说明服务内容与联络窗口。<br/>
+        ▶ 视专案需求安排线上或现场技术支援。
+      </td>
+      <td>
+        ▶ 使用过程中回报问题与改善建议。<br/>
+        ▶ 若有新需求，可做为下一阶段专案的讨论基础。
+      </td>
+    </tr>
+  </tbody>
+</table>
+  `,
+
+  'section.process.dev_table_html': `
+<table class="table-schedule">
+  <thead>
+    <tr>
+      <th>预计完成时间</th>
+      <th>平均需求（工作天）</th>
+      <th>进行项目</th>
+      <th>进行细节</th>
+      <th>一般需求时间</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>2025/3/14</td>
+      <td>10</td>
+      <td>GUI 界面开发</td>
+      <td>
+        ▶ 根据客户需求开发主要 GUI 界面。<br/>
+        ▶ 初版画面完成后，安排会议进行确认与调整。
+      </td>
+      <td>1–4 周</td>
+    </tr>
+    <tr>
+      <td>2025/3/28</td>
+      <td>10</td>
+      <td>GUI 界面讨论与调校</td>
+      <td>
+        ▶ 持续与客户讨论并调整 GUI 设计。<br/>
+        ▶ 修正操作流程与版面细节，使其更符合实际使用情境。
+      </td>
+      <td>1–4 周</td>
+    </tr>
+    <tr>
+      <td>2025/4/25</td>
+      <td>20</td>
+      <td>功能开发与整合</td>
+      <td>
+        ▶ 开发目标所需的实际功能。<br/>
+        ▶ 整合软件、韧体与硬件，并进行上机测试与实机调校。<br/>
+        ▶ 视专案复杂度，整体时程可能超过 6 周。
+      </td>
+      <td>2–6 周</td>
+    </tr>
+    <tr>
+      <td>2025/5/2</td>
+      <td>5</td>
+      <td>整机 Demo 测试与验收会议</td>
+      <td>
+        ▶ 依照企划书中约定的项目进行验收。<br/>
+        ▶ 完成验收后，由双方在验收单上签名确认。
+      </td>
+      <td>1–2 周</td>
+    </tr>
+    <tr>
+      <td>2025/5/9</td>
+      <td>5</td>
+      <td>结案准备</td>
+      <td>
+        ▶ 交付 EXE 文件后，客户需在一周内完成尾款汇款。<br/>
+        ▶ 完成结案，并开始计算保固期间。
+      </td>
+      <td>1–2 周</td>
+    </tr>
+  </tbody>
+</table>
+  `,
+
+  'section.process.warranty_table_html': `
+<table class="table-schedule">
+  <thead>
+    <tr>
+      <th>预计到期时间</th>
+      <th>持续时间（天）</th>
+      <th>进行项目</th>
+      <th>进行细节</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>2025/5/31</td>
+      <td>30</td>
+      <td>产品保固</td>
+      <td>
+        ▶ 自专案完成验收日起 1 个月内，如发现功能缺失，开发方将协助修正。<br/>
+        ▶ 修正范围以原专案计划书中所列功能为主。
+      </td>
+    </tr>
+    <tr>
+      <td>2025/7/30</td>
+      <td>90</td>
+      <td>客户服务</td>
+      <td>
+        ▶ 自专案完成日起 3 个月内，每月提供最多 3 小时线上技术讨论支援。<br/>
+        ▶ 若支援时间超出时数，或需现场 on-site 服务，将另行评估收费。
+      </td>
+    </tr>
+  </tbody>
+</table>
+  `,
+
+  /* ==== 流程说明 intro/note – 简体 ==== */
+
+  'section.process.eval_intro': '以 2025/1/1 受理专案为例，下列表格说明自专案受理后，从可行性评估到开发规划的大致时程与双方分工。',
+  'section.process.eval_note': '※ 实际时程会依需求复杂度与客户提供资料的完整程度进行调整，详细内容可在需求会议中再行确认。',
+
+  'section.process.dev_intro': '以 2025/3/1 启动专案为例，当专案正式启动后，我们会依下列表格规划 GUI 开发与功能整合的各阶段，并搭配定期进度回报。',
+  'section.process.dev_note': '※ 若专案功能较多或需要整合第三方设备，开发阶段的总周期可能会延长，我们会在报价与排程阶段事先说明。',
+
+  'section.process.warranty_intro': '以 2025/5/1 完成专案为例，专案完成并通过验收后，仍会提供一段时间的保固与技术支援，下列表格整理了保固与客户服务的范围与时间。',
+  'section.process.warranty_note': '※ 保固范围以原专案规格书与企划书中约定的功能为主，额外需求或功能扩充将另行评估与报价。',
 
     }
   };
