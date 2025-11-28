@@ -76,6 +76,9 @@ const TRANSLATIONS = {
     "contact.ig": "Instagram:",
     "contact.ig_tip": "Building the future through silent breakthroughs, embracing adventure and enjoying engineer life!",
     "contact.mail": "Email:",
+    "contact.linkedin": "Linkedin:",
+    "contact.linkedin_tips": "Meet g-Pico Technical director",
+
 
     "donation.title": "Support and encouragement",
     "donation.p1": "Your support is the lifeblood of our growth, sparking innovation and progress!",
@@ -163,6 +166,8 @@ const TRANSLATIONS = {
     "contact.ig": "Instagram：",
     "contact.ig_tip": "默默突破、擁抱冒險、享受工程生活！",
     "contact.mail": "Email：",
+    "contact.linkedin": "Linkedin:",
+    "contact.linkedin_tips": "來會會橘皮客技術總監",
 
     "donation.title": "支持與鼓勵",
     "donation.p1": "您的支持是我們成長的養分，點燃創新與前進的火花！",
@@ -246,6 +251,8 @@ const TRANSLATIONS = {
     "contact.ig": "Instagram：",
     "contact.ig_tip": "默默突破、拥抱冒险、享受工程生活！",
     "contact.mail": "Email：",
+    "contact.linkedin": "Linkedin:",
+    "contact.linkedin_tips": "来会会橘皮客技术总监",
 
     "donation.title": "支持与鼓励",
     "donation.p1": "您的支持是我们成长的动力，点燃创新与前行的火花！",
@@ -491,13 +498,27 @@ let I18N_TABLES = {
               "zh-CN": "进阶功能与案例" } },
   ],
   usefulLinksData: [
+    { href: 'https://www.raspberrypi.com/',
+      text: { "en": "Raspberry Pi official",
+              "zh-TW": "樹苺派",
+              "zh-CN": "树莓派" },
+      desc: { "en": "Respberry Pi official",
+              "zh-TW": "樹苺派官方網頁",
+              "zh-CN": "树莓派官方页面" } },
     { href: 'https://www.raspberrypi.com/products/raspberry-pi-pico/',
       text: { "en": "Raspberry Pi Pico",
-              "zh-TW": "Raspberry Pi Pico",
-              "zh-CN": "Raspberry Pi Pico" },
+              "zh-TW": "樹苺派 Pico",
+              "zh-CN": "树莓派 Pico" },
       desc: { "en": "Respberry Pi Pico official",
               "zh-TW": "Pico 官方頁",
               "zh-CN": "Pico 官方页面" } },
+    { href: 'http://vcc-gnd.com/',
+      text: { "en": "VCC-GND studio",
+              "zh-TW": "VCC-GND 工坊",
+              "zh-CN": "VCC-GND 工坊" },
+      desc: { "en": "VCC-GND studio official site",
+              "zh-TW": "源地官方網站",
+              "zh-CN": "源地官方网站" } },
     { href: 'https://www.youtube.com/@automation-pico',
       text: { "en": "g-Pico Youtube channel",
               "zh-TW": "g-Pico YouTube 頻道",
@@ -526,13 +547,7 @@ let I18N_TABLES = {
       desc: { "en": "Download link of our GUI interface",
               "zh-TW": "GUI 介面下載點",
               "zh-CN": "GUI 界面下载点" } },
-    { href: 'http://vcc-gnd.com/',
-      text: { "en": "VCC-GND studio",
-              "zh-TW": "VCC-GND 工坊",
-              "zh-CN": "VCC-GND 工坊" },
-      desc: { "en": "VCC-GND studio official site",
-              "zh-TW": "官方網站",
-              "zh-CN": "官方网站" } },
+
   ]
 };
 
