@@ -1470,6 +1470,7 @@
       'toc.terms': '合作条款细节',
       'toc.title': '目录',
       'toc.use_cases': '应用场景',
+      
 
 
       /* ==== 价目表 – 简体中文 ==== */
@@ -1944,16 +1945,53 @@
     }
   };
 
-  const DEFAULT_LANG = 'zh-TW';  // 預設語系
+  const DEFAULT_LANG = 'en';  // 預設語系
+
+  // 從網址 query string / hash 取得語系，例如 ?lang=en 或 #lang=en
+  function getLanguageFromUrl() {
+    try {
+      // 1) 先看 query string: ?lang=en
+      const params = new URLSearchParams(window.location.search);
+      const qLang = (params.get('lang') || '').trim();
+      if (qLang && GUI_TRANSLATIONS[qLang]) {
+        return qLang;
+      }
+
+      // 2) 再看 hash: #lang=en 或 #something&lang=zh-CN
+      const hash = (window.location.hash || '');
+      const match = hash.match(/lang=([A-Za-z\-]+)/);
+      if (match && GUI_TRANSLATIONS[match[1]]) {
+        return match[1];
+      }
+
+      return null;
+    } catch (e) {
+      console.error('getLanguageFromUrl error:', e);
+      return null;
+    }
+  }
 
   function getCurrentLanguage() {
     try {
+
+      // 0) 先看網址是否指定 ?lang=xx 或 #lang=xx
+      const urlLang = getLanguageFromUrl();
+      if (urlLang && GUI_TRANSLATIONS[urlLang]) {
+        // 若希望之後進站也保持同一語言，可以順便寫入 localStorage
+        localStorage.setItem('lang', urlLang);
+        return urlLang;
+      }
+
+      // 1) 再看 localStorage 儲存的語言
       const saved = localStorage.getItem('lang');
       if (saved && GUI_TRANSLATIONS[saved]) return saved;
 
+      // 2) 再看瀏覽器語系
       const nav = (navigator.language || navigator.userLanguage || '').trim();
       if (GUI_TRANSLATIONS[nav]) return nav;
       if (nav.startsWith('zh')) return 'zh-TW';
+      
+      // 3) 最後 fallback
       return DEFAULT_LANG;
     } catch (e) {
       console.error('getCurrentLanguage error:', e);
@@ -1961,10 +1999,11 @@
     }
   }
 
-  function applyTranslations(root) {
+  function applyTranslations(root, forcedLang) {
     try {
-      const lang = getCurrentLanguage();
-      const dict = GUI_TRANSLATIONS[lang] || {}
+      // forcedLang 若有值，就直接用；否則照原本流程自動判斷
+      const lang = forcedLang || getCurrentLanguage();
+      const dict = GUI_TRANSLATIONS[lang] || {};
       const fallback = GUI_TRANSLATIONS[DEFAULT_LANG] || {};
 
       const nodes = (root || document).querySelectorAll('[data-i18n]');
@@ -1999,11 +2038,14 @@
     }
   }
 
+
   function setLanguage(lang) {
     try {
       if (!GUI_TRANSLATIONS[lang]) lang = DEFAULT_LANG;
       localStorage.setItem('lang', lang);
-      applyTranslations(document);
+
+      // ★ 這裡改成帶入強制語言 → 不再被網址蓋掉
+      applyTranslations(document, lang);
 
       const sel = document.getElementById('langSelect');
       if (sel) sel.value = lang;

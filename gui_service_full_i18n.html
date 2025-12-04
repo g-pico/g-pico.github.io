@@ -284,7 +284,31 @@ body {
 
 
 </head>
-<body><nav class="navbar navbar-expand-lg navbar-light bg-light"><a class="navbar-brand" data-i18n="nav.brand" href="#top">橘皮客 GUI 設計服務</a><button aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbarNav" data-toggle="collapse" type="button"><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="navbarNav"><ul class="navbar-nav mr-auto"><li class="nav-item"><a class="nav-link" data-i18n="nav.home" href="index.html">回首頁</a></li></ul><select class="custom-select ml-auto" id="langSelect" style="width:auto;"><option value="en">English</option><option value="zh-TW">繁體中文</option><option value="zh-CN">简体中文</option></select></div></nav>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" data-i18n="nav.brand" href="#top">橘皮客 GUI 設計服務</a>
+        <button aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbarNav" data-toggle="collapse" type="button">
+            <span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item"><a class="nav-link" data-i18n="nav.home" href="index.html">回首頁</a>
+                    </li>
+                </ul>
+
+                <!-- 語系選擇區塊：靠右 & 說明文字 + 下拉選單緊貼在一起 -->
+                <div class="ml-auto d-flex align-items-center">
+                    <span class="mr-2" data-i18n="nav.language.label">
+                    Choose language/选择语言/選擇語言:
+                    </span>
+                    <select class="custom-select" id="langSelect" style="width:auto;">
+                    <option value="en">English</option>
+                    <option value="zh-TW">繁體中文</option>
+                    <option value="zh-CN">简体中文</option>
+                    </select>
+                </div>
+            </div>
+        </nav>
 <div class="page page-container">
 <!-- === Hero 區：主要標題與品牌資訊 === -->
 <header class="hero">
