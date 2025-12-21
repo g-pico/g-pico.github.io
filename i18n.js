@@ -527,12 +527,48 @@ let I18N_TABLES = {
               "zh-TW": "影片教學與分享",
               "zh-CN": "视频教学与分享" } },
     { href: 'https://www.facebook.com/groups/464020849771652',
-      text: { "en": "Supporting center",
-              "zh-TW": "支援社群",
-              "zh-CN": "支持社群" },
+      text: { "en": "Supporting center (Facebook)",
+              "zh-TW": "支援社群 (FB)",
+              "zh-CN": "支持社群 (脸书)" },
       desc: { "en": "g-Pico technical discussion community",
-              "zh-TW": "g-Pico 技術討論區",
-              "zh-CN": "g-Pico 技术讨论区" } },
+              "zh-TW": "g-Pico 技術支援討論區",
+              "zh-CN": "g-Pico 技术支持讨论区" } },
+
+
+    /* This is reserve for chinese main link added
+    未來可以考慮以新頁面的方式加入,但可能需要請 GPT注意原本的格式
+    跟GUI條款類似的方式進行加入,比較不會有違和感
+
+    那你是否可以給我一個html code , 可以在我點進去之後顯示下面需要的資訊: 
+    > 標題 (讓我可以輸入內容) 
+    > QR_code (我可以直接指定某個相對路徑的圖片) 
+    > 連結網址 (提供給電腦點擊) 
+    > 詳細敘述 (提供給使用者說明此頁面主要提供的資訊, 或是其他補充敘述) 
+    我需要的html code 是由一個 html 框架 (包含剛剛我提到的架構) 
+    還有一個用來放入不同的參數進行顯示的json 
+    然後再請你告訴我這樣是否有辦法實現, 
+    以及如何利用網址來輸入參數直接連到不同的結果?
+
+     */
+    /*
+
+    { href: 'QQ community',
+      text: { "en": "Chinese Supporting center (QQ)",
+              "zh-TW": "中文支援社群 (QQ)",
+              "zh-CN": "中文支持社群 (QQ)" },
+      desc: { "en": "g-Pico Chinese technical discussion community",
+              "zh-TW": "g-Pico 中文技術討論區",
+              "zh-CN": "g-Pico 中文技术讨论区" } },
+    { href: 'https://blog.csdn.net/gary_pico?type=blog',
+      text: { "en": "CSDN blog",
+              "zh-TW": "CSDN 部落格",
+              "zh-CN": "CSDN 博客" },
+      desc: { "en": "Technical sharing on CSDN blog",
+              "zh-TW": "CSDN 上的技術分享",
+              "zh-CN": "CSDN 上的技术分享" } },
+
+    */
+      
     { href: 'https://www.instagram.com/g.pico.automation/',
       text: { "en": "Daily life of Engineer",
               "zh-TW": "工程師的日常",
