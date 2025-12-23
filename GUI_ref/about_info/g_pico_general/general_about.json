@@ -2,7 +2,7 @@
   "zh-TW": {
     "title": "g-Pico Automation – 關於我們",
     "sub-title": "解放雙手，點燃熱情，享受生活！",
-    "description": "橘皮客自動化致力於讓自動化變得觸手可及，且讓每個人都能負擔得起——從個人創客、學校、實驗室到小型企業。\n\n我們專注於：\n• 基於 Raspberry Pi Pico 的測量與控制平台\n• 自動化測試、報告生成與數據分析\n• 整合桌面 GUI 的硬體、韌體與軟體全方位解決方案\n\n我們的目標是讓機器處理重複性任務，讓研發人員能專注於更有意義的設計與創意，並享受生活。",
+    "description": "橘皮客自動化致力於讓自動化變得觸手可及，且讓每個人都能負擔得起—從個人創客、學校、實驗室到小型企業。\n\n我們專注於：\n• 基於 Raspberry Pi Pico 的測量與控制平台\n• 自動化測試、報告生成與數據分析\n• 整合桌面 GUI 的硬體、韌體與軟體全方位解決方案\n\n我們的目標是讓自動化處理重複性任務，讓研發人員能專注於更有意義的設計與創意，並享受生活。",
     "links": {
 
     },
@@ -14,7 +14,7 @@
   "zh-CN": {
     "title": "g-Pico Automation – 关于我们",
     "sub-title": "解放双手，点燃热情，享受生活！",
-    "description": "橘皮客自动化致力于让自动化变得触手可及，且让每个人都能负担得起——从个人创客、学校、实验室到小型企业。\n\n我们专注于：\n• 基于 Raspberry Pi Pico 的测量与控制平台\n• 自动化测试、报告生成与数据分析\n• 整合桌面 GUI 的硬件、固件与软件全方位解决方案\n\n我们的目标是让机器处理重复性任务，让研发人员能专注于更有意义的设计与创意，并享受生活。",
+    "description": "橘皮客自动化致力于让自动化变得触手可及，且让每个人都能负担得起—从个人创客、学校、实验室到小型企业。\n\n我们专注于：\n• 基于 Raspberry Pi Pico 的测量与控制平台\n• 自动化测试、报告生成与数据分析\n• 整合桌面 GUI 的硬件、固件与软件全方位解决方案\n\n我们的目标是让自动化处理重复性任务，让研发人员能专注于更有意义的设计与创意，并享受生活。",
     "links": {
 
     },
@@ -26,7 +26,7 @@
   "en": {
     "title": "g-Pico Automation – About",
     "sub-title": "Free your hands, ignite your passion, and enjoy life!",
-    "description": "g-Pico Automation aims to make automation accessible and affordable for everyone—from individual makers, schools, and labs to small businesses.\n\nWe focus on:\n• Measurement & control platforms based on Raspberry Pi Pico\n• Automated testing, report generation, and data analysis\n• Integrated hardware, firmware, and software total solutions with desktop GUIs\n\nOur goal is to let machines handle repetitive tasks, so people can focus on meaningful design, creativity, and enjoying life.",
+    "description": "g-Pico Automation aims to make automation accessible and affordable for everyone—from individual makers, schools, and labs to small businesses.\n\nWe focus on:\n• Measurement & control platforms based on Raspberry Pi Pico\n• Automated testing, report generation, and data analysis\n• Integrated hardware, firmware, and software total solutions with desktop GUIs\n\nOur goal is to handle repetitive tasks by automation, so people can focus on meaningful design, creativity, and enjoying life.",
     "links": {
 
     },
