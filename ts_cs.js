@@ -10,10 +10,10 @@
  * 使用方式：
  * - 調整/新增文字：請在 GUI_TRANSLATIONS 對應語系中修改 key 對應的字串。
  * - 調整圖片：找到例如 'img.process_overview.src' 的項目，
- *             將不同語系的路徑改成對應檔案，例如：
- *             zh-TW: images/process_overview_tw.png
- *             en   : images/process_overview_en.png
- *             zh-CN: images/process_overview_cn.png
+ *將不同語系的路徑改成對應檔案，例如：
+ *zh-TW: images/process_overview_tw.png
+ *en   : images/process_overview_en.png
+ *zh-CN: images/process_overview_cn.png
  */
 
 (function() {
@@ -31,17 +31,17 @@
         'page.subtitle': '在自動化與資料導向的時代，我們協助您打造穩定、可靠、具彈性的專業 GUI 介面。',
         'page.title': 'GUI 設計服務流程條款',
         'section.about.list1': '<strong class="strong-warning">韌性（Resilience）</strong>：面對專案中不可避免的挑戰與突發狀況，我們具備足夠的耐力與解決問題的能力，確保系統最終能穩定落地。',
-        'section.about.list2': '<strong>毅力（Perseverance）</strong>：我們不斷優化模組化架構與開發流程，憑藉日積月累的經驗與持續投入，為客戶帶來可靠且高品質的成果。',
-        'section.about.list3': '<strong>彈性（Flexibility）</strong>：每個客戶的需求都不同，我們擅長在既有框架上快速調整，提供最適合的方案，無論是 GUI 設計、硬體控制還是系統整合。',
+        'section.about.list2': '<strong>毅力（Perseverance）</strong>：我們不斷優化模組化架構與開發流程，憑藉日積月累的經驗與持續投入，為委託方帶來可靠且高品質的成果。',
+        'section.about.list3': '<strong>彈性（Flexibility）</strong>：每個委託方的需求都不同，我們擅長在既有框架上快速調整，提供最適合的方案，無論是 GUI 設計、硬體控制還是系統整合。',
         'section.about.list4': '我們能夠提供的服務範圍',
         'section.about.list5': '專案的開發流程與時間規劃',
         'section.about.list6': '雙方應遵守的合作條款',
         'section.about.list7': '各項服務的價值與成本依據',
-        'section.about.p1': '在當今自動化與數據導向的時代，人機介面（GUI）已不僅僅是顯示數據的工具，而是客戶與系統互動的核心。',
-        'section.about.p2': '我們深信，一個好的設計服務不只是完成專案，而是要陪伴客戶一起走過挑戰，確保每一步都能帶來價值。',
+        'section.about.p1': '在當今自動化與數據導向的時代，人機介面（GUI）已不僅僅是顯示數據的工具，而是與系統互動的核心。',
+        'section.about.p2': '我們深信，一個好的設計服務不只是完成專案，而是要陪伴委託方一起走過挑戰，確保每一步都能帶來價值。',
         'section.about.p3': '因此，我們的服務理念建立在三個核心精神上：',
-        'section.about.p4': '本文件的目的，是希望客戶在專案開始之前，就能清楚了解：',
-        'section.about.p5': '透過這樣的規劃，我們不僅交付一個 GUI，而是交付一個能伴隨企業成長、具備<strong>韌性、毅力與彈性<strong/>的完整解決方案，讓客戶能安心專注於核心業務。',
+        'section.about.p4': '本文件的目的，是希望委託方在專案開始之前，就能清楚了解：',
+        'section.about.p5': '透過這樣的規劃，我們不僅交付一個 GUI，而是交付一個能伴隨企業成長、具備<strong>韌性、毅力與彈性<strong/>的完整解決方案，讓委託方能安心專注於核心業務。',
         'section.about.title': '關於橘皮客',
         'section.client_checklist.item1': '<strong>現有系統或 Demo 影片</strong>（若有）：可以是手機拍攝的操作影片，方便我們了解實際流程。',
         'section.client_checklist.item2': '<strong>儀器與硬體清單</strong>：包含儀器型號、通訊介面（UART / I2C / SPI / GPIB / LAN / USB）等。',
@@ -51,10 +51,10 @@
         'section.client_checklist.item6': '<strong>GUI 草圖或舊 GUI 截圖</strong>（若有）：有助於我們理解排版習慣與風格偏好。',
         'section.client_checklist.item7': '<strong>預計使用環境與電腦規格</strong>：例如 OS 版本、螢幕解析度、是否在產線環境等。',
         'section.client_checklist.item8': '<strong>專案時程與內部里程碑</strong>：若您已有內部專案排程，可一併提供，方便我們對齊時程。',
-        'section.client_checklist.item9': '<strong>專案驗收項目檢核表</strong>：專案驗收階段各功能項目的測試條件以及驗收標準，判斷產品是否有符合客戶規格。',
+        'section.client_checklist.item9': '<strong>專案驗收項目檢核表</strong>：專案驗收階段各功能項目的測試條件以及驗收標準，判斷產品是否有符合委託方規格。',
         'section.client_checklist.note': '若以上資料尚未齊備，也歡迎先與我們討論，我們可以協助一起整理，逐步補齊。專案的規格剛開始很難完全確定，但希望透過這份文件以及後續的郵件、開會討論可以協助您逐步達成您喜要的目標!',
         'section.client_checklist.p1': '為了縮短前期溝通時間並提升專案準確度，建議您在首次會議或需求提出前，儘可能準備以下資料（可先準備已有的部分，其餘可於後續補充）：',
-        'section.client_checklist.title': '客戶需事先準備的資料',
+        'section.client_checklist.title': '委託方需事先準備的資料',
         'section.contact.client_eng_item1': '<strong>技術討論工程師</strong>（負責專案進行中的技術細節討論）',
         'section.contact.client_eng_mail': 'Mail：__________________',
         'section.contact.client_eng_name': '稱呼：__________________',
@@ -63,12 +63,12 @@
         'section.contact.client_pm_mail': 'Mail：__________________',
         'section.contact.client_pm_name': '稱呼：__________________',
         'section.contact.client_pm_phone': '手機或 Line ID：__________________',
-        'section.contact.client_pm_title': '客戶端聯絡窗口',
+        'section.contact.client_pm_title': '委託方聯絡窗口',
         'section.contact.dev_engineer': '<strong>技術工程師：</strong><a href="https://www.linkedin.com/in/gary-chu-669633159/" target="_blank" rel="noopener">Gary Chu',
         'section.contact.dev_line': '<strong>Line ID：</strong>tigarychu',
         'section.contact.dev_mail': '<strong>Mail：</strong><a href="mailto:gary49902210@gmail.com">gary49902210@gmail.com</a>',
         'section.contact.dev_title': '開發方聯絡窗口（橘皮客自動化）',
-        'section.contact.p1': '為了讓專案能順利進行，請客戶提供以下兩位聯絡人資訊：',
+        'section.contact.p1': '為了讓專案能順利進行，請委託方提供以下兩位聯絡人資訊：',
         'section.contact.title': '聯絡資料',
         'section.gui_style.item1': '<strong>技術型 / 工具型：</strong>偏向工程師使用，畫面以表格、參數與 Log 為主，重視資訊密度與操作效率。',
         'section.gui_style.item2': '<strong>儀表板型：</strong>使用大型數值、指針表、狀態燈號等呈現重點資訊，適合監控與展示。',
@@ -88,7 +88,7 @@
         'section.process.img_stage1_caption': '圖示：專案階段性流程（第一部分）',
         'section.process.img_stage2_caption': '圖示：專案階段性流程（第二部分）',
         'section.process.img_stage3_caption': '圖示：專案階段性流程（第三部分）',
-        'section.process.p1': '企劃進行時，開發方與客戶需要共同配合，並留意以下主要流程。',
+        'section.process.p1': '企劃進行時，開發方與委託方需要共同配合，並留意以下主要流程。',
         'section.process.rough_timeline_note': '實際時程會依專案範圍、技術難度及資源配合情況調整，將於專案計畫書中明確載明。',
         'section.process.title': '專案開發流程',
         'section.req_guide.end_note': '以上內容不需要一次完成，只要先提供大致方向即可。我們會在需求訪談與會議中協助補充細節，並整理為正式的專案計畫書。',
@@ -115,7 +115,7 @@
         'section.req_guide.report_item3': '是否需支援多次量測結果比對或合併報告',
         'section.req_guide.report_p1': '請簡單說明您希望最後的測試結果以什麼形式呈現，例如：',
         'section.req_guide.report_title': '4. 報表與資料輸出需求',
-        'section.req_guide.title': '客戶需求填寫指引',
+        'section.req_guide.title': '委託方需求填寫指引',
         'section.req_guide.user_item1': '主要使用者類型：研發 / 量產 / 實驗室 / 教學 等',
         'section.req_guide.user_item2': '是否需要權限區分（例如：一般使用者 vs 管理者）',
         'section.req_guide.user_item3': '預期每天或每週使用頻率',
@@ -130,39 +130,40 @@
         'section.scope.nonfunc2': '不包含第三方商業授權軟體費用（例如專業版工具授權等）',
         'section.scope.nonfunc_title': '<strong>非功能性範圍（排除事項）</strong>',
         'section.scope.title': '服務範圍',
-        'section.terms.accept_p1': '當專案完成時，開發方將與客戶於會議中進行測試與驗收。若專案涉及實體硬體，則需安排實體會議或現場測試。',
-        'section.terms.accept_p2': '驗收將依照訂金前雙方確認之專案計畫書與驗收項目進行。開發方應針對功能缺失進行修正，但不包含 GUI 額外美化調整。若此階段客戶提出新的需求，將視為新專案或新階段內容，需另行評估與報價。',
-        'section.terms.accept_p3': '專案成果交付後，客戶應於一週內支付尾款，以完成結案程序。結案後，若遇到非原專案計畫中功能缺失之修改需求，將視為新專案需求。',
+        'section.terms.accept_p1': '當專案完成時，開發方將與委託方於會議中進行測試與驗收。若專案涉及實體硬體，則需安排實體會議或現場測試。',
+        'section.terms.accept_p2': '驗收將依照訂金前雙方確認之專案計畫書與驗收項目進行。開發方應針對功能缺失進行修正，但不包含 GUI 額外美化調整。若此階段委託方提出新的需求，將視為新專案或新階段內容，需另行評估與報價。',
+        'section.terms.accept_p3': '專案成果交付後，委託方應於一週內支付尾款，以完成結案程序。結案後，若遇到非原專案計畫中功能缺失之修改需求，將視為新專案需求。',
+        'section.terms.accept_p4': '若委託方需先取得尚未結案的半成品執行檔，<strong>則需先結清80%專案款項，留20%專案款項作為尾款</strong>，得以提前交付半成品執行檔。委託方需自行承擔半成品執行檔的使用風險因半成品執行檔並不建議用於量產環境或提供給終端客戶。',
         'section.terms.accept_title': '六、測試驗收與成果交付',
         'section.terms.change_list1': '<strong>小幅調整</strong>（通常不另外計價）：文案修正、欄位名稱調整、顏色或字體微調等，不影響整體架構者。',
         'section.terms.change_list2': '<strong>中度變更</strong>（需評估追加費用）：新增按鈕與對應功能、新增報表格式、增加與新儀器的對接等。',
         'section.terms.change_list3': '<strong>重大變更</strong>（需重新估價或開新專案）：主要流程改寫、測試邏輯全面調整、作業系統平台改變等。',
         'section.terms.change_note': '通常在初版 GUI 確認後，若版面或流程有大幅變更需求，我們會先與您說明影響範圍與工時，經雙方同意後再進行調整。',
-        'section.terms.change_p1': '為避免專案過程中因需求持續變動而導致時程與成本大幅增加，雙方將以「專案計畫書」作為主要依據，必要時再透過「變更單」進行調整。',
+        'section.terms.change_p1': '為避免專案過程中因需求持續變動而導致時程與成本大幅增加，雙方將以「專案計畫書」作為主要依據，只要非專案計畫書內所提及的內容，一律皆視為專案修改，必要時再透過「變更單」進行調整。',
         'section.terms.change_title': '三、變更需求與加價原則',
         'section.terms.need_eval_list1': '提供 Demo 機與示範操作，並向開發方說明實際需求。',
         'section.terms.need_eval_list2': '由開發方進行 Log 抓取，評估介面協定與實作可行性。',
-        'section.terms.need_eval_list3': '開發方與客戶技術工程師進行技術討論，確認需求細節與可行性。',
-        'section.terms.need_eval_p1': '開發方將依照客戶提供的相關資料，分析技術可行性、估算開發工時與成本，並提出所需之測試儀器與相關資源，請客戶評估是否能提供開發所需條件。若無法提供，雙方將另行討論替代方案與調整方式。',
-        'section.terms.need_eval_p2': '對於已有範例程式或明確客製目標的專案，客戶需在韌體或驅動開發前，提供完整可測試之硬體與接線資訊，以確保能開發出功能相同或可正常對接之系統。主要需配合事項如下：',
-        'section.terms.need_eval_p3': '根據專案複雜程度，如有必要，可行性評估階段可能需收取評估費，將於事前與客戶說明。',
+        'section.terms.need_eval_list3': '開發方與委託方技術工程師進行技術討論，確認需求細節與可行性。',
+        'section.terms.need_eval_p1': '開發方將依照委託方提供的相關資料，分析技術可行性、估算開發工時與成本，並提出所需之測試儀器與相關資源，請委託方評估是否能提供開發所需條件。若無法提供，雙方將另行討論替代方案與調整方式。',
+        'section.terms.need_eval_p2': '對於已有範例程式或明確客製目標的專案，委託方需在韌體或驅動開發前，提供完整可測試之硬體與接線資訊，以確保能開發出功能相同或可正常對接之系統。主要需配合事項如下：',
+        'section.terms.need_eval_p3': '根據專案複雜程度，如有必要，可行性評估階段可能需收取評估費，將於事前與委託方說明。',
         'section.terms.need_eval_title': '一、需求討論與可行性評估',
         'section.terms.plan_update_p1': '開發方應於收取訂金前提供專案計畫書，內容包括：對專案需求功能的理解、預計驗收項目與驗收方式。此文件將作為專案完成時之驗收依據，雙方皆不得單方面修改專案目標與驗收項目。',
-        'section.terms.plan_update_p2': '專案啟動後，每2～3 週開發方將向客戶進行進度彙報與已完成功能之展示，以線上會議為主，並將相關資料上傳至雲端硬碟供客戶參考。客戶須於會議中協助確認功能是否符合需求，以避免方向偏差造成交期延誤。',
-        'section.terms.plan_update_p3': 'GUI（使用者介面）設計將於開發過程中提供初稿給客戶審閱與確認。完成確認後，除專案計畫書原列之功能必要調整外，將不再進行額外美化或大幅版面修改。',
-        'section.terms.plan_update_p4': '客戶應盡量於前期明確提供 GUI 版面初始設計與後續調整需求，以降低來回修正次數。專案提供3 次免費版面修改，超過 3 次者，將以每次新台幣 2,000 元計入尾款。若為開發方遺漏之需求，則不計入此修改次數。',
-        'section.terms.plan_update_p5': '開發方與客戶皆需指定一位專案經理與技術溝通窗口（可為同一人），遇到非預期專案調整或技術討論需求時，得以迅速聯繫並維持專案順利進行。',
+        'section.terms.plan_update_p2': '專案啟動後，每2～3 週開發方將向委託方進行進度彙報與已完成功能之展示，以線上會議為主，並將相關資料上傳至雲端硬碟供委託方參考。委託方須於會議中協助確認功能是否符合需求，以避免方向偏差造成交期延誤。',
+        'section.terms.plan_update_p3': 'GUI（使用者介面）設計將於開發過程中提供初稿給委託方審閱與確認。完成確認後，除專案計畫書原列之功能必要調整外，將不再進行額外美化或大幅版面修改。',
+        'section.terms.plan_update_p4': '委託方應盡量於前期明確提供 GUI 版面初始設計與後續調整需求，以降低來回修正次數。專案提供3 次免費版面修改，超過 3 次者，將以每次新台幣 2,000 元計入尾款。若為開發方遺漏之需求，則不計入此修改次數。',
+        'section.terms.plan_update_p5': '開發方與委託方皆需指定一位專案經理與技術溝通窗口（可為同一人），遇到非預期專案調整或技術討論需求時，得以迅速聯繫並維持專案順利進行。',
         'section.terms.plan_update_title': '五、開發規劃與進度更新',
-        'section.terms.quote_deposit_p1': '確認需求並完成可行性評估後，開發方將依結果進行專案時程規劃與報價。雙方確認專案目標、報價與時程無誤並達成共識後，客戶需支付<strong>20% 訂金</strong>，以確認專案計畫書內所載之目標與範圍。',
-        'section.terms.quote_deposit_p2': '專案啟動後開始計算時程。若後續有新增或重大修改需求，需針對新增項目另行估價。若遇開發方無法完成之情況，將與客戶討論調整計畫與報價方式。',
-        'section.terms.quote_deposit_p3': '若客戶需開發方提供原始碼，將依專案大小與難度另行評估費用，並提供具詳細註解之程式碼。',
-        'section.terms.quote_deposit_p4': '訂金收據將以開發方銀行帳戶記錄截圖方式回傳給客戶留存。',
+        'section.terms.quote_deposit_p1': '確認需求並完成可行性評估後，開發方將依結果進行專案時程規劃與報價。雙方確認專案目標、報價與時程無誤並達成共識後，委託方需支付<strong>20% 訂金</strong>，以確認專案計畫書內所載之目標與範圍。',
+        'section.terms.quote_deposit_p2': '專案啟動後開始計算時程。若後續有新增或重大修改需求，需針對新增項目另行估價。若遇開發方無法完成之情況，將與委託方討論調整計畫與報價方式。',
+        'section.terms.quote_deposit_p3': '若委託方需開發方提供原始碼，將依專案大小與難度另行評估費用，並提供具詳細註解之程式碼。',
+        'section.terms.quote_deposit_p4': '訂金收據將以開發方銀行帳戶記錄截圖方式回傳給委託方留存。',
         'section.terms.quote_deposit_title': '二、報價與訂金',
-        'section.terms.terminate_list1': '若因開發方遇不可預期因素（例如評估錯誤等）需中止專案，客戶可選擇要求全額退還訂金，或接收已完成之部分成果並由雙方協議處理方式。',
-        'section.terms.terminate_list2': '若因客戶遇不可預期因素需中止專案，開發方得依照已執行之工作項目與進度進行收費。',
+        'section.terms.terminate_list1': '若因開發方遇不可預期因素（例如評估錯誤等）需中止專案，委託方可選擇要求全額退還訂金，或接收已完成之部分成果並由雙方協議處理方式。',
+        'section.terms.terminate_list2': '若因委託方遇不可預期因素需中止專案，開發方得依照已執行之工作項目與進度進行收費。',
         'section.terms.terminate_title': '四、中止條款與責任歸屬',
         'section.terms.title': '合作條款細節',
-        'section.terms.warranty_p1': '專案成果交付後，開發方將提供1 個月功能保固，期間若發現專案功能缺失，可免費協助修正。',
+        'section.terms.warranty_p1': '專案成果交付後，開發方將提供1 個月功能保固，期間若發現專案功能缺失，可免費協助修正。未來的修正將視為專案進版需求',
         'section.terms.warranty_p2': '此外，專案結案後3 個月內，每月提供最多3 小時的線上討論與售後技術諮詢服務。若超過此時數，或需開發方到場（on-site）支援，將另行評估費用。',
         'section.terms.warranty_title': '七、後續維護、服務與保固',
         'section.use_cases.item1': '電腦作業系統：<strong>Windows 11 24H2</strong>',
@@ -174,12 +175,12 @@
         'section.use_cases.subitem2': 'USB-RS-232 相關驅動',
         'section.use_cases.title': '應用場景',
         'toc.about': '關於橘皮客',
-        'toc.client_checklist': '客戶需事先準備的資料',
+        'toc.client_checklist': '委託方需事先準備的資料',
         'toc.contact': '聯絡資料',
         'toc.gui_style': 'GUI 設計風格示例',
         'toc.pricing': '價目表',
         'toc.process': '專案開發流程',
-        'toc.requirements_guide': '客戶需求填寫指引',
+        'toc.requirements_guide': '委託方需求填寫指引',
         'toc.scope': '服務範圍',
         'toc.terms': '合作條款細節',
         'toc.title': '目錄',
@@ -203,7 +204,7 @@
       <td class="col-cat">Software</td>
       <td class="col-name">GUI-Welcome 畫面</td>
       <td>
-        &#10022; 可顯示公司資訊或其他初始畫面，Default 為顯示圖片後淡出（需客戶提供圖片）。<br/>
+        &#10022; 可顯示公司資訊或其他初始畫面，Default 為顯示圖片後淡出（需委託方提供圖片）。<br/>
         &#10022; 第一次製作底價為 NTD 2500，未來重複使用只收工錢 NTD 1000<br/>
       </td>
       <td class="col-price">2,500</td>
@@ -213,7 +214,7 @@
       <td class="col-cat">Software</td>
       <td class="col-name">GUI-顏色調整</td>
       <td>
-        &#10022; 依客戶品牌色或既有系統風格，調整整體 GUI 配色（背景色、按鈕色系、文字顏色等）。
+        &#10022; 依委託方品牌色或既有系統風格，調整整體 GUI 配色（背景色、按鈕色系、文字顏色等）。
       </td>
       <td class="col-price">2,000</td>
     </tr>
@@ -338,7 +339,7 @@
       <td>
         &#10022; 各種系統設計、整合問題諮詢<br/>
         &#10022; 20分鐘，需一次使用完畢。<br/>
-        &#10022; 需請客戶先提供討論主題以及相關資訊，評估可以協助才進行後續討論和收費。<br/>
+        &#10022; 需請委託方先提供討論主題以及相關資訊，評估可以協助才進行後續討論和收費。<br/>
       </td>
       <td class="col-price">2,000</td>
     </tr>
@@ -374,8 +375,8 @@
       <td>10</td>
       <td>可行性評估</td>
       <td>
-        ▶ 根據客戶於需求討論提出的需求評估專案可行性（詳細項目請參考可行性評估表格）。<br/>
-        ▶ 列出需要客戶提供的必要開發資源。<br/>
+        ▶ 根據委託方於需求討論提出的需求評估專案可行性（詳細項目請參考可行性評估表格）。<br/>
+        ▶ 列出需要委託方提供的必要開發資源。<br/>
         ▶ 必要時可能需要收費，取決於專案大小。
       </td>
       <td>1–4 週</td>
@@ -395,7 +396,7 @@
 </table>
         `,
 
-              // === 專案流程總覽：10 個討論步驟 ===
+ // === 專案流程總覽：10 個討論步驟 ===
         'section.process.overview_table_html': `
 <table class="table-schedule">
   <thead>
@@ -404,14 +405,14 @@
       <th>討論主題</th>
       <th>討論目的</th>
       <th>開發方負責項目</th>
-      <th>客戶負責項目</th>
+      <th>委託方負責項目</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>1</td>
       <td>需求討論</td>
-      <td>了解客戶需求，確定專案範圍與目標</td>
+      <td>了解委託方需求，確定專案範圍與目標</td>
       <td>
         ▶ 引導需求訪談，記錄重點，彙整初步功能清單。<br/>
         ▶ 釐清應用場景與系統使用情境。
@@ -542,7 +543,7 @@
 </table>
         `,
 
-                // 專案開發階段時程表
+   // 專案開發階段時程表
         'section.process.dev_table_html': `
 <table class="table-schedule">
   <thead>
@@ -560,7 +561,7 @@
       <td>10</td>
       <td>GUI 介面開發</td>
       <td>
-        ▶ 依照客戶需求開發主要 GUI 介面。<br/>
+        ▶ 依照委託方需求開發主要 GUI 介面。<br/>
         ▶ 初版畫面完成後，安排會議進行確認與調整。
       </td>
       <td>1–4 週</td>
@@ -570,7 +571,7 @@
       <td>10</td>
       <td>GUI 介面討論調校</td>
       <td>
-        ▶ 持續與客戶討論並調整 GUI 設計。<br/>
+        ▶ 持續與委託方討論並調整 GUI 設計。<br/>
         ▶ 修正操作流程與版面細節，確保符合實際使用情境。
       </td>
       <td>1–4 週</td>
@@ -601,7 +602,7 @@
       <td>5</td>
       <td>結案準備</td>
       <td>
-        ▶ 交付 EXE 檔之後，客戶需於一週內匯款完成尾款。<br/>
+        ▶ 交付 EXE 檔之後，委託方需於一週內匯款完成尾款。<br/>
         ▶ 結案，並開始計算保固。
       </td>
       <td>1–2 週</td>
@@ -644,9 +645,9 @@
 </table>
         `,
 
-                // ===== 專案流程：各階段表格前後說明 =====
+   // ===== 專案流程：各階段表格前後說明 =====
         'section.process.eval_intro': '以 2025/1/1 受理專案為例，下列表格說明自專案受理後，從可行性評估到開發規劃的大致時程與雙方分工。',
-        'section.process.eval_note': '※ 實際時程會依需求複雜度與客戶提供資料的完整度進行調整，詳細內容可於需求會議中再行確認。',
+        'section.process.eval_note': '※ 實際時程會依需求複雜度與委託方提供資料的完整度進行調整，詳細內容可於需求會議中再行確認。',
 
         'section.process.dev_intro': '以 2025/3/1 啟動專案為例，當專案正式啟動後，我們會依下列表格規劃 GUI 開發與功能整合的各個階段，並搭配定期進度回報。',
         'section.process.dev_note': '※ 若專案功能較多或需搭配第三方設備整合，開發階段的總週期可能會延長，我們會在報價與排程階段事先說明。',
@@ -655,6 +656,11 @@
         'section.process.warranty_note': '※ 保固範圍以原專案規格書與企劃書中約定的功能為主，額外需求或功能擴充將另行評估與報價。',
 
 
+        'section.terms.gui_notice_title': '八、GUI 使用須知與免責聲明',
+        'section.terms.gui_notice_p1': '本 GUI 為依委託方需求所開發之客製化軟體工具，其功能、操作流程、邏輯行為與顯示結果，均依委託方所定義之規格實作，並經委託方完成驗收確認後交付使用。',
+        'section.terms.gui_notice_p2': '本 GUI 僅作為輔助性工具，其運算結果、顯示資訊及輸出內容，可能因使用情境、操作方式、系統環境或其他因素而有所差異，並不構成任何形式之明示或默示保證，亦不保證於所有使用情況下皆可完全正確、即時或適用。',
+        'section.terms.gui_notice_p3': '委託方及實際使用者於使用本 GUI 過程中，仍應自行確認所有關鍵數據、操作結果與實際輸出之正確性及適用性；因前述因素或其他非本 GUI 所能控制之原因所導致之一切風險、損失或影響，概由委託方或使用者自行負責。',
+        'section.terms.gui_notice_p4': '為確保使用者充分知悉相關使用風險與責任歸屬，前述使用者須知與免責提醒，將於本 GUI 初次啟用時以畫面方式提示使用者閱讀並進行確認；使用者完成確認後，視為已充分理解並同意相關內容。',
 
     },
     'en': {
@@ -676,7 +682,7 @@
     'section.about.list5': 'Project Development Process and Timeline',
     'section.about.list6': 'Terms of Collaboration to be Observed by Both Parties',
     'section.about.list7': 'Value and Cost Basis of Various Services',
-    'section.about.p1': 'In today\'s era of automation and data-driven systems, the Human-Machine Interface (GUI) is no longer just a tool for displaying data, but the core of client interaction with the system.',
+    'section.about.p1': 'In today\'s era of automation and data-driven systems, the Human-Machine Interface (GUI) is no longer just a tool for displaying data, but the core of interaction with the system.',
     'section.about.p2': 'We deeply believe that good design service is not just about completing a project, but about accompanying the client through challenges, ensuring every step brings value.',
     'section.about.p3': 'Therefore, our service philosophy is built upon three core principles:',
     'section.about.p4': 'The purpose of this document is to ensure clients clearly understand the following before the project begins:',
@@ -772,6 +778,7 @@
     'section.terms.accept_p1': 'Upon project completion, the developer will conduct testing and acceptance with the client during a meeting. If the project involves physical hardware, a physical meeting or on-site testing will be arranged.',
     'section.terms.accept_p2': 'Acceptance will proceed according to the Project Proposal and acceptance items confirmed by both parties before the deposit. The developer should correct functional deficiencies but does not include additional GUI aesthetic adjustments. If the client proposes new requirements at this stage, they will be considered a new project or phase content, requiring separate evaluation and quotation.',
     'section.terms.accept_p3': 'After the project deliverable is handed over, the client should pay the final balance within one week to complete the closing procedure. After closing, requests for modifications due to functional deficiencies not listed in the original Project Proposal will be considered as new project requirements.',
+    'section.terms.accept_p4': 'If the Client requires the delivery of an unfinished executable file before project closure, <strong>a payment of 80% of the total project fee must be settled, with the remaining 20% held as the final balance</strong>, to enable early delivery.The Client shall bear all risks associated with the use of such unfinished executable files, as they are not recommended for use in production environments or for distribution to end customers.',
     'section.terms.accept_title': 'VI. Testing Acceptance and Deliverable Handover',
     'section.terms.change_list1': '<strong>Minor Adjustments</strong> (usually no extra charge): Copywriting correction, field name adjustment, minor color or font tweaks that do not affect the overall structure.',
     'section.terms.change_list2': '<strong>Moderate Changes</strong> (may require additional cost evaluation): Adding new buttons and corresponding functions, adding new report formats, adding interface to a new instrument, etc.',
@@ -1296,6 +1303,11 @@
   'section.process.warranty_note': '※ Warranty coverage is limited to the functions agreed in the original specification and proposal. Additional requirements or feature extensions will be evaluated and quoted separately.',
 
 
+  'section.terms.gui_notice_title': 'VIII. GUI Usage Notice and Disclaimer',
+  'section.terms.gui_notice_p1': 'This GUI is a customized software tool developed based on the Client’s requirements. Its functions, operation flow, logic behavior, and displayed results are implemented according to the specifications defined by the Client and are delivered after the Client’s acceptance and confirmation.',
+  'section.terms.gui_notice_p2': 'This GUI is provided solely as an auxiliary tool. The computed results, displayed information, and exported outputs may vary depending on usage scenarios, operating methods, system environments, or other factors. No express or implied warranty is provided, and it is not guaranteed to be fully accurate, real-time, or applicable under all conditions.',
+  'section.terms.gui_notice_p3': 'The Client and end users shall independently verify the correctness and applicability of all critical data, operation results, and actual outputs when using this GUI. Any risks, losses, or impacts arising from the above factors or other causes beyond the control of this GUI shall be borne by the Client or the user.',
+  'section.terms.gui_notice_p4': 'To ensure users fully understand the usage risks and responsibility allocation, the above notice and disclaimer will be displayed on-screen at the first launch of this GUI for users to read and confirm. After confirmation, the user is deemed to have fully understood and agreed to the content.',
 
 
 
@@ -1317,17 +1329,17 @@
       'page.subtitle': '在自动化与数据导向的时代，我们协助您打造稳定、可靠、具弹性的专业 GUI 界面。',
       'page.title': 'GUI 设计服务流程条款',
       'section.about.list1': '<strong>韧性（Resilience）</strong>：面对项目中不可避免的挑战与突发状况，我们具备足够的耐力与解决问题的能力，确保系统最终能稳定落地。',
-      'section.about.list2': '<strong>毅力（Perseverance）</strong>：我们不断优化模块化架构与开发流程，凭借日积月累的经验与持续投入，为客户带来可靠且高质量的成果。',
-      'section.about.list3': '<strong>弹性（Flexibility）</strong>：每个客户的需求都不同，我们擅长在既有框架上快速调整，提供最适合的方案，无论是 GUI 设计、硬件控制还是系统集成。',
+      'section.about.list2': '<strong>毅力（Perseverance）</strong>：我们不断优化模块化架构与开发流程，凭借日积月累的经验与持续投入，为委托方带来可靠且高质量的成果。',
+      'section.about.list3': '<strong>弹性（Flexibility）</strong>：每个委托方的需求都不同，我们擅长在既有框架上快速调整，提供最适合的方案，无论是 GUI 设计、硬件控制还是系统集成。',
       'section.about.list4': '我们能够提供的服务范围',
       'section.about.list5': '项目的开发流程与时间规划',
       'section.about.list6': '双方应遵守的合作条款',
       'section.about.list7': '各项服务的价值与成本依据',
-      'section.about.p1': '在当今自动化与数据导向的时代，人机界面（GUI）已不仅仅是显示数据的工具，             而是客户与系统互动的核心。',
-      'section.about.p2': '我们深信，一个好的设计服务不只是完成项目，而是要陪伴客户一起走过挑战，             确保每一步都能带来价值。',
+      'section.about.p1': '在当今自动化与数据导向的时代，人机界面（GUI）已不仅仅是显示数据的工具，而是与系统互动的核心。',
+      'section.about.p2': '我们深信，一个好的设计服务不只是完成项目，而是要陪伴委托方一起走过挑战，确保每一步都能带来价值。',
       'section.about.p3': '因此，我们的服务理念建立在三个核心精神上：',
-      'section.about.p4': '本文件的目的，是希望客户在项目开始之前，就能清楚了解：',
-      'section.about.p5': '透过这样的规划，我们不仅交付一个 GUI，而是交付一个能伴随企业成长、             具备韧性、毅力与弹性的完整解决方案，让客户能安心专注于核心业务。',
+      'section.about.p4': '本文件的目的，是希望委托方在项目开始之前，就能清楚了解：',
+      'section.about.p5': '透过这样的规划，我们不仅交付一个 GUI，而是交付一个能伴随企业成长、具备韧性、毅力与弹性的完整解决方案，让委托方能安心专注于核心业务。',
       'section.about.title': '关于橘皮客',
       'section.client_checklist.item1': '<strong>现有系统或 Demo 影片</strong>（若有）：可以是手机拍摄的操作影片，方便我们了解实际流程。',
       'section.client_checklist.item2': '<strong>仪器与硬件清单</strong>：包含仪器型号、通讯接口（UART / I2C / SPI / GPIB / LAN / USB）等。',
@@ -1337,10 +1349,10 @@
       'section.client_checklist.item6': '<strong>GUI 草图或旧 GUI 截图</strong>（若有）：有助于我们理解排版习惯与风格偏好。',
       'section.client_checklist.item7': '<strong>预计使用环境与电脑规格</strong>：例如 OS 版本、屏幕分辨率、是否在产线环境等。',
       'section.client_checklist.item8': '<strong>项目时程与内部里程碑</strong>：若您已有内部项目排程，可一并提供，方便我们对齐时程。',
-      'section.client_checklist.item9': '<strong>专案验收项目检核表</strong>：在专案验收阶段，列出各功能项目的测试条件与验收标准，用来判断产品是否符合客户规格。',
+      'section.client_checklist.item9': '<strong>专案验收项目检核表</strong>：在专案验收阶段，列出各功能项目的测试条件与验收标准，用来判断产品是否符合委托方规格。',
       'section.client_checklist.note': '若以上资料尚未齐备，也欢迎先与我们讨论，我们可以协助一起整理，逐步补齐。项目的规格刚开始很难完全确定，但希望透过这份文件以及后续的邮件、开会讨论可以协助您逐步达成您想要的目标!',
-      'section.client_checklist.p1': '为了缩短前期沟通时间并提升项目准确度，建议您在首次会议或需求提出前，             尽可能准备以下资料（可先准备已有的部分，其余可于后续补充）：',
-      'section.client_checklist.title': '客户需事先准备的资料',
+      'section.client_checklist.p1': '为了缩短前期沟通时间并提升项目准确度，建议您在首次会议或需求提出前，尽可能准备以下资料（可先准备已有的部分，其余可于后续补充）：',
+      'section.client_checklist.title': '委托方需事先准备的资料',
       'section.contact.client_eng_item1': '<strong>技术讨论工程师</strong>（负责项目进行中的技术细节讨论）称呼：__________________邮箱：__________________手机或 Wechat ID：__________________',
       'section.contact.client_eng_mail': '邮箱：__________________',
       'section.contact.client_eng_name': '称呼：__________________',
@@ -1349,35 +1361,35 @@
       'section.contact.client_pm_mail': '邮箱：__________________',
       'section.contact.client_pm_name': '称呼：__________________',
       'section.contact.client_pm_phone': '手机或 Wechat ID：__________________',
-      'section.contact.client_pm_title': '客户端联络窗口',
+      'section.contact.client_pm_title': '委托方联络窗口',
       'section.contact.dev_engineer': '<strong>技术工程师：</strong><a href="https://www.linkedin.com/in/gary-chu-669633159/" target="_blank" rel="noopener">Gary Chu',
       'section.contact.dev_line': '<strong>Wechat ID：</strong>gary4990',
       'section.contact.dev_mail': '<strong>邮箱：</strong><a href="mailto:gary49902210@gmail.com">gary49902210@gmail.com</a>',
       'section.contact.dev_title': '开发方联络窗口（橘皮客自动化）',
-      'section.contact.p1': '为了让项目能顺利进行，请客户提供以下两位联络人资讯：',
+      'section.contact.p1': '为了让项目能顺利进行，请委托方提供以下两位联络人资讯：',
       'section.contact.title': '联络资料',
       'section.gui_style.item1': '<strong>技术型 / 工具型：</strong>偏向工程师使用，画面以表格、参数与 Log 为主，重视信息密度与操作效率。',
       'section.gui_style.item2': '<strong>仪表板型：</strong>使用大型数值、指针表、状态灯号等呈现重点信息，适合监控与展示。',
       'section.gui_style.item3': '<strong>简洁扁平风格：</strong>按钮与元件设计较为现代、线条简单，适合对外展示或客户端使用。',
       'section.gui_style.item4': '<strong>定制混合风格：</strong>若您有既有软件或品牌识别（Logo、色系），我们可以依现有风格调整 GUI 视觉。',
       'section.gui_style.note': '若目前尚无特别偏好，也可以先以「清楚、好操作」为主，我们会依常见工程用 GUI 的习惯进行设计。',
-      'section.gui_style.p1': '虽然本服务主要以技术功能与稳定性为优先，但界面风格仍会影响使用体验。             您可以先思考希望整体感觉偏向哪一类型，我们会在设计时尽量配合：',
+      'section.gui_style.p1': '虽然本服务主要以技术功能与稳定性为优先，但界面风格仍会影响使用体验。您可以先思考希望整体感觉偏向哪一类型，我们会在设计时尽量配合：',
       'section.gui_style.title': 'GUI 设计风格示例',
       'section.pricing.img_caption': '图示：GUI 设计服务价目表（请依实际图片路径替换 src）',
       'section.pricing.note': '※ 若有大型项目、长期合作或需多阶段扩展之情况，欢迎洽谈项目制报价。',
-      'section.pricing.p1': '各功能项目请参考下方价目表示意图。实际费用可能会依照             项目复杂度、定制程度及整体规划而有所调整。',
+      'section.pricing.p1': '各功能项目请参考下方价目表示意图。实际费用可能会依照项目复杂度、定制程度及整体规划而有所调整。',
       'section.pricing.p2': '每一个项目方案，默认皆包含<strong>项目完成后 3 个月内，每月 3 小时的客户服务（在线讨论／技术咨询）</strong>。',
       'section.pricing.title': '价目表',
-      'section.process.detail_flow_p1': '更细部的阶段性流程，将依下列示意图说明。若您已有内部标准开发流程，             也可以在双方讨论后进行整合。',
+      'section.process.detail_flow_p1': '更细部的阶段性流程，将依下列示意图说明。若您已有内部标准开发流程，也可以在双方讨论后进行整合。',
       'section.process.detail_flow_title': '阶段性细节流程',
       'section.process.img_main_caption': '图示：项目主要开发流程（请依实际图片路径替换 src）',
       'section.process.img_stage1_caption': '图示：项目阶段性流程（第一部分）',
       'section.process.img_stage2_caption': '图示：项目阶段性流程（第二部分）',
       'section.process.img_stage3_caption': '图示：项目阶段性流程（第三部分）',
-      'section.process.p1': '企划进行时，开发方与客户需要共同配合，并留意以下主要流程。',
+      'section.process.p1': '企划进行时，开发方与委托方需要共同配合，并留意以下主要流程。',
       'section.process.rough_timeline_note': '实际时程会依项目范围、技术难度及资源配合情况调整，将于项目计划书中明确载明。',
       'section.process.title': '项目开发流程',
-      'section.req_guide.end_note': '以上内容不需要一次完成，只要先提供大致方向即可。             我们会在需求访谈与会议中协助补充细节，并整理为正式的项目计划书。',
+      'section.req_guide.end_note': '以上内容不需要一次完成，只要先提供大致方向即可。我们会在需求访谈与会议中协助补充细节，并整理为正式的项目计划书。',
       'section.req_guide.flow_item1': '开启程序 → 选择 COM Port → 按下「连线」',
       'section.req_guide.flow_item2': '载入测试条件档 → 按下「开始测试」',
       'section.req_guide.flow_item3': '等测试完成 → 显示结果 → 汇出报表到指定文件夹',
@@ -1387,7 +1399,7 @@
       'section.req_guide.gui_layout_item1': '主窗口大致尺寸（例如：1280×720 或全屏幕）',
       'section.req_guide.gui_layout_item2': '按钮、输入字段、列表、图表等大致位置',
       'section.req_guide.gui_layout_item3': '是否需要多分页（Tab）或多个对话框窗口',
-      'section.req_guide.gui_layout_p1': '您可以使用简单手绘、PowerPoint、Excel 或任何工具，画出想象中的画面配置，             并标注大致位置与功能，例如：「左侧为测试设定区、右侧为实时曲线图、下方为 Log 区」。',
+      'section.req_guide.gui_layout_p1': '您可以使用简单手绘、PowerPoint、Excel 或任何工具，画出想象中的画面配置，并标注大致位置与功能，例如：「左侧为测试设定区、右侧为实时曲线图、下方为 Log 区」。',
       'section.req_guide.gui_layout_title': '1. GUI 版面与画面配置',
       'section.req_guide.hw_item1': '仪器或搭配硬件型号与厂牌（例如：电源供应器、DMM、示波器、Pico 等）',
       'section.req_guide.hw_item2': '通讯接口：UART / I2C / SPI / GPIB / LAN / USB 等',
@@ -1395,17 +1407,17 @@
       'section.req_guide.hw_item4': '是否能提供通讯协议、指令表或 SCPI 命令文件',
       'section.req_guide.hw_p1': '若 GUI 需要控制仪器、测试板或其他硬件，请尽量提供以下信息：',
       'section.req_guide.hw_title': '3. 仪器／硬件控制需求',
-      'section.req_guide.intro': '为了让我们能更精准估算工时与成本，并减少后续反复修改，             建议您在提出需求时，尽量依照下列项目进行描述。             不需要一次写得非常完整，可以先用简单条列，我们会在邮件或会议中协助补充与厘清。',
+      'section.req_guide.intro': '为了让我们能更精准估算工时与成本，并减少后续反复修改，建议您在提出需求时，尽量依照下列项目进行描述。不需要一次写得非常完整，可以先用简单条列，我们会在邮件或会议中协助补充与厘清。',
       'section.req_guide.report_item1': '是否需要 Excel 报表（请提供范例文件或字段名称）',
       'section.req_guide.report_item2': '是否需要 CSV / JSON 等机器可读格式',
       'section.req_guide.report_item3': '是否需支持多次量测结果比对或合并报告',
       'section.req_guide.report_p1': '请简单说明您希望最后的测试结果以什么形式呈现，例如：',
       'section.req_guide.report_title': '4. 报表与资料输出需求',
-      'section.req_guide.title': '客户需求填写指引',
+      'section.req_guide.title': '委托方需求填写指引',
       'section.req_guide.user_item1': '主要使用者类型：研发 / 量产 / 实验室 / 教学 等',
       'section.req_guide.user_item2': '是否需要权限区分（例如：一般使用者 vs 管理者）',
       'section.req_guide.user_item3': '预期每天或每周使用频率',
-      'section.req_guide.user_p1': '不同使用者（研发工程师、产线操作员、FAE、客户端工程师）对界面与功能的需求会不同。             若您能提供预期使用族群与环境，我们可以在设计上更贴近实际需求。',
+      'section.req_guide.user_p1': '不同使用者（研发工程师、产线操作员、FAE、客户端工程师）对界面与功能的需求会不同。若您能提供预期使用族群与环境，我们可以在设计上更贴近实际需求。',
       'section.req_guide.user_title': '5. 使用者族群与使用情境',
       'section.scope.func1': 'GUI 主窗口设计、菜单栏（menubar）、对话框',
       'section.scope.func2': '资料显示（表格、图表、实时数据）',
@@ -1416,56 +1428,57 @@
       'section.scope.nonfunc2': '不包含第三方商业授权软件费用（例如专业版工具授权等）',
       'section.scope.nonfunc_title': '<strong>非功能性范围（排除事项）</strong>',
       'section.scope.title': '服务范围',
-      'section.terms.accept_p1': '当项目完成时，开发方将与客户于会议中进行测试与验收。             若项目涉及实体硬件，则需安排实体会议或现场测试。',
-      'section.terms.accept_p2': '验收将依照订金前双方确认之项目计划书与验收项目进行。             开发方应针对功能缺失进行修正，但不包含 GUI 额外美化调整。             若此阶段客户提出新的需求，将视为新项目或新阶段内容，需另行评估与报价。',
-      'section.terms.accept_p3': '项目成果交付后，客户应于一周内支付尾款，以完成结案程序。             结案后，若遇到非原项目计划中功能缺失之修改需求，将视为新项目需求。',
+      'section.terms.accept_p1': '当项目完成时，开发方将与委托方于会议中进行测试与验收。 若项目涉及实体硬件，则需安排实体会议或现场测试。',
+      'section.terms.accept_p2': '验收将依照订金前双方确认之项目计划书与验收项目进行。开发方应针对功能缺失进行修正，但不包含 GUI 额外美化调整。若此阶段委托方提出新的需求，将视为新项目或新阶段内容，需另行评估与报价。',
+      'section.terms.accept_p3': '项目成果交付后，委托方应于一周内支付尾款，以完成结案程序。结案后，若遇到非原项目计划中功能缺失之修改需求，将视为新项目需求。',
+      'section.terms.accept_p4': '若委托方需先取得尚未结案的半成品执行档，<strong>则需先结清80%项目款项，留20%项目款项作为尾款</strong>，得以提前交付半成品执行档。委托方需自行承担半成品执行档的使用风险，因半成品执行档并不建议用于量产环境或提供给终端客户。',
       'section.terms.accept_title': '六、测试验收与成果交付',
       'section.terms.change_list1': '<strong>小幅调整</strong>（通常不另外计价）：文案修正、字段名称调整、颜色或字体微调等，不影响整体架构者。',
       'section.terms.change_list2': '<strong>中度变更</strong>（需评估追加费用）：新增按钮与对应功能、新增报表格式、增加与新仪器的对接等。',
       'section.terms.change_list3': '<strong>重大变更</strong>（需重新估价或开新项目）：主要流程改写、测试逻辑全面调整、操作系统平台改变等。',
-      'section.terms.change_note': '通常在初版 GUI 确认后，若版面或流程有大幅变更需求，我们会先与您说明影响范围与工时，             经双方同意后再进行调整。',
-      'section.terms.change_p1': '为避免项目过程中因需求持续变动而导致时程与成本大幅增加，             双方将以「项目计划书」作为主要依据，必要时再透过「变更单」进行调整。',
+      'section.terms.change_note': '通常在初版 GUI 确认后，若版面或流程有大幅变更需求，我们会先与您说明影响范围与工时，经双方同意后再进行调整。',
+      'section.terms.change_p1': '为避免项目过程中因需求持续变动而导致时程与成本大幅增加，双方将以「项目计划书」作为主要依据，必要时再透过「变更单」进行调整。',
       'section.terms.change_title': '三、变更需求与加价原则',
       'section.terms.need_eval_list1': '提供 Demo 机与示范操作，并向开发方说明实际需求。',
       'section.terms.need_eval_list2': '由开发方进行 Log 抓取，评估接口协议与实作可行性。',
-      'section.terms.need_eval_list3': '开发方与客户技术工程师进行技术讨论，确认需求细节与可行性。',
-      'section.terms.need_eval_p1': '开发方将依照客户提供的相关资料，分析技术可行性、估算开发工时与成本，             并提出所需之测试仪器与相关资源，请客户评估是否能提供开发所需条件。             若无法提供，双方将另行讨论替代方案与调整方式。',
-      'section.terms.need_eval_p2': '对于已有范例程序或明确定制目标的项目，客户需在固件或驱动开发前，             提供完整可测试之硬件与接线信息，以确保能开发出功能相同或可正常对接之系统。             主要需配合事项如下：',
-      'section.terms.need_eval_p3': '根据项目复杂程度，如有必要，可行性评估阶段可能需收取评估费，将于事前与客户说明。',
+      'section.terms.need_eval_list3': '开发方与委托方技术工程师进行技术讨论，确认需求细节与可行性。',
+      'section.terms.need_eval_p1': '开发方将依照委托方提供的相关资料，分析技术可行性、估算开发工时与成本，并提出所需之测试仪器与相关资源，请委托方评估是否能提供开发所需条件。若无法提供，双方将另行讨论替代方案与调整方式。',
+      'section.terms.need_eval_p2': '对于已有范例程序或明确定制目标的项目，委托方需在固件或驱动开发前，提供完整可测试之硬件与接线信息，以确保能开发出功能相同或可正常对接之系统。主要需配合事项如下：',
+      'section.terms.need_eval_p3': '根据项目复杂程度，如有必要，可行性评估阶段可能需收取评估费，将于事前与委托方说明。',
       'section.terms.need_eval_title': '一、需求讨论与可行性评估',
-      'section.terms.plan_update_p1': '开发方应于收取订金前提供项目计划书，             内容包括：对项目需求功能的理解、预计验收项目与验收方式。             此文件将作为项目完成时之验收依据，双方皆不得单方面修改项目目标与验收项目。',
-      'section.terms.plan_update_p2': '项目启动后，每2～3 周开发方将向客户进行进度汇报与已完成功能之展示，             以在线会议为主，并将相关资料上传至云端硬盘供客户参考。             客户须于会议中协助确认功能是否符合需求，以避免方向偏差造成交期延误。',
-      'section.terms.plan_update_p3': 'GUI（使用者界面）设计将于开发过程中提供初稿给客户审阅与确认。             完成确认后，除项目计划书原列之功能必要调整外，将不再进行额外美化或大幅版面修改。',
-      'section.terms.plan_update_p4': '客户应尽量于前期明确提供 GUI 版面初始设计与后续调整需求，             以降低来回修正次数。项目提供3 次免费版面修改，             超过 3 次者，将以每次 RMB 454 元计入尾款。             若为开发方遗漏之需求，则不计入此修改次数。',
-      'section.terms.plan_update_p5': '开发方与客户皆需指定一位项目经理与技术沟通窗口（可为同一人），             遇到非预期项目调整或技术讨论需求时，得以迅速联系并维持项目顺利进行。',
+      'section.terms.plan_update_p1': '开发方应于收取订金前提供项目计划书，内容包括：对项目需求功能的理解、预计验收项目与验收方式。此文件将作为项目完成时之验收依据，双方皆不得单方面修改项目目标与验收项目。',
+      'section.terms.plan_update_p2': '项目启动后，每2～3 周开发方将向委托方进行进度汇报与已完成功能之展示以在线会议为主，并将相关资料上传至云端硬盘供委托方参考。委托方须于会议中协助确认功能是否符合需求，以避免方向偏差造成交期延误。',
+      'section.terms.plan_update_p3': 'GUI（使用者界面）设计将于开发过程中提供初稿给委托方审阅与确认。完成确认后，除项目计划书原列之功能必要调整外，将不再进行额外美化或大幅版面修改。',
+      'section.terms.plan_update_p4': '委托方应尽量于前期明确提供 GUI 版面初始设计与后续调整需求，以降低来回修正次数。项目提供3 次免费版面修改，超过 3 次者，将以每次 RMB 454 元计入尾款。若为开发方遗漏之需求，则不计入此修改次数。',
+      'section.terms.plan_update_p5': '开发方与委托方皆需指定一位项目经理与技术沟通窗口（可为同一人），遇到非预期项目调整或技术讨论需求时，得以迅速联系并维持项目顺利进行。',
       'section.terms.plan_update_title': '五、开发规划与进度更新',
-      'section.terms.quote_deposit_p1': '确认需求并完成可行性评估后，开发方将依结果进行项目时程规划与报价。             双方确认项目目标、报价与时程无误并达成共识后，             客户需支付<strong>20% 订金</strong>，以确认项目计划书内所载之目标与范围。',
-      'section.terms.quote_deposit_p2': '项目启动后开始计算时程。若后续有新增或重大修改需求，             需针对新增项目另行估价。若遇开发方无法完成之情况，             将与客户讨论调整计划与报价方式。',
-      'section.terms.quote_deposit_p3': '若客户需开发方提供原始码，将依项目大小与难度另行评估费用，             并提供具详细注解之程序代码。',
-      'section.terms.quote_deposit_p4': '订金收据将以开发方银行账户记录截图方式回传给客户留存。',
+      'section.terms.quote_deposit_p1': '确认需求并完成可行性评估后，开发方将依结果进行项目时程规划与报价。双方确认项目目标、报价与时程无误并达成共识后，委托方需支付<strong>20% 订金</strong>，以确认项目计划书内所载之目标与范围。',
+      'section.terms.quote_deposit_p2': '项目启动后开始计算时程。若后续有新增或重大修改需求，需针对新增项目另行估价。若遇开发方无法完成之情况，将与委托方讨论调整计划与报价方式。',
+      'section.terms.quote_deposit_p3': '若委托方需开发方提供原始码，将依项目大小与难度另行评估费用，并提供具详细注解之程序代码。',
+      'section.terms.quote_deposit_p4': '订金收据将以开发方银行账户记录截图方式回传给委托方留存。',
       'section.terms.quote_deposit_title': '二、报价与订金',
-      'section.terms.terminate_list1': '若因开发方遇不可预期因素（例如评估错误等）需中止项目，             客户可选择要求全额退还订金，或接收已完成之部分成果并由双方协议处理方式。',
-      'section.terms.terminate_list2': '若因客户遇不可预期因素需中止项目，开发方得依照已执行之工作项目与进度进行收费。',
+      'section.terms.terminate_list1': '若因开发方遇不可预期因素（例如评估错误等）需中止项目，委托方可选择要求全额退还订金，或接收已完成之部分成果并由双方协议处理方式。',
+      'section.terms.terminate_list2': '若因委托方遇不可预期因素需中止项目，开发方得依照已执行之工作项目与进度进行收费。',
       'section.terms.terminate_title': '四、中止条款与责任归属',
       'section.terms.title': '合作条款细节',
-      'section.terms.warranty_p1': '项目成果交付后，开发方将提供1 个月功能保固，             期间若发现项目功能缺失，可免费协助修正。',
-      'section.terms.warranty_p2': '此外，项目结案后3 个月内，             每月提供最多3 小时的在线讨论与售后技术咨询服务。             若超过此时数，或需开发方到场（on-site）支持，将另行评估费用。',
+      'section.terms.warranty_p1': '项目成果交付后，开发方将提供1 个月功能保固，期间若发现项目功能缺失，可免费协助修正。',
+      'section.terms.warranty_p2': '此外，项目结案后3 个月内，每月提供最多3 小时的在线讨论与售后技术咨询服务。若超过此时数，或需开发方到场（on-site）支持，将另行评估费用。',
       'section.terms.warranty_title': '七、后续维护、服务与保固',
       'section.use_cases.item1': '电脑操作系统：<strong>Windows 11 24H2</strong>',
       'section.use_cases.item2': '报告输入／输出工具：<strong>Excel 2019 64-bit</strong>',
       'section.use_cases.item3': '必要系统驱动程序：NI MAX（NI VISA 488.2）USB-RS-232 相关驱动',
       'section.use_cases.note': '※ 若系统需支持其他版本操作系统或额外软件环境，请于需求讨论阶段主动说明。※ 必要系统驱动程序部分若有搭配其他的固件或硬件，可能增加额外使用限制',
-      'section.use_cases.p1': '本服务主要针对符合下列开发规格的软硬件系统，             其余操作环境若有需求，欢迎另行讨论可行性。',
+      'section.use_cases.p1': '本服务主要针对符合下列开发规格的软硬件系统，其余操作环境若有需求，欢迎另行讨论可行性。',
       'section.use_cases.subitem1': 'NI MAX（NI VISA 488.2）',
       'section.use_cases.subitem2': 'USB-RS-232 相关驱动',
       'section.use_cases.title': '应用场景',
       'toc.about': '关于橘皮客',
-      'toc.client_checklist': '客户需事先准备的资料',
+      'toc.client_checklist': '委托方需事先准备的资料',
       'toc.contact': '联络资料',
       'toc.gui_style': 'GUI 设计风格示例',
       'toc.pricing': '价目表',
       'toc.process': '项目开发流程',
-      'toc.requirements_guide': '客户需求填写指引',
+      'toc.requirements_guide': '委托方需求填写指引',
       'toc.scope': '服务范围',
       'toc.terms': '合作条款细节',
       'toc.title': '目录',
@@ -1491,7 +1504,7 @@
       <td class="col-cat">Software</td>
       <td class="col-name">GUI 欢迎画面</td>
       <td>
-        &#10022; 显示公司资讯或其它起始画面。预设行为：显示图片后淡出（图片由客户提供）。<br/>
+        &#10022; 显示公司资讯或其它起始画面。预设行为：显示图片后淡出（图片由委托方提供）。<br/>
         &#10022; 首次制作底价为 RMB 568，后续在其它专案中重复使用，仅收 RMB 227 工时费。<br/>
       </td>
       <td class="col-price">¥568</td>
@@ -1501,9 +1514,9 @@
       <td class="col-cat">Software</td>
       <td class="col-name">GUI 配色调整</td>
       <td>
-        &#10022; 依照客户品牌色或既有系统风格，调整整体 GUI 配色（背景色、按钮色系、文字颜色等）。
+        &#10022; 依照委托方品牌色或既有系统风格，调整整体 GUI 配色（背景色、按钮色系、文字颜色等）。
       </td>
-      <td class="col-price"¥455</td>
+      <td class="col-price">¥455</td>
     </tr>
     <tr>
       <td class="col-no">3</td>
@@ -1537,7 +1550,7 @@
         &#10022; 可依需求新增阶层式菜单与快捷键。<br/>
         &#10022; 底价含 5 个功能项目（载入设置、储存设置、关于、退出程序 + 客制自选 1 项）。<br/>
       </td>
-      <td class="col-price"¥682</td>
+      <td class="col-price">¥682</td>
     </tr>
     <tr>
       <td class="col-no">6</td>
@@ -1546,7 +1559,7 @@
       <td>
         &#10022; 强化版“关于”资讯视窗，可插入图片或连结到公司／合作厂商网站。
       </td>
-      <td class="col-price"¥341</td>
+      <td class="col-price">¥341</td>
     </tr>
     <tr>
       <td class="col-no">7</td>
@@ -1626,7 +1639,7 @@
       <td>
         &#10022; 各种系统设计与整合问题咨询。<br/>
         &#10022; 每次 20 分钟，需要一次用完。<br/>
-        &#10022; 需由客户事先提供讨论主题与相关资料，我们评估确实能协助后才进行后续讨论与收费。<br/>
+        &#10022; 需由委托方事先提供讨论主题与相关资料，我们评估确实能协助后才进行后续讨论与收费。<br/>
       </td>
       <td class="col-price">¥455</td>
     </tr>
@@ -1665,7 +1678,7 @@
       <td>可行性评估</td>
       <td>
         ▶ 依据需求讨论阶段所整理的需求，评估专案可行性（详细项目请参考可行性评估表）。<br/>
-        ▶ 列出需要由客户提供的必要开发资源。<br/>
+        ▶ 列出需要由委托方提供的必要开发资源。<br/>
         ▶ 视专案规模，可能会酌收评估费用。
       </td>
       <td>1–4 周</td>
@@ -1693,14 +1706,14 @@
       <th>讨论主题</th>
       <th>讨论目的</th>
       <th>开发方负责项目</th>
-      <th>客户负责项目</th>
+      <th>委托方负责项目</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>1</td>
       <td>需求讨论</td>
-      <td>了解客户需求，确定专案范围与目标。</td>
+      <td>了解委托方需求，确定专案范围与目标。</td>
       <td>
         ▶ 引导需求访谈，记录重点，整理初步功能清单。<br/>
         ▶ 釐清应用场景与系统使用情境。
@@ -1848,7 +1861,7 @@
       <td>10</td>
       <td>GUI 界面开发</td>
       <td>
-        ▶ 根据客户需求开发主要 GUI 界面。<br/>
+        ▶ 根据委托方需求开发主要 GUI 界面。<br/>
         ▶ 初版画面完成后，安排会议进行确认与调整。
       </td>
       <td>1–4 周</td>
@@ -1858,7 +1871,7 @@
       <td>10</td>
       <td>GUI 界面讨论与调校</td>
       <td>
-        ▶ 持续与客户讨论并调整 GUI 设计。<br/>
+        ▶ 持续与委托方讨论并调整 GUI 设计。<br/>
         ▶ 修正操作流程与版面细节，使其更符合实际使用情境。
       </td>
       <td>1–4 周</td>
@@ -1889,7 +1902,7 @@
       <td>5</td>
       <td>结案准备</td>
       <td>
-        ▶ 交付 EXE 文件后，客户需在一周内完成尾款汇款。<br/>
+        ▶ 交付 EXE 文件后，委托方需在一周内完成尾款汇款。<br/>
         ▶ 完成结案，并开始计算保固期间。
       </td>
       <td>1–2 周</td>
@@ -1934,13 +1947,23 @@
   /* ==== 流程说明 intro/note – 简体 ==== */
 
   'section.process.eval_intro': '以 2025/1/1 受理专案为例，下列表格说明自专案受理后，从可行性评估到开发规划的大致时程与双方分工。',
-  'section.process.eval_note': '※ 实际时程会依需求复杂度与客户提供资料的完整程度进行调整，详细内容可在需求会议中再行确认。',
+  'section.process.eval_note': '※ 实际时程会依需求复杂度与委托方提供资料的完整程度进行调整，详细内容可在需求会议中再行确认。',
 
   'section.process.dev_intro': '以 2025/3/1 启动专案为例，当专案正式启动后，我们会依下列表格规划 GUI 开发与功能整合的各阶段，并搭配定期进度回报。',
   'section.process.dev_note': '※ 若专案功能较多或需要整合第三方设备，开发阶段的总周期可能会延长，我们会在报价与排程阶段事先说明。',
 
   'section.process.warranty_intro': '以 2025/5/1 完成专案为例，专案完成并通过验收后，仍会提供一段时间的保固与技术支援，下列表格整理了保固与客户服务的范围与时间。',
   'section.process.warranty_note': '※ 保固范围以原专案规格书与企划书中约定的功能为主，额外需求或功能扩充将另行评估与报价。',
+
+
+  'section.terms.gui_notice_title': '八、GUI 使用须知与免责声明',
+  'section.terms.gui_notice_p1': '本 GUI 为依委托方需求所开发之定制化软件工具，其功能、操作流程、逻辑行为与显示结果，均依委托方所定义之规格实现，并经委托方完成验收确认后交付使用。',
+  'section.terms.gui_notice_p2': '本 GUI 仅作为辅助性工具，其运算结果、显示信息及输出内容，可能因使用情境、操作方式、系统环境或其他因素而有所差异，不构成任何形式之明示或默示保证，亦不保证在所有使用情况下皆可完全正确、即时或适用。',
+  'section.terms.gui_notice_p3': '委托方及实际使用者在使用本 GUI 过程中，仍应自行确认所有关键数据、操作结果与实际输出的正确性及适用性；因前述因素或其他非本 GUI 所能控制之原因所导致的一切风险、损失或影响，概由委托方或使用者自行负责。',
+  'section.terms.gui_notice_p4': '为确保使用者充分知悉相关使用风险与责任归属，上述使用者须知与免责声明将于本 GUI 首次启用时以画面方式提示使用者阅读并进行确认；使用者完成确认后，视为已充分理解并同意相关内容。',
+
+
+
 
     }
   };
