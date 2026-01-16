@@ -550,16 +550,16 @@ let I18N_TABLES = {
     以及如何利用網址來輸入參數直接連到不同的結果?
 
      */
-    /*
+    
 
-    { href: 'QQ community',
+    { href: 'https://qm.qq.com/q/gg7CNN31f4',
       text: { "en": "Chinese Supporting center (QQ)",
               "zh-TW": "中文支援社群 (QQ)",
               "zh-CN": "中文支持社群 (QQ)" },
       desc: { "en": "g-Pico Chinese technical discussion community",
               "zh-TW": "g-Pico 中文技術討論區",
               "zh-CN": "g-Pico 中文技术讨论区" } },
-    { href: 'https://blog.csdn.net/gary_pico?type=blog',
+    { href: 'https://blog.csdn.net/gary_pico',
       text: { "en": "CSDN blog",
               "zh-TW": "CSDN 部落格",
               "zh-CN": "CSDN 博客" },
@@ -567,7 +567,7 @@ let I18N_TABLES = {
               "zh-TW": "CSDN 上的技術分享",
               "zh-CN": "CSDN 上的技术分享" } },
 
-    */
+    
       
     { href: 'https://www.instagram.com/g.pico.automation/',
       text: { "en": "Daily life of Engineer",
