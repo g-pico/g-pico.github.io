@@ -166,7 +166,7 @@ const products = {
     product2: {
         name: {
             "en": "Raspberry pi Pico",
-            "zh-TW": "樹梅派 Pico",
+            "zh-TW": "樹莓派 Pico",
             "zh-CN": "树莓派 Pico",
         },
         brief_description: {
@@ -249,7 +249,7 @@ const products = {
 	product3: {
         name: {
             "en": "Raspberry pi PicoW",
-            "zh-TW": "樹梅派 PicoW",
+            "zh-TW": "樹莓派 PicoW",
             "zh-CN": "树莓派 PicoW",
         },
         brief_description: {

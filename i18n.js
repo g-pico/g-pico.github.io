@@ -29,7 +29,11 @@ const TRANSLATIONS = {
     "nav.donation": "Donation",
 
     "index.hero_title": "Welcome to g-Pico Automation site",
-    "index.hero_paragraph": `Designed for beginners, with simple deployment and ease of use in mind,
+    "index.hero_paragraph": `g-Pico — Your premier partner in IoT, automated testing, and smart agriculture. 
+    We specialize in the seamless integration of hardware, software, and firmware. 
+    By transforming complexity into automation, we liberate your hands from manual tasks, 
+    allowing you to focus on what you truly love.<br><br>
+    Designed for beginners, with simple deployment and ease of use in mind,
     our automation tools allow anyone to get started quickly, without the need for technical expertise.
     We provide comprehensive resources and guides to ensure a smooth learning experience. <br><br>
     Our mission is to make automation accessible across the globe, starting from essential tools to advanced
@@ -120,7 +124,10 @@ const TRANSLATIONS = {
     "nav.donation": "贊助",
 
     "index.hero_title": "歡迎來到 橘皮客自動化網站",
-    "index.hero_paragraph": `我們以初學者友善為核心，強調簡單部署與易於上手，讓任何人都能快速投入自動化，而不必具備深厚的技術背景。
+    "index.hero_paragraph": `橘皮客——您在物聯網、自動測試與智慧農業領域的最強後盾。
+    我們專注於硬體、韌體與軟體的全方位系統整合，致力於以科技解放您的雙手，將繁瑣轉化為自動，
+    讓您能專注於真正熱愛的事物。我們以初學者友善為核心，強調簡單部署與易於上手，
+    讓任何人都能快速投入自動化，而不必具備深厚的技術背景。<br><br>
     我們提供完整的學習資源與指引，確保順暢的學習體驗。<br><br>
     我們的使命是讓自動化走入全世界的每個角落，從基礎工具到跨產業的進階解決方案。
     我們希望替你省下繁瑣作業，把時間留給真正有熱情的事。好好享受，玩得開心！: )  <br><br>g-Pico 團隊`,
@@ -207,7 +214,10 @@ const TRANSLATIONS = {
     "nav.donation": "赞助",
 
     "index.hero_title": "欢迎来到 橘皮客自动化网站",
-    "index.hero_paragraph": `我们以新手友好为核心，强调简单部署与易用性，让任何人无需深厚技术背景即可快速上手。
+    "index.hero_paragraph": `橘皮客——您在物联网、自动测试与智慧农业领域的最强后盾。
+    我们专注硬、软、韧三方位的全系统集成，致力于用科技解放您的双手，将繁琐流程转化为自动化操作，
+    让您能把宝贵的时间，留给真正热爱的事物。<br><br>我们以新手友好为核心，强调简单部署与易用性，
+    让任何人无需深厚技术背景即可快速上手。
     我们提供完整的学习资源与指南，确保顺畅学习体验。<br><br>我们的使命是让自动化走向全球，从基础工具到跨行业的进阶方案。
     希望帮你摆脱繁琐任务，把时间留给真正热爱的事。玩得开心！: )  <br><br>g-Pico 团队`,
     "index.tab.news": "最新消息",
