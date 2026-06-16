@@ -191,7 +191,7 @@ const TRANSLATIONS = {
     "donation.qr.opt.jko": "街口支付",
     "donation.qr.opt.taiwanpay": "台灣Pay",
 
-    "donation.p3.paypal_html": "偏好電腦操作？請點擊 <a href=\"https://www.paypal.com/\" target=\"_blank\" rel=\"noopener noreferrer\">PayPal</a>（新分頁開啟），於 PayPal 頁面完成贊助。手機則可直接掃描左側 QR。",
+    "donation.p3.paypal_html": "偏好電腦操作？請點擊 <a href=\"https://www.paypal.com/ncp/payment/RLH6H4ABWD4NJ\" target=\"_blank\" rel=\"noopener noreferrer\">PayPal</a>（新分頁開啟），於 PayPal 頁面完成贊助。手機則可直接掃描左側 QR。",
     "donation.p3.wechat_html": "只能搭配對應的 App 進行使用",
     "donation.p3.yoyo_html": "請使用悠遊付掃描 QR  code",
     "donation.p3.jko_html": "請使用街口支付掃描 QR code",
@@ -539,18 +539,18 @@ let I18N_TABLES = {
     未來可以考慮以新頁面的方式加入,但可能需要請 GPT注意原本的格式
     跟GUI條款類似的方式進行加入,比較不會有違和感
 
-    那你是否可以給我一個html code , 可以在我點進去之後顯示下面需要的資訊: 
-    > 標題 (讓我可以輸入內容) 
-    > QR_code (我可以直接指定某個相對路徑的圖片) 
-    > 連結網址 (提供給電腦點擊) 
-    > 詳細敘述 (提供給使用者說明此頁面主要提供的資訊, 或是其他補充敘述) 
-    我需要的html code 是由一個 html 框架 (包含剛剛我提到的架構) 
-    還有一個用來放入不同的參數進行顯示的json 
-    然後再請你告訴我這樣是否有辦法實現, 
+    那你是否可以給我一個html code , 可以在我點進去之後顯示下面需要的資訊:
+    > 標題 (讓我可以輸入內容)
+    > QR_code (我可以直接指定某個相對路徑的圖片)
+    > 連結網址 (提供給電腦點擊)
+    > 詳細敘述 (提供給使用者說明此頁面主要提供的資訊, 或是其他補充敘述)
+    我需要的html code 是由一個 html 框架 (包含剛剛我提到的架構)
+    還有一個用來放入不同的參數進行顯示的json
+    然後再請你告訴我這樣是否有辦法實現,
     以及如何利用網址來輸入參數直接連到不同的結果?
 
      */
-    
+
 
     { href: 'https://qm.qq.com/q/gg7CNN31f4',
       text: { "en": "Chinese Supporting center (QQ)",
@@ -567,8 +567,8 @@ let I18N_TABLES = {
               "zh-TW": "CSDN 上的技術分享",
               "zh-CN": "CSDN 上的技术分享" } },
 
-    
-      
+
+
     { href: 'https://www.instagram.com/g.pico.automation/',
       text: { "en": "Daily life of Engineer",
               "zh-TW": "工程師的日常",
