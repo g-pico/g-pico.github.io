@@ -100,6 +100,21 @@ There is no build step or frontend framework. Pages are standalone HTML files th
 - For external links, use `target="_blank"` with `rel="noopener"` where possible.
 - Avoid editing `temp/` backup files during normal development.
 
+## OpenSpec Workflow
+
+- This repository has an OpenSpec baseline under `openspec/specs/`.
+- Before changing user-visible behavior, create a new OpenSpec change under `openspec/changes/`.
+- Each behavior change should include `proposal.md`, `design.md` when useful, `tasks.md`, and spec deltas under `specs/<capability>/spec.md`.
+- Validate changes with `openspec validate <change-name> --strict` before implementation is considered complete.
+- After implementation and review, archive the completed change with `openspec archive <change-name>` so `openspec/specs/` stays current.
+- Existing baseline capabilities:
+  - `static-site-shell`
+  - `localized-content`
+  - `product-catalog`
+  - `news-and-resources`
+  - `contact-and-donation`
+  - `gui-service-info`
+
 ## Content Update Patterns
 
 ### Add or Update Home Page Tables
